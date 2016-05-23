@@ -9,7 +9,7 @@
     
     <meta name="author" content="Su">
     
-    <meta name="description" content="11，新建一个目录用于存储SVN所有文件">
+    <meta name="description" content="1，新建一个目录用于存储SVN所有文件mkdir /var/svn2，新建一个版本仓库svnadmin create /var/svn/sucd /var/svn/su/conf3.vim svnserve.conf[general]anon-access = noneauth-access = w">
     
     
     
@@ -73,7 +73,7 @@
     </p>
   <p class="article-time">
     <time datetime="2016-05-23T02:20:13.000Z" itemprop="datePublished">2016-05-23</time>
-    Updated:<time datetime="2016-05-23T02:41:20.804Z" itemprop="dateModified">2016-05-23</time>
+    Updated:<time datetime="2016-05-23T02:42:35.355Z" itemprop="dateModified">2016-05-23</time>
     
   </p>
 </header>
@@ -85,7 +85,12 @@
 		
 		</div>
 		
-		<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1，新建一个目录用于存储SVN所有文件</span><br></pre></td></tr></table></figure>  
+		<p>1，新建一个目录用于存储SVN所有文件<br>mkdir /var/svn<br>2，新建一个版本仓库<br>svnadmin create /var/svn/su<br>cd /var/svn/su/conf<br>3.<br>vim svnserve.conf<br>[general]<br>anon-access = none<br>auth-access = write<br>password-db = passwd<br>authz-db = authz<br>4.<br>vim passwd<br>[users]<br>su =123456<br>su1 = 654321<br>5.<br>vim authz<br>[groups]<br>web=su,su1</p>
+<p>[/]<br>@web=rw</p>
+<p>6.<br>客户端操作<br>svn://114.215.86.206/su<br>7.<br>vim post-commit</p>
+<p>#!/bin/bash<br>WEB=/var/www/su<br>export LANG=en_US.UTF-8<br>svn update $WEB –username ‘su1’ –password ‘654321’<br>:wq 保存退出<br>使文件可以启动<br>chmod +x post-commit<br>8.<br>同步检出到网站web根目录<br>svn co svn://114.215.86.206/su /var/www/su<br>9.<br>杀掉SVN进程<br>killall  svnserve<br>10.<br>svnserve -d -r /var/svn/su   启动成功。</p>
+<p>//查看内容,,去掉#号<br>cat authz | grep -v ^#</p>
+  
 	</div>
 		<footer class="article-footer clearfix">
 
@@ -108,14 +113,6 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2016/05/23/11/" title="SVN">
-  <strong>PREVIOUS:</strong><br/>
-  <span>
-  SVN</span>
-</a>
-</div>
-
 
 <div class="next">
 <a href="/2016/05/23/hello-world/"  title="Hello World">
@@ -145,7 +142,7 @@
 	<p class="asidetitle">Categories</p>
 		<ul>
 		
-			<li><a href="/categories/SVN/" title="SVN">SVN<sup>2</sup></a></li>
+			<li><a href="/categories/SVN/" title="SVN">SVN<sup>1</sup></a></li>
 		
 		</ul>
 </div>
