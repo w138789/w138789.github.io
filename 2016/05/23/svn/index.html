@@ -4,23 +4,12 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>PHP</title>
+    <title>SVN | PHP</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="Su">
     
-    <meta name="description" content="title: 新的开始date: 2014-05-07 18:44:12tags:
-
-开始
-我
-日记categories: 日志
-
-
-1，1新建一个目录用于存储SVN所有文件 
-mkdir /var/svn
-2，新建一个版本仓库 
-svnadmin create /var/svn/su
-cd /va">
+    <meta name="description" content="1，新建一个目录用于存储SVN所有文件mkdir /var/svn2，新建一个版本仓库svnadmin create /var/svn/sucd /var/svn/su/conf3.vim svnserve.conf[general]anon-access = noneauth-access = w">
     
     
     
@@ -47,7 +36,7 @@ cd /va">
 				<h1 class="site-name"><a href="/" title="PHP">PHP</a></h1>
 				<h2 class="blog-motto"></h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -76,15 +65,15 @@ cd /va">
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/05/23/svn/" title="" itemprop="url"></a>
+      <a href="/2016/05/23/SVN/" title="SVN" itemprop="url">SVN</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://yoursite.com" title="Su">Su</a>
     </p>
   <p class="article-time">
-    <time datetime="2016-05-23T02:00:56.949Z" itemprop="datePublished">2016-05-23</time>
-    更新日期:<time datetime="2016-05-23T02:18:01.598Z" itemprop="dateModified">2016-05-23</time>
+    <time datetime="2016-05-23T02:20:13.000Z" itemprop="datePublished">2016-05-23</time>
+    更新日期:<time datetime="2016-05-23T02:23:35.581Z" itemprop="dateModified">2016-05-23</time>
     
   </p>
 </header>
@@ -92,79 +81,31 @@ cd /va">
 		
 		
 		<div id="toc" class="toc-article">
-			<strong class="toc-title">文章目錄</strong>
+			<strong class="toc-title">文章目录</strong>
 		
 		</div>
 		
-		<p>title: 新的开始<br>date: 2014-05-07 18:44:12<br>tags:</p>
-<ul>
-<li>开始</li>
-<li>我</li>
-<li>日记<br>categories: 日志</li>
-</ul>
-<hr>
-<pre><code class="{bash}">1，1新建一个目录用于存储SVN所有文件 
-mkdir /var/svn
-2，新建一个版本仓库 
-svnadmin create /var/svn/su
-cd /var/svn/su/conf
-3.
-vim svnserve.conf
-[general]
-anon-access = none
-auth-access = write
-password-db = passwd
-authz-db = authz
-4.
-vim passwd
-[users]
-su =123456
-su1 = 654321
-5.
-vim authz
-[groups]
-web=su,su1
-
-6.
-客户端操作
-svn://114.215.86.206/su
-
-
-[/]
-@web=rw
-7.
-vim post-commit
-
-#!/bin/bash
-WEB=/var/www/su
-export LANG=en_US.UTF-8
-svn update $WEB --username &apos;su1&apos; --password &apos;654321&apos;
-:wq 保存退出
-使文件可以启动
-chmod +x post-commit
-8.
-同步检出到网站web根目录
-svn co svn://114.215.86.206/su /var/www/su
-9.
-杀掉SVN进程
-killall  svnserve 
-10.
-svnserve -d -r /var/svn/su   启动成功。
-
-
-//查看内容,,去掉#号
-cat authz | grep -v ^#
-</code></pre>
+		<p>1，新建一个目录用于存储SVN所有文件<br>mkdir /var/svn<br>2，新建一个版本仓库<br>svnadmin create /var/svn/su<br>cd /var/svn/su/conf<br>3.<br>vim svnserve.conf<br>[general]<br>anon-access = none<br>auth-access = write<br>password-db = passwd<br>authz-db = authz<br>4.<br>vim passwd<br>[users]<br>su =123456<br>su1 = 654321<br>5.<br>vim authz<br>[groups]<br>web=su,su1</p>
+<p>[/]<br>@web=rw</p>
+<p>6.<br>客户端操作<br>svn://114.215.86.206/su</p>
+<p>7.<br>vim post-commit</p>
+<p>#!/bin/bash<br>WEB=/var/www/su<br>export LANG=en_US.UTF-8<br>svn update $WEB –username ‘su1’ –password ‘654321’<br>:wq 保存退出<br>使文件可以启动<br>chmod +x post-commit<br>8.<br>同步检出到网站web根目录<br>svn co svn://114.215.86.206/su /var/www/su<br>9.<br>杀掉SVN进程<br>killall  svnserve<br>10.<br>svnserve -d -r /var/svn/su   启动成功。</p>
+<p>//查看内容,,去掉#号<br>cat authz | grep -v ^#</p>
   
 	</div>
 		<footer class="article-footer clearfix">
 
 
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/SVN/">SVN</a>
+</div>
+
 
 
 <div class="article-share" id="share">
 
-  <div data-url="http://yoursite.com/2016/05/23/svn/" data-title="PHP" data-tsina="null" class="share clearfix">
+  <div data-url="http://yoursite.com/2016/05/23/SVN/" data-title="SVN | PHP" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -186,23 +127,32 @@ cat authz | grep -v ^#
 
 	
 </div>  
-      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
 
   <div id="toc" class="toc-aside">
-  <strong class="toc-title">文章目錄</strong>
+  <strong class="toc-title">文章目录</strong>
   
   </div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
 <aside class="clearfix">
 
   
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+			<li><a href="/categories/SVN/" title="SVN">SVN<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
 
   
 
   <div class="rsspart">
-	<a href="null" target="_blank" title="rss">RSS 訂閱</a>
+	<a href="null" target="_blank" title="rss">RSS 订阅</a>
 </div>
 
 </aside>
