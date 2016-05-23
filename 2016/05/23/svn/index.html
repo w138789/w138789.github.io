@@ -9,7 +9,7 @@
     
     <meta name="author" content="Su">
     
-    <meta name="description" content="1，新建一个目录用于存储SVN所有文件mkdir /var/svn2，新建一个版本仓库svnadmin create /var/svn/sucd /var/svn/su/conf3.vim svnserve.conf[general]anon-access = noneauth-access = w">
+    <meta name="description" content="1234567891011121314151617181920211，新建一个目录用于存储SVN所有文件 mkdir /var/svn2，新建一个版本仓库 svnadmin create /var/svn/sucd /var/svn/su/conf3.vim svnserve.conf[genera">
     
     
     
@@ -73,7 +73,7 @@
     </p>
   <p class="article-time">
     <time datetime="2016-05-23T02:20:13.000Z" itemprop="datePublished">2016-05-23</time>
-    Updated:<time datetime="2016-05-23T02:36:07.237Z" itemprop="dateModified">2016-05-23</time>
+    Updated:<time datetime="2016-05-23T02:37:21.525Z" itemprop="dateModified">2016-05-23</time>
     
   </p>
 </header>
@@ -85,7 +85,7 @@
 		
 		</div>
 		
-		<p>1，新建一个目录用于存储SVN所有文件<br>mkdir /var/svn<br>2，新建一个版本仓库<br>svnadmin create /var/svn/su<br>cd /var/svn/su/conf<br>3.<br>vim svnserve.conf<br>[general]<br>anon-access = none<br>auth-access = write<br>password-db = passwd<br>authz-db = authz<br>4.<br>vim passwd<br>[users]<br>su =123456<br>su1 = 654321<br>5.<br>vim authz<br>[groups]<br>web=su,su1</p>
+		<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">1，新建一个目录用于存储SVN所有文件 </span><br><span class="line">mkdir /var/svn</span><br><span class="line">2，新建一个版本仓库 </span><br><span class="line">svnadmin create /var/svn/su</span><br><span class="line">cd /var/svn/su/conf</span><br><span class="line">3.</span><br><span class="line">vim svnserve.conf</span><br><span class="line">[general]</span><br><span class="line">anon-access = none</span><br><span class="line">auth-access = write</span><br><span class="line">password-db = passwd</span><br><span class="line">authz-db = authz</span><br><span class="line">4.</span><br><span class="line">vim passwd</span><br><span class="line">[users]</span><br><span class="line">su =123456</span><br><span class="line">su1 = 654321</span><br><span class="line">5.</span><br><span class="line">vim authz</span><br><span class="line">[groups]</span><br><span class="line">web=su,su1</span><br></pre></td></tr></table></figure>
 <p>[/]<br>@web=rw</p>
 <p>6.<br>客户端操作<br>svn://114.215.86.206/su</p>
 <p>7.<br>vim post-commit</p>
