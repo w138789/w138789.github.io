@@ -9,7 +9,7 @@
     
     <meta name="author" content="Su">
     
-    <meta name="description" content="1234567891011121314151617181920211，新建一个目录用于存储SVN所有文件 mkdir /var/svn2，新建一个版本仓库 svnadmin create /var/svn/sucd /var/svn/su/conf3.vim svnserve.conf[genera">
+    <meta name="description" content="11，新建一个目录用于存储SVN所有文件">
     
     
     
@@ -73,7 +73,7 @@
     </p>
   <p class="article-time">
     <time datetime="2016-05-23T02:20:13.000Z" itemprop="datePublished">2016-05-23</time>
-    Updated:<time datetime="2016-05-23T02:37:21.525Z" itemprop="dateModified">2016-05-23</time>
+    Updated:<time datetime="2016-05-23T02:39:50.333Z" itemprop="dateModified">2016-05-23</time>
     
   </p>
 </header>
@@ -85,12 +85,7 @@
 		
 		</div>
 		
-		<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">1，新建一个目录用于存储SVN所有文件 </span><br><span class="line">mkdir /var/svn</span><br><span class="line">2，新建一个版本仓库 </span><br><span class="line">svnadmin create /var/svn/su</span><br><span class="line">cd /var/svn/su/conf</span><br><span class="line">3.</span><br><span class="line">vim svnserve.conf</span><br><span class="line">[general]</span><br><span class="line">anon-access = none</span><br><span class="line">auth-access = write</span><br><span class="line">password-db = passwd</span><br><span class="line">authz-db = authz</span><br><span class="line">4.</span><br><span class="line">vim passwd</span><br><span class="line">[users]</span><br><span class="line">su =123456</span><br><span class="line">su1 = 654321</span><br><span class="line">5.</span><br><span class="line">vim authz</span><br><span class="line">[groups]</span><br><span class="line">web=su,su1</span><br></pre></td></tr></table></figure>
-<p>[/]<br>@web=rw</p>
-<p>6.<br>客户端操作<br>svn://114.215.86.206/su</p>
-<p>7.<br>vim post-commit</p>
-<p>#!/bin/bash<br>WEB=/var/www/su<br>export LANG=en_US.UTF-8<br>svn update $WEB –username ‘su1’ –password ‘654321’<br>:wq 保存退出<br>使文件可以启动<br>chmod +x post-commit<br>8.<br>同步检出到网站web根目录<br>svn co svn://114.215.86.206/su /var/www/su<br>9.<br>杀掉SVN进程<br>killall  svnserve<br>10.<br>svnserve -d -r /var/svn/su   启动成功。</p>
-<p>//查看内容,,去掉#号<br>cat authz | grep -v ^#</p>
+		<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1，新建一个目录用于存储SVN所有文件</span><br></pre></td></tr></table></figure>
   
 	</div>
 		<footer class="article-footer clearfix">
