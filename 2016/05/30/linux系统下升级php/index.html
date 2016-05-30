@@ -39,7 +39,7 @@ sudo add-apt-repository p">
 				<h1 class="site-name"><a href="/" title="PHP">PHP</a></h1>
 				<h2 class="blog-motto"></h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -52,7 +52,7 @@ sudo add-apt-repository p">
 					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
 						<input type="hidden" name="q" value="site:www.sujianxun.com">
 					</form>
 					
@@ -76,7 +76,7 @@ sudo add-apt-repository p">
     </p>
   <p class="article-time">
     <time datetime="2016-05-30T09:50:42.000Z" itemprop="datePublished">2016-05-30</time>
-    Updated:<time datetime="2016-05-30T09:51:33.521Z" itemprop="dateModified">2016-05-30</time>
+    更新日期:<time datetime="2016-05-30T09:53:18.841Z" itemprop="dateModified">2016-05-30</time>
     
   </p>
 </header>
@@ -84,26 +84,24 @@ sudo add-apt-repository p">
 		
 		
 		<div id="toc" class="toc-article">
-			<strong class="toc-title">Contents</strong>
+			<strong class="toc-title">文章目录</strong>
 		
 		</div>
 		
 		<p>首先安装一下python-software-properties</p>
-<p>sudo apt-get update &amp;&amp; sudo apt-get install python-software-properties</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get update &amp;&amp; sudo apt-get install python-software-properties</span><br></pre></td></tr></table></figure>
 <p>添加php5.5的ppa</p>
-<p>sudo add-apt-repository ppa:ondrej/php5</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo add-apt-repository ppa:ondrej/php5</span><br></pre></td></tr></table></figure>
 <p>如果你想保守一点，只升级到php5.4稳定版那么可以添加下面这个ppa</p>
-<p>sudo add-apt-repository ppa:ondrej/php5-oldstable<br>//或者使用下面这个升级到php5.6<br>sudo add-apt-repository ppa:ondrej/php5-5.6</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo add-apt-repository ppa:ondrej/php5-oldstable</span><br><span class="line">//或者使用下面这个升级到php5.6</span><br><span class="line">sudo add-apt-repository ppa:ondrej/php5-5.6</span><br></pre></td></tr></table></figure>
 <p>如果执行上面的代码提示“add-apt-repository not found”，可以执行下面的代码进行修复</p>
 <p>sudo apt-get install software-properties-common python-software-properties</p>
 <p>最后执行一下更新和升级，这一步可能会比较花费时间</p>
-<p>sudo apt-get update &amp;&amp; sudo apt-get dist-upgrade</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get update &amp;&amp; sudo apt-get dist-upgrade</span><br></pre></td></tr></table></figure>
 <p>升级完成之后</p>
 <p>1.如果你的web根目录不是/var/www那么你需要在/etc/apache2/apache2.conf重新进行配置；</p>
 <p>2.如果你安装了php5-xdebug那么在升级之后php无法找到这个模块，你只要彻底删除这个模块然后重新安装即可</p>
-<p>sudo apt-get remove –purge php5-xdebug</p>
-<p>sudo apt-get install php5-xdebug</p>
-  
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get remove --purge php5-xdebug</span><br><span class="line"></span><br><span class="line">sudo apt-get install php5-xdebug</span><br></pre></td></tr></table></figure>  
 	</div>
 		<footer class="article-footer clearfix">
 
@@ -139,20 +137,20 @@ sudo add-apt-repository p">
 
 	
 </div>  
-      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
 
   <div id="toc" class="toc-aside">
-  <strong class="toc-title">Contents</strong>
+  <strong class="toc-title">文章目录</strong>
   
   </div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
 <aside class="clearfix">
 
   
 <div class="categorieslist">
-	<p class="asidetitle">Categories</p>
+	<p class="asidetitle">分类</p>
 		<ul>
 		
 			<li><a href="/categories/git/" title="git配置">git配置<sup>1</sup></a></li>
