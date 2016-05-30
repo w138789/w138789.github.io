@@ -4,12 +4,15 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Hello World | PHP</title>
+    <title>linux系统下升级php | PHP</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="Su">
     
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in ">
+    <meta name="description" content="首先安装一下python-software-properties
+sudo apt-get update &amp;amp;&amp;amp; sudo apt-get install python-software-properties
+添加php5.5的ppa
+sudo add-apt-repository p">
     
     
     
@@ -65,15 +68,15 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/05/23/hello-world/" title="Hello World" itemprop="url">Hello World</a>
+      <a href="/2016/05/30/linux系统下升级php/" title="linux系统下升级php" itemprop="url">linux系统下升级php</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://www.sujianxun.com" title="Su">Su</a>
     </p>
   <p class="article-time">
-    <time datetime="2016-05-23T01:28:11.344Z" itemprop="datePublished">2016-05-23</time>
-    Updated:<time datetime="2016-05-23T01:28:11.344Z" itemprop="dateModified">2016-05-23</time>
+    <time datetime="2016-05-30T09:50:42.000Z" itemprop="datePublished">2016-05-30</time>
+    Updated:<time datetime="2016-05-30T09:51:33.521Z" itemprop="dateModified">2016-05-30</time>
     
   </p>
 </header>
@@ -82,28 +85,39 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
-		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-number">1.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-number">1.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-number">1.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-number">1.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+		
 		</div>
 		
-		<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+		<p>首先安装一下python-software-properties</p>
+<p>sudo apt-get update &amp;&amp; sudo apt-get install python-software-properties</p>
+<p>添加php5.5的ppa</p>
+<p>sudo add-apt-repository ppa:ondrej/php5</p>
+<p>如果你想保守一点，只升级到php5.4稳定版那么可以添加下面这个ppa</p>
+<p>sudo add-apt-repository ppa:ondrej/php5-oldstable<br>//或者使用下面这个升级到php5.6<br>sudo add-apt-repository ppa:ondrej/php5-5.6</p>
+<p>如果执行上面的代码提示“add-apt-repository not found”，可以执行下面的代码进行修复</p>
+<p>sudo apt-get install software-properties-common python-software-properties</p>
+<p>最后执行一下更新和升级，这一步可能会比较花费时间</p>
+<p>sudo apt-get update &amp;&amp; sudo apt-get dist-upgrade</p>
+<p>升级完成之后</p>
+<p>1.如果你的web根目录不是/var/www那么你需要在/etc/apache2/apache2.conf重新进行配置；</p>
+<p>2.如果你安装了php5-xdebug那么在升级之后php无法找到这个模块，你只要彻底删除这个模块然后重新安装即可</p>
+<p>sudo apt-get remove –purge php5-xdebug</p>
+<p>sudo apt-get install php5-xdebug</p>
   
 	</div>
 		<footer class="article-footer clearfix">
 
 
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/linux/">linux配置</a>
+</div>
+
 
 
 <div class="article-share" id="share">
 
-  <div data-url="http://www.sujianxun.com/2016/05/23/hello-world/" data-title="Hello World | PHP" data-tsina="null" class="share clearfix">
+  <div data-url="http://www.sujianxun.com/2016/05/30/linux系统下升级php/" data-title="linux系统下升级php | PHP" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -112,14 +126,14 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2016/05/23/svn/" title="SVN配置">
-  <strong>PREVIOUS:</strong><br/>
-  <span>
-  SVN配置</span>
+
+<div class="next">
+<a href="/2016/05/27/设置linuxroot用户/"  title="设置linuxroot用户">
+ <strong>NEXT:</strong><br/> 
+ <span>设置linuxroot用户
+</span>
 </a>
 </div>
-
 
 </nav>
 
@@ -129,7 +143,7 @@
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
-  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-number">1.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-number">1.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-number">1.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-number">1.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+  
   </div>
 
 <div id="asidepart">
