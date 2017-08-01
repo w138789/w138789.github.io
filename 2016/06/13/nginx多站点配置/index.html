@@ -73,7 +73,7 @@
     </p>
   <p class="article-time">
     <time datetime="2016-06-13T05:40:42.000Z" itemprop="datePublished">2016-06-13</time>
-    Updated:<time datetime="2016-06-13T05:54:46.048Z" itemprop="dateModified">2016-06-13</time>
+    Updated:<time datetime="2017-08-01T00:27:34.733Z" itemprop="dateModified">2017-08-01</time>
     
   </p>
 </header>
@@ -87,26 +87,26 @@
 		
 		<p>当我们有了一个 VPS 主机以后，为了不浪费 VPS 的强大资源（相比共享主机1000多个站点挤在一台机器上），往往有想让 VPS 做点什么的想法，银子不能白花啊:)。放置多个网站或者博客是个不错的想法，可是如何配置 web 服务器才能在一个 VPS 上放置多个网站/博客呢？如何通过一个 IP 访问多个站点/域名呢？这就是大多数 web 服务器支持的 virtual hosting 功能。这里将描述如何一步一步如何用 nginx 配置 virtual hosting。</p>
 <p>nginx 是一个小巧高效的 web 服务器，由俄罗斯程序员 Igor Sysoev 开发，nginx 虽然体积小，但功能一点也不弱，能和其他的 web 服务器一样支持 virtual hosting，即一个IP对应多个域名以支持多站点访问，就像一个IP对应一个站点一样，所以是”虚拟”的。你想在一个 IP 下面放多少个站点就放多少，只要硬盘够大就行。</p>
-<p>这里以配置2个站点（2个域名）为例，n 个站点可以相应增加调整，假设：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">IP地址: 114.215.86.206</span><br><span class="line">域名1 su1.sujianxun.com 放在 /var/www/su1</span><br><span class="line">域名2 su2.sujianxun.com 放在 /var/www/su2</span><br></pre></td></tr></table></figure></p>
-<p>配置 nginx virtual hosting 的基本思路和步骤如下：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">把2个站点 su1.sujianxun.com su2.sujianxun.com 放到 nginx 可以访问的目录 /var/www/</span><br><span class="line">给每个站点分别创建一个 nginx 配置文件 example1.com.conf，example2.com.conf, 并把配置文件放到 /etc/nginx/vhosts/</span><br><span class="line">然后在 /etc/nginx.conf 里面加一句 include 把步骤2创建的配置文件全部包含进来（用 * 号）</span><br><span class="line">重启 nginx</span><br></pre></td></tr></table></figure></p>
+<p>这里以配置2个站点（2个域名）为例，n 个站点可以相应增加调整，假设：<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">IP地址: 114.215.86.206</div><div class="line">域名1 su1.sujianxun.com 放在 /var/www/su1</div><div class="line">域名2 su2.sujianxun.com 放在 /var/www/su2</div></pre></td></tr></table></figure></p>
+<p>配置 nginx virtual hosting 的基本思路和步骤如下：<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">把2个站点 su1.sujianxun.com su2.sujianxun.com 放到 nginx 可以访问的目录 /var/www/</div><div class="line">给每个站点分别创建一个 nginx 配置文件 example1.com.conf，example2.com.conf, 并把配置文件放到 /etc/nginx/vhosts/</div><div class="line">然后在 /etc/nginx.conf 里面加一句 include 把步骤2创建的配置文件全部包含进来（用 * 号）</div><div class="line">重启 nginx</div></pre></td></tr></table></figure></p>
 <p>具体过程</p>
 <p>下面是具体的配置过程：<br>1、在 /etc/nginx 下创建 vhosts 目录</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mkdir /etc/nginx/vhosts</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">mkdir /etc/nginx/vhosts</div></pre></td></tr></table></figure>
 <p>2、在 /etc/nginx/vhosts/ 里创建一个名字为 su1.sujianxun.com.conf 的文件(名字无所谓)，把以下内容拷进去</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">        listen  80;</span><br><span class="line">        server_name su1.sujianxun.com;</span><br><span class="line"></span><br><span class="line">        access_<span class="built_in">log</span>  /var/www/access.log  main;</span><br><span class="line"></span><br><span class="line">        location / &#123;</span><br><span class="line">            root   /var/www/su1;</span><br><span class="line">            index  index.php index.html index.htm;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        error_page   500 502 503 504  /50x.html;</span><br><span class="line">        location = /50x.html &#123;</span><br><span class="line">            root   /usr/share/nginx/html;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">       <span class="comment"># pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000</span></span><br><span class="line">        location ~ \.php$ &#123;</span><br><span class="line">            fastcgi_pass   127.0.0.1:9000;</span><br><span class="line">            fastcgi_index  index.php;</span><br><span class="line">            fastcgi_param  SCRIPT_FILENAME  /var/www/su1/<span class="variable">$fastcgi_script_name</span>;</span><br><span class="line">            include        fastcgi_params;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        location ~ /\.ht &#123;</span><br><span class="line">            deny  all;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">server &#123;</div><div class="line">    listen       80;</div><div class="line">    server_name  su1.sujianxun.com;</div><div class="line">    root /var/www/su1;</div><div class="line">    <span class="comment">#charset koi8-r;</span></div><div class="line">    <span class="comment">#access_log  /var/www/access.log  main;</span></div><div class="line"></div><div class="line">    location / &#123;</div><div class="line">        index index.php index.html index.htm;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">#error_page  404              /404.html;</span></div><div class="line"></div><div class="line">    <span class="comment"># redirect server error pages to the static page /50x.html</span></div><div class="line">    <span class="comment">#</span></div><div class="line">    error_page   500 502 503 504  /50x.html;</div><div class="line">    location = /50x.html &#123;</div><div class="line">        root   /usr/share/nginx/html;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment"># proxy the PHP scripts to Apache listening on 127.0.0.1:80</span></div><div class="line">    <span class="comment">#</span></div><div class="line">    <span class="comment">#location ~ \.php$ &#123;</span></div><div class="line">    <span class="comment">#    proxy_pass   http://127.0.0.1;</span></div><div class="line">    <span class="comment">#&#125;</span></div><div class="line"></div><div class="line">    <span class="comment"># pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000</span></div><div class="line">    <span class="comment">#</span></div><div class="line">    location ~ \.php$ &#123;</div><div class="line">    <span class="comment">#    root           html;</span></div><div class="line">         fastcgi_pass   127.0.0.1:9000;</div><div class="line">         fastcgi_index  index.php;</div><div class="line">         fastcgi_param  SCRIPT_FILENAME  <span class="variable">$document_root</span><span class="variable">$fastcgi_script_name</span>;</div><div class="line">         include        fastcgi_params;</div><div class="line">     &#125;</div><div class="line"></div><div class="line">    <span class="comment"># deny access to .htaccess files, if Apache's document root</span></div><div class="line">    <span class="comment"># concurs with nginx's one</span></div><div class="line">    <span class="comment">#</span></div><div class="line">    <span class="comment">#location ~ /\.ht &#123;</span></div><div class="line">    <span class="comment">#    deny  all;</span></div><div class="line">    <span class="comment">#&#125;</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>3、在 /etc/nginx/vhosts/ 里创建一个名字为 su2.sujianxun.com.conf 的文件(名字无所谓)，把以下内容拷进去</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">        listen  80;</span><br><span class="line">        server_name su2.sujianxun.com;</span><br><span class="line"></span><br><span class="line">        access_<span class="built_in">log</span>  /var/www/access.log  main;</span><br><span class="line"></span><br><span class="line">        location / &#123;</span><br><span class="line">            root   /var/www/su2;</span><br><span class="line">            index  index.php index.html index.htm;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        error_page   500 502 503 504  /50x.html;</span><br><span class="line">        location = /50x.html &#123;</span><br><span class="line">            root   /usr/share/nginx/html;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">       <span class="comment"># pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000</span></span><br><span class="line">        location ~ \.php$ &#123;</span><br><span class="line">            fastcgi_pass   127.0.0.1:9000;</span><br><span class="line">            fastcgi_index  index.php;</span><br><span class="line">            fastcgi_param  SCRIPT_FILENAME  /var/www/su2/<span class="variable">$fastcgi_script_name</span>;</span><br><span class="line">            include        fastcgi_params;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        location ~ /\.ht &#123;</span><br><span class="line">            deny  all;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">server &#123;</div><div class="line">    listen       80;</div><div class="line">    server_name  su2.sujianxun.com;</div><div class="line">    root /var/www/su2/laravel/public;</div><div class="line">    <span class="comment">#charset koi8-r;</span></div><div class="line">    <span class="comment">#access_log  /var/www/access.log  main;</span></div><div class="line"></div><div class="line">    location / &#123;</div><div class="line">        index index.php index.html index.htm;</div><div class="line">        try_files <span class="variable">$uri</span> <span class="variable">$uri</span>/ /index.php<span class="variable">$is_args</span><span class="variable">$query_string</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">#error_page  404              /404.html;</span></div><div class="line"></div><div class="line">    <span class="comment"># redirect server error pages to the static page /50x.html</span></div><div class="line">    <span class="comment">#</span></div><div class="line">    error_page   500 502 503 504  /50x.html;</div><div class="line">    location = /50x.html &#123;</div><div class="line">        root   /usr/share/nginx/html;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment"># proxy the PHP scripts to Apache listening on 127.0.0.1:80</span></div><div class="line">    <span class="comment">#</span></div><div class="line">    <span class="comment">#location ~ \.php$ &#123;</span></div><div class="line">    <span class="comment">#    proxy_pass   http://127.0.0.1;</span></div><div class="line">    <span class="comment">#&#125;</span></div><div class="line"></div><div class="line">    <span class="comment"># pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000</span></div><div class="line">    <span class="comment">#</span></div><div class="line">    location ~ \.php$ &#123;</div><div class="line">    <span class="comment">#    root           html;</span></div><div class="line">         fastcgi_pass   127.0.0.1:9000;</div><div class="line">         fastcgi_index  index.php;</div><div class="line">         fastcgi_param  SCRIPT_FILENAME  <span class="variable">$document_root</span><span class="variable">$fastcgi_script_name</span>;</div><div class="line">         include        fastcgi_params;</div><div class="line">     &#125;</div><div class="line"></div><div class="line">    <span class="comment"># deny access to .htaccess files, if Apache's document root</span></div><div class="line">    <span class="comment"># concurs with nginx's one</span></div><div class="line">    <span class="comment">#</span></div><div class="line">    <span class="comment">#location ~ /\.ht &#123;</span></div><div class="line">    <span class="comment">#    deny  all;</span></div><div class="line">    <span class="comment">#&#125;</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>4、打开 /etc/nginix.conf 文件，在相应位置加入 include 把以上2个文件包含进来</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">user  nginx;</span><br><span class="line">worker_processes  1;</span><br><span class="line"></span><br><span class="line"><span class="comment"># main server error log</span></span><br><span class="line">error_<span class="built_in">log</span>	/var/<span class="built_in">log</span>/nginx/error.log ;</span><br><span class="line">pid	/var/run/nginx.pid;</span><br><span class="line"></span><br><span class="line">events &#123;</span><br><span class="line">	worker_connections  1024;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># main server config</span></span><br><span class="line">http &#123;</span><br><span class="line">	include       mime.types;</span><br><span class="line">	default_<span class="built_in">type</span>  application/octet-stream;</span><br><span class="line">	<span class="built_in">log</span>_format  main  <span class="string">'$remote_addr - $remote_user [$time_local] $request '</span></span><br><span class="line">                      <span class="string">'"$status" $body_bytes_sent "$http_referer" '</span></span><br><span class="line">                      <span class="string">'"$http_user_agent" "$http_x_forwarded_for"'</span>;</span><br><span class="line"></span><br><span class="line">	sendfile        on;</span><br><span class="line">	<span class="comment">#tcp_nopush     on;</span></span><br><span class="line">    	<span class="comment">#keepalive_timeout  0;</span></span><br><span class="line">	keepalive_timeout  65;</span><br><span class="line">	gzip  on;</span><br><span class="line"></span><br><span class="line">	server &#123;</span><br><span class="line">        	listen         80;</span><br><span class="line">        	server_name     _;</span><br><span class="line">        	access_<span class="built_in">log</span>      /var/<span class="built_in">log</span>/nginx/access.log main;</span><br><span class="line">        	server_name_<span class="keyword">in</span>_redirect  off;</span><br><span class="line">        	location / &#123;</span><br><span class="line">            		root  /usr/share/nginx/html;</span><br><span class="line">            		index index.html;</span><br><span class="line">        	&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 包含所有的虚拟主机的配置文件</span></span><br><span class="line">    include /usr/<span class="built_in">local</span>/etc/nginx/vhosts/*;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">user  nginx;</div><div class="line">worker_processes  1;</div><div class="line"></div><div class="line"><span class="comment"># main server error log</span></div><div class="line">error_log	/var/<span class="built_in">log</span>/nginx/error.log ;</div><div class="line">pid	/var/run/nginx.pid;</div><div class="line"></div><div class="line">events &#123;</div><div class="line">	worker_connections  1024;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment"># main server config</span></div><div class="line">http &#123;</div><div class="line">	include       mime.types;</div><div class="line">	default_type  application/octet-stream;</div><div class="line">	log_format  main  <span class="string">'$remote_addr - $remote_user [$time_local] $request '</span></div><div class="line">                      <span class="string">'"$status" $body_bytes_sent "$http_referer" '</span></div><div class="line">                      <span class="string">'"$http_user_agent" "$http_x_forwarded_for"'</span>;</div><div class="line"></div><div class="line">	sendfile        on;</div><div class="line">	<span class="comment">#tcp_nopush     on;</span></div><div class="line">    	<span class="comment">#keepalive_timeout  0;</span></div><div class="line">	keepalive_timeout  65;</div><div class="line">	gzip  on;</div><div class="line"></div><div class="line">	server &#123;</div><div class="line">        	listen         80;</div><div class="line">        	server_name     _;</div><div class="line">        	access_log      /var/<span class="built_in">log</span>/nginx/access.log main;</div><div class="line">        	server_name_in_redirect  off;</div><div class="line">        	location / &#123;</div><div class="line">            		root  /usr/share/nginx/html;</div><div class="line">            		index index.html;</div><div class="line">        	&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">    <span class="comment"># 包含所有的虚拟主机的配置文件</span></div><div class="line">    include /usr/<span class="built_in">local</span>/etc/nginx/vhosts/*;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>5、重启 Nginx</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/etc/init.d/nginx restart</span><br></pre></td></tr></table></figure>  
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">/etc/init.d/nginx restart</div></pre></td></tr></table></figure>  
 	</div>
 		<footer class="article-footer clearfix">
 
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/linux/">linux配置</a>
+  <a class="article-category-link" href="/categories/linux/">linux</a>
 </div>
 
 
@@ -122,6 +122,14 @@
 	
 <nav class="article-nav clearfix">
  
+ <div class="prev" >
+ <a href="/2016/06/13/mysql复制数据库/" title="mysql复制数据库">
+  <strong>PREVIOUS:</strong><br/>
+  <span>
+  mysql复制数据库</span>
+</a>
+</div>
+
 
 <div class="next">
 <a href="/2016/06/08/phpstorm快捷键/"  title="phpstorm快捷键">
@@ -151,13 +159,19 @@
 	<p class="asidetitle">Categories</p>
 		<ul>
 		
-			<li><a href="/categories/git/" title="git配置">git配置<sup>1</sup></a></li>
+			<li><a href="/categories/designPattern/" title="designPattern">designPattern<sup>2</sup></a></li>
 		
-			<li><a href="/categories/linux/" title="linux配置">linux配置<sup>3</sup></a></li>
+			<li><a href="/categories/git/" title="git">git<sup>4</sup></a></li>
 		
-			<li><a href="/categories/svn/" title="svn配置">svn配置<sup>1</sup></a></li>
+			<li><a href="/categories/linux/" title="linux">linux<sup>13</sup></a></li>
 		
-			<li><a href="/categories/other/" title="其他">其他<sup>1</sup></a></li>
+			<li><a href="/categories/mysql/" title="mysql">mysql<sup>5</sup></a></li>
+		
+			<li><a href="/categories/others/" title="others">others<sup>2</sup></a></li>
+		
+			<li><a href="/categories/php/" title="php">php<sup>2</sup></a></li>
+		
+			<li><a href="/categories/win-svn/" title="win_svn">win_svn<sup>1</sup></a></li>
 		
 		</ul>
 </div>
@@ -170,7 +184,7 @@
 	
 	
 	<section class="info">
-		<p> Hello ,I&#39;m Larry Page in Google. <br/>
+		<p> Hello ,I&#39;m Su Page in Google. <br/>
 			This is my blog,believe it or not.</p>
 	</section>
 	 
@@ -181,7 +195,7 @@
 		
 		
 	</div>
-		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2016 
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2017 
 		
 		<a href="http://www.sujianxun.com" target="_blank" title="Su">Su</a>
 		

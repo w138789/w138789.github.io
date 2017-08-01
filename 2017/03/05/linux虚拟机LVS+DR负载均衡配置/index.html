@@ -1,0 +1,361 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>linux虚拟机LVS+DR负载均衡配置 | PHP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="Su">
+    
+    <meta name="description" content="开三台虚拟机lvs: 开双网卡 ip1: 8.8.8.8 ip2: 192.168.10.1real-server1: ip: 192.168.10.2real-server2: ip: 192.168.10.3
+一. LVS模式
+
+三台服务器都要关闭防火墙
+service iptables sto">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.svg" alt="PHP" title="PHP"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="PHP">PHP</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:www.sujianxun.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/03/05/linux虚拟机LVS+DR负载均衡配置/" title="linux虚拟机LVS+DR负载均衡配置" itemprop="url">linux虚拟机LVS+DR负载均衡配置</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://www.sujianxun.com" title="Su">Su</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2017-03-05T02:20:13.000Z" itemprop="datePublished">2017-03-05</time>
+    Updated:<time datetime="2017-08-01T00:27:34.733Z" itemprop="dateModified">2017-08-01</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+		</div>
+		
+		<p>开三台虚拟机<br>lvs: 开双网卡 ip1: 8.8.8.8 ip2: 192.168.10.1<br>real-server1: ip: 192.168.10.2<br>real-server2: ip: 192.168.10.3</p>
+<p>一. LVS模式</p>
+<ol>
+<li><p>三台服务器都要关闭防火墙</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">service iptables stop</div></pre></td></tr></table></figure>
+</li>
+<li><p>lvs 安装ipvsadm</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">yum install -y ipvsadm</div></pre></td></tr></table></figure>
+</li>
+<li><p>real-server1和real-server2 安装nginx</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">yum install -y nginx</div></pre></td></tr></table></figure>
+</li>
+<li><p>本机设置VMnet1的ip地址: 8.8.8.1 子网掩码: 255.255.255.0</p>
+</li>
+<li><p>lvs 开双网卡, 网卡1设成VMnet1模式, 网卡2设成VMnet2模式<br>网卡1和网卡2各设置ip</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">ifconfig eth0 8.8.8.8 netmask 255.255.255.0</div><div class="line">ifconfig eth1 192.168.10.1</div></pre></td></tr></table></figure>
+</li>
+<li><p>real-server1设置eth0ip</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">ifconfig eth0 192.168.10.2</div></pre></td></tr></table></figure>
+</li>
+<li><p>real-server2设置eth0ip</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">ifconfig eth0 192.168.10.3</div></pre></td></tr></table></figure>
+</li>
+<li><p>本机能ping通lvs 8.8.8.8, lvs 能ping通real-server1和real-server2</p>
+</li>
+<li><p>real-server1和real-server2增加默认网关</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">route add default gw 192.168.10.1</div></pre></td></tr></table></figure>
+</li>
+<li><p>开启路由模式</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line"><span class="built_in">echo</span> 1 &gt;/proc/sys/net/ipv4/ip_forward</div></pre></td></tr></table></figure>
+</li>
+<li><p>lvs 创建shell脚本</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">vim ipvs.sh</div><div class="line"><span class="meta">#!/bin/bash</span></div><div class="line"><span class="comment">#lvs.sh</span></div><div class="line"></div><div class="line">ipvsadm -C</div><div class="line">ipvsadm -At 8.8.8.8:80 -s rr</div><div class="line">ipvsadm -at 8.8.8.8:80 -r 192.168.10.2:80 -m</div><div class="line">ipvsadm -at 8.8.8.8:80 -r 192.168.10.3:80 -m</div><div class="line">ipvsadm -L -n</div><div class="line">:wq</div><div class="line"></div><div class="line">chmod a+x ipvs.sh</div><div class="line">./ipvs.sh</div></pre></td></tr></table></figure>
+</li>
+<li><p>浏览器输入8.8.8.8查看</p>
+</li>
+</ol>
+<p>二. DR模式负载均衡</p>
+<p>1.四台机器要同一网络ip: 200.168.10.*</p>
+<ol>
+<li><p>同样要装ipvsadm + nginx</p>
+</li>
+<li><p>lvs建立ipvs.sh</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">vim ipvs.sh</div><div class="line"><span class="meta">#!/bin/bash</span></div><div class="line"><span class="comment">#lvs.sh</span></div><div class="line"></div><div class="line">ifconfig eth0:0 200.168.10.10 netmask 255.255.255.255 up</div><div class="line">route add -host 200.168.10.10 dev eth0:0</div><div class="line">ipvsadm -C</div><div class="line">ipvsadm -At 200.168.10.10:80 -s rr</div><div class="line">ipvsadm -at 200.168.10.10:80 -r 200.168.10.2:80 -g</div><div class="line">ipvsadm -at 200.168.10.10:80 -r 200.168.10.3:80 -g</div><div class="line">ipvsadm -L -n</div><div class="line">:wq</div><div class="line">chmod a+x ipvs.sh</div><div class="line">./ipvs.sh</div></pre></td></tr></table></figure>
+</li>
+<li><p>real-server1+real-server2设置arp.sh</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line"><span class="meta">#!/bin/bash</span></div><div class="line"><span class="comment">#arp.sh</span></div><div class="line"></div><div class="line">ifconfig lo:0 200.168.10.10 netmask 255.255.255.255 up</div><div class="line">route add -host 200.168.10.10 dev lo:0</div><div class="line"><span class="built_in">echo</span> 1 &gt;/proc/sys/net/ipv4/conf/lo/arp_ignore</div><div class="line"><span class="built_in">echo</span> 2 &gt;/proc/sys/net/ipv4/conf/lo/arp_announce</div><div class="line"><span class="built_in">echo</span> 1 &gt;/proc/sys/net/ipv4/conf/all/arp_ignore</div><div class="line"><span class="built_in">echo</span> 2 &gt;/proc/sys/net/ipv4/conf/all/arp_announce</div><div class="line">:wq</div><div class="line">chmod a+x arp.sh</div><div class="line">./arp.sh</div></pre></td></tr></table></figure>
+</li>
+<li><p>浏览器输入200.168.10.10查看</p>
+</li>
+</ol>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/linux/">linux</a>
+</div>
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://www.sujianxun.com/2017/03/05/linux虚拟机LVS+DR负载均衡配置/" data-title="linux虚拟机LVS+DR负载均衡配置 | PHP" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2017/03/07/linux源码配置php环境/" title="linux源码配置php环境">
+  <strong>PREVIOUS:</strong><br/>
+  <span>
+  linux源码配置php环境</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2017/03/03/nginx负载均衡简单配置/"  title="nginx负载均衡简单配置">
+ <strong>NEXT:</strong><br/> 
+ <span>nginx负载均衡简单配置
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+  
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+			<li><a href="/categories/designPattern/" title="designPattern">designPattern<sup>2</sup></a></li>
+		
+			<li><a href="/categories/git/" title="git">git<sup>4</sup></a></li>
+		
+			<li><a href="/categories/linux/" title="linux">linux<sup>13</sup></a></li>
+		
+			<li><a href="/categories/mysql/" title="mysql">mysql<sup>5</sup></a></li>
+		
+			<li><a href="/categories/others/" title="others">others<sup>2</sup></a></li>
+		
+			<li><a href="/categories/php/" title="php">php<sup>2</sup></a></li>
+		
+			<li><a href="/categories/win-svn/" title="win_svn">win_svn<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m Su Page in Google. <br/>
+			This is my blog,believe it or not.</p>
+	</section>
+	 
+	<div class="social-font clearfix">
+		
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2017 
+		
+		<a href="http://www.sujianxun.com" target="_blank" title="Su">Su</a>
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+
+
+  </body>
+</html>

@@ -4,12 +4,12 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Hello World | PHP</title>
+    <title>mysql脚本定时备份数据库 | PHP</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="Su">
     
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in ">
+    <meta name="description" content="创建文件夹mkdir mysqlDump创建脚本文件vim mysqlDump.shtoday_date=`date +%Y%m%d`today_time=`date +%T`find /root/mysqlDump/ -mtime +10 -name &quot;*.gz&quot; -exec rm -rf &amp;#1">
     
     
     
@@ -65,15 +65,15 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/05/23/hello-world/" title="Hello World" itemprop="url">Hello World</a>
+      <a href="/2016/06/13/mysql脚本定时备份数据库/" title="mysql脚本定时备份数据库" itemprop="url">mysql脚本定时备份数据库</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://www.sujianxun.com" title="Su">Su</a>
     </p>
   <p class="article-time">
-    <time datetime="2016-05-23T01:28:11.344Z" itemprop="datePublished">2016-05-23</time>
-    Updated:<time datetime="2016-05-23T01:28:11.344Z" itemprop="dateModified">2016-05-23</time>
+    <time datetime="2016-06-13T09:12:30.000Z" itemprop="datePublished">2016-06-13</time>
+    Updated:<time datetime="2017-08-01T00:27:34.733Z" itemprop="dateModified">2017-08-01</time>
     
   </p>
 </header>
@@ -82,28 +82,24 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
-		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-number">1.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-number">1.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-number">1.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-number">1.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+		
 		</div>
 		
-		<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-  
+		<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">创建文件夹</div><div class="line">mkdir mysqlDump</div><div class="line">创建脚本文件</div><div class="line">vim mysqlDump.sh</div><div class="line">today_date=`date +%Y%m%d`</div><div class="line">today_time=`date +%T`</div><div class="line"></div><div class="line"></div><div class="line">find /root/mysqlDump/ -mtime +10 -name <span class="string">"*.gz"</span> -<span class="built_in">exec</span> rm -rf &#123;&#125; \;</div><div class="line"></div><div class="line"></div><div class="line">/usr/bin/mysqldump -u root -proot -A | gzip &gt; /root/mysqlDump/db_<span class="variable">$&#123;today_date&#125;</span>_<span class="variable">$&#123;today_time&#125;</span>.sql.gz</div><div class="line"></div><div class="line">:wq</div><div class="line"></div><div class="line"><span class="comment">#创建定时任务,,,12小时备份一次</span></div><div class="line"></div><div class="line">crontab -e</div><div class="line"></div><div class="line">0 */12 * * * /root/mysqlDump.sh</div><div class="line"></div><div class="line">:wq</div></pre></td></tr></table></figure>  
 	</div>
 		<footer class="article-footer clearfix">
 
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/mysql/">mysql</a>
+</div>
 
 
 
 <div class="article-share" id="share">
 
-  <div data-url="http://www.sujianxun.com/2016/05/23/hello-world/" data-title="Hello World | PHP" data-tsina="null" class="share clearfix">
+  <div data-url="http://www.sujianxun.com/2016/06/13/mysql脚本定时备份数据库/" data-title="mysql脚本定时备份数据库 | PHP" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -113,13 +109,21 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2016/05/23/svn/" title="SVN配置">
+ <a href="/2016/06/17/linux命令/" title="linux命令">
   <strong>PREVIOUS:</strong><br/>
   <span>
-  SVN配置</span>
+  linux命令</span>
 </a>
 </div>
 
+
+<div class="next">
+<a href="/2016/06/13/mysql复制数据库/"  title="mysql复制数据库">
+ <strong>NEXT:</strong><br/> 
+ <span>mysql复制数据库
+</span>
+</a>
+</div>
 
 </nav>
 
@@ -129,7 +133,7 @@
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
-  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-number">1.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-number">1.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-number">1.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-number">1.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+  
   </div>
 
 <div id="asidepart">
@@ -141,13 +145,19 @@
 	<p class="asidetitle">Categories</p>
 		<ul>
 		
-			<li><a href="/categories/git/" title="git配置">git配置<sup>1</sup></a></li>
+			<li><a href="/categories/designPattern/" title="designPattern">designPattern<sup>2</sup></a></li>
 		
-			<li><a href="/categories/linux/" title="linux配置">linux配置<sup>3</sup></a></li>
+			<li><a href="/categories/git/" title="git">git<sup>4</sup></a></li>
 		
-			<li><a href="/categories/svn/" title="svn配置">svn配置<sup>1</sup></a></li>
+			<li><a href="/categories/linux/" title="linux">linux<sup>13</sup></a></li>
 		
-			<li><a href="/categories/other/" title="其他">其他<sup>1</sup></a></li>
+			<li><a href="/categories/mysql/" title="mysql">mysql<sup>5</sup></a></li>
+		
+			<li><a href="/categories/others/" title="others">others<sup>2</sup></a></li>
+		
+			<li><a href="/categories/php/" title="php">php<sup>2</sup></a></li>
+		
+			<li><a href="/categories/win-svn/" title="win_svn">win_svn<sup>1</sup></a></li>
 		
 		</ul>
 </div>
@@ -160,7 +170,7 @@
 	
 	
 	<section class="info">
-		<p> Hello ,I&#39;m Larry Page in Google. <br/>
+		<p> Hello ,I&#39;m Su Page in Google. <br/>
 			This is my blog,believe it or not.</p>
 	</section>
 	 
@@ -171,7 +181,7 @@
 		
 		
 	</div>
-		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2016 
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2017 
 		
 		<a href="http://www.sujianxun.com" target="_blank" title="Su">Su</a>
 		

@@ -76,7 +76,7 @@ sudo add-apt-repository p">
     </p>
   <p class="article-time">
     <time datetime="2016-05-30T09:50:42.000Z" itemprop="datePublished">2016-05-30</time>
-    Updated:<time datetime="2016-05-30T09:55:00.401Z" itemprop="dateModified">2016-05-30</time>
+    Updated:<time datetime="2017-08-01T00:27:34.733Z" itemprop="dateModified">2017-08-01</time>
     
   </p>
 </header>
@@ -85,30 +85,44 @@ sudo add-apt-repository p">
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
-		
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#rpm-Uvh-http-ftp-iij-ad-jp-pub-linux-fedora-epel-6-x86-64-epel-release-6-8-noarch-rpm"><span class="toc-number">1.</span> <span class="toc-text">rpm -Uvh http://ftp.iij.ad.jp/pub/linux/fedora/epel/6/x86_64/epel-release-6-8.noarch.rpm</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#rpm-Uvh-http-rpms-famillecollet-com-enterprise-remi-release-6-rpm"><span class="toc-number">2.</span> <span class="toc-text">rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-6.rpm</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#yum-list-–enablerepo-remi-–enablerepo-remi-php56-grep-php"><span class="toc-number">3.</span> <span class="toc-text">yum list –enablerepo=remi –enablerepo=remi-php56 | grep php</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#yum-install-–enablerepo-remi-–enablerepo-remi-php56-php-php-opcache-php-devel-php-mbstring-php-mcrypt-php-mysqlnd-php-phpunit-PHPUnit-php-pecl-xdebug-php-pecl-xhprof"><span class="toc-number">4.</span> <span class="toc-text">yum install –enablerepo=remi –enablerepo=remi-php56 php php-opcache php-devel php-mbstring php-mcrypt php-mysqlnd php-phpunit-PHPUnit php-pecl-xdebug php-pecl-xhprof</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#php-–version"><span class="toc-number">5.</span> <span class="toc-text">php –version</span></a></li></ol>
 		</div>
 		
 		<p>首先安装一下python-software-properties</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get update &amp;&amp; sudo apt-get install python-software-properties</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">sudo apt-get update &amp;&amp; sudo apt-get install python-software-properties</div></pre></td></tr></table></figure>
 <p>添加php5.5的ppa</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo add-apt-repository ppa:ondrej/php5</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">sudo add-apt-repository ppa:ondrej/php5</div></pre></td></tr></table></figure>
 <p>如果你想保守一点，只升级到php5.4稳定版那么可以添加下面这个ppa</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo add-apt-repository ppa:ondrej/php5-oldstable</span><br><span class="line">//或者使用下面这个升级到php5.6</span><br><span class="line">sudo add-apt-repository ppa:ondrej/php5-5.6</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">sudo add-apt-repository ppa:ondrej/php5-oldstable</div><div class="line">//或者使用下面这个升级到php5.6</div><div class="line">sudo add-apt-repository ppa:ondrej/php5-5.6</div></pre></td></tr></table></figure>
 <p>如果执行上面的代码提示“add-apt-repository not found”，可以执行下面的代码进行修复</p>
 <p>sudo apt-get install software-properties-common python-software-properties</p>
 <p>最后执行一下更新和升级，这一步可能会比较花费时间</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get update &amp;&amp; sudo apt-get dist-upgrade</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">sudo apt-get update &amp;&amp; sudo apt-get dist-upgrade</div></pre></td></tr></table></figure>
 <p>升级完成之后</p>
 <p>1.如果你的web根目录不是/var/www那么你需要在/etc/apache2/apache2.conf重新进行配置；</p>
 <p>2.如果你安装了php5-xdebug那么在升级之后php无法找到这个模块，你只要彻底删除这个模块然后重新安装即可</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get remove --purge php5-xdebug</span><br><span class="line"></span><br><span class="line">sudo apt-get install php5-xdebug</span><br></pre></td></tr></table></figure>  
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">sudo apt-get remove --purge php5-xdebug</div><div class="line"></div><div class="line">sudo apt-get install php5-xdebug</div></pre></td></tr></table></figure>
+<p>CentOS yum 安装 PHP 5.6.24<br>配置yum源</p>
+<p>追加CentOS 6.5的epel及remi源。</p>
+<h1 id="rpm-Uvh-http-ftp-iij-ad-jp-pub-linux-fedora-epel-6-x86-64-epel-release-6-8-noarch-rpm"><a href="#rpm-Uvh-http-ftp-iij-ad-jp-pub-linux-fedora-epel-6-x86-64-epel-release-6-8-noarch-rpm" class="headerlink" title="rpm -Uvh http://ftp.iij.ad.jp/pub/linux/fedora/epel/6/x86_64/epel-release-6-8.noarch.rpm"></a>rpm -Uvh <a href="http://ftp.iij.ad.jp/pub/linux/fedora/epel/6/x86_64/epel-release-6-8.noarch.rpm" target="_blank" rel="external">http://ftp.iij.ad.jp/pub/linux/fedora/epel/6/x86_64/epel-release-6-8.noarch.rpm</a></h1><h1 id="rpm-Uvh-http-rpms-famillecollet-com-enterprise-remi-release-6-rpm"><a href="#rpm-Uvh-http-rpms-famillecollet-com-enterprise-remi-release-6-rpm" class="headerlink" title="rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-6.rpm"></a>rpm -Uvh <a href="http://rpms.famillecollet.com/enterprise/remi-release-6.rpm" target="_blank" rel="external">http://rpms.famillecollet.com/enterprise/remi-release-6.rpm</a></h1><p>使用yum list命令查看可安装的包(Packege)。</p>
+<h1 id="yum-list-–enablerepo-remi-–enablerepo-remi-php56-grep-php"><a href="#yum-list-–enablerepo-remi-–enablerepo-remi-php56-grep-php" class="headerlink" title="yum list –enablerepo=remi –enablerepo=remi-php56 | grep php"></a>yum list –enablerepo=remi –enablerepo=remi-php56 | grep php</h1><p>安装PHP5.6</p>
+<p>yum源配置好了，下一步就安装PHP5.6。</p>
+<h1 id="yum-install-–enablerepo-remi-–enablerepo-remi-php56-php-php-opcache-php-devel-php-mbstring-php-mcrypt-php-mysqlnd-php-phpunit-PHPUnit-php-pecl-xdebug-php-pecl-xhprof"><a href="#yum-install-–enablerepo-remi-–enablerepo-remi-php56-php-php-opcache-php-devel-php-mbstring-php-mcrypt-php-mysqlnd-php-phpunit-PHPUnit-php-pecl-xdebug-php-pecl-xhprof" class="headerlink" title="yum install –enablerepo=remi –enablerepo=remi-php56 php php-opcache php-devel php-mbstring php-mcrypt php-mysqlnd php-phpunit-PHPUnit php-pecl-xdebug php-pecl-xhprof"></a>yum install –enablerepo=remi –enablerepo=remi-php56 php php-opcache php-devel php-mbstring php-mcrypt php-mysqlnd php-phpunit-PHPUnit php-pecl-xdebug php-pecl-xhprof</h1><p>用PHP命令查看版本。</p>
+<h1 id="php-–version"><a href="#php-–version" class="headerlink" title="php –version"></a>php –version</h1><p>PHP 5.6.0 (cli) (built: Sep 3 2014 19:51:31)<br>Copyright (c) 1997-2014 The PHP Group<br>Zend Engine v2.6.0, Copyright (c) 1998-2014 Zend Technologies<br>with Zend OPcache v7.0.4-dev, Copyright (c) 1999-2014, by Zend Technologies<br>with Xdebug v2.2.5, Copyright (c) 2002-2014, by Derick Rethans</p>
+<p>//安装php-fpm<br>yum install –enablerepo=remi –enablerepo=remi-php56 php-fpm</p>
+<p>Centos下Yum安装PHP5.5,5.6,7.0<br>默认的版本太低了，手动安装有一些麻烦，想采用Yum安装的可以使用下面的方案：<br>1.检查当前安装的PHP包<br>yum list installed | grep php<br>如果有安装的PHP包，先删除他们<br> yum remove php.x86_64 php-cli.x86_64 php-common.x86_64 php-gd.x86_64 php-ldap.x86_64 php-mbstring.x86_64 php-mcrypt.x86_64 php-mysql.x86_64 php-pdo.x86_64<br>2.Centos 5.X<br>  rpm -Uvh <a href="http://mirror.webtatic.com/yum/el5/latest.rpm" target="_blank" rel="external">http://mirror.webtatic.com/yum/el5/latest.rpm</a><br>  CentOs 6.x<br>  rpm -Uvh <a href="http://mirror.webtatic.com/yum/el6/latest.rpm" target="_blank" rel="external">http://mirror.webtatic.com/yum/el6/latest.rpm</a><br>  CentOs 7.X<br>rpm -Uvh <a href="https://mirror.webtatic.com/yum/el7/epel-release.rpm" target="_blank" rel="external">https://mirror.webtatic.com/yum/el7/epel-release.rpm</a><br>rpm -Uvh <a href="https://mirror.webtatic.com/yum/el7/webtatic-release.rpm" target="_blank" rel="external">https://mirror.webtatic.com/yum/el7/webtatic-release.rpm</a><br>如果想删除上面安装的包，重新安装<br>rpm -qa | grep webstatic<br>rpm -e  上面搜索到的包即可</p>
+<p>3.运行yum install<br>yum install php55w.x86_64 php55w-cli.x86_64 php55w-common.x86_64 php55w-gd.x86_64 php55w-ldap.x86_64 php55w-mbstring.x86_64 php55w-mcrypt.x86_64 php55w-mysql.x86_64 php55w-pdo.x86_64</p>
+<p>yum install php56w.x86_64 php56w-cli.x86_64 php56w-common.x86_64 php56w-gd.x86_64 php56w-ldap.x86_64 php56w-mbstring.x86_64 php56w-mcrypt.x86_64 php56w-mysql.x86_64 php56w-pdo.x86_64</p>
+<p>注：如果想升级到5.6把上面的55w换成56w就可以了。</p>
+<p>yum install php70w.x86_64 php70w-cli.x86_64 php70w-common.x86_64 php70w-gd.x86_64 php70w-ldap.x86_64 php70w-mbstring.x86_64 php70w-mcrypt.x86_64 php70w-mysql.x86_64 php70w-pdo.x86_64<br>4.安装PHP FPM<br>yum install php55w-fpm<br>yum install php56w-fpm<br>yum install php70w-fpm<br>注：如果想升级到5.6把上面的55w换成56w就可以了。<br>//如php文件不解析<br>vim etc/nginx/nginx.conf<br>增加<br>location ~ .php$ {<br>            root          /home/www/wwwroot;<br>            fastcgi_pass   127.0.0.1:9000;<br>            fastcgi_index  index.php;<br>           fastcgi_param  SCRIPT_FILENAME    $document_root$fastcgi_script_name;<br>            include        fastcgi_params;<br>        }</p>
+  
 	</div>
 		<footer class="article-footer clearfix">
 
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/linux/">linux配置</a>
+  <a class="article-category-link" href="/categories/linux/">linux</a>
 </div>
 
 
@@ -134,9 +148,9 @@ sudo add-apt-repository p">
 
 
 <div class="next">
-<a href="/2016/05/27/设置linuxroot用户/"  title="设置linuxroot用户">
+<a href="/2016/05/27/php设置虚拟域名/"  title="php设置虚拟域名">
  <strong>NEXT:</strong><br/> 
- <span>设置linuxroot用户
+ <span>php设置虚拟域名
 </span>
 </a>
 </div>
@@ -149,7 +163,7 @@ sudo add-apt-repository p">
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
-  
+  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#rpm-Uvh-http-ftp-iij-ad-jp-pub-linux-fedora-epel-6-x86-64-epel-release-6-8-noarch-rpm"><span class="toc-number">1.</span> <span class="toc-text">rpm -Uvh http://ftp.iij.ad.jp/pub/linux/fedora/epel/6/x86_64/epel-release-6-8.noarch.rpm</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#rpm-Uvh-http-rpms-famillecollet-com-enterprise-remi-release-6-rpm"><span class="toc-number">2.</span> <span class="toc-text">rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-6.rpm</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#yum-list-–enablerepo-remi-–enablerepo-remi-php56-grep-php"><span class="toc-number">3.</span> <span class="toc-text">yum list –enablerepo=remi –enablerepo=remi-php56 | grep php</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#yum-install-–enablerepo-remi-–enablerepo-remi-php56-php-php-opcache-php-devel-php-mbstring-php-mcrypt-php-mysqlnd-php-phpunit-PHPUnit-php-pecl-xdebug-php-pecl-xhprof"><span class="toc-number">4.</span> <span class="toc-text">yum install –enablerepo=remi –enablerepo=remi-php56 php php-opcache php-devel php-mbstring php-mcrypt php-mysqlnd php-phpunit-PHPUnit php-pecl-xdebug php-pecl-xhprof</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#php-–version"><span class="toc-number">5.</span> <span class="toc-text">php –version</span></a></li></ol>
   </div>
 
 <div id="asidepart">
@@ -161,13 +175,19 @@ sudo add-apt-repository p">
 	<p class="asidetitle">Categories</p>
 		<ul>
 		
-			<li><a href="/categories/git/" title="git配置">git配置<sup>1</sup></a></li>
+			<li><a href="/categories/designPattern/" title="designPattern">designPattern<sup>2</sup></a></li>
 		
-			<li><a href="/categories/linux/" title="linux配置">linux配置<sup>3</sup></a></li>
+			<li><a href="/categories/git/" title="git">git<sup>4</sup></a></li>
 		
-			<li><a href="/categories/svn/" title="svn配置">svn配置<sup>1</sup></a></li>
+			<li><a href="/categories/linux/" title="linux">linux<sup>13</sup></a></li>
 		
-			<li><a href="/categories/other/" title="其他">其他<sup>1</sup></a></li>
+			<li><a href="/categories/mysql/" title="mysql">mysql<sup>5</sup></a></li>
+		
+			<li><a href="/categories/others/" title="others">others<sup>2</sup></a></li>
+		
+			<li><a href="/categories/php/" title="php">php<sup>2</sup></a></li>
+		
+			<li><a href="/categories/win-svn/" title="win_svn">win_svn<sup>1</sup></a></li>
 		
 		</ul>
 </div>
@@ -180,7 +200,7 @@ sudo add-apt-repository p">
 	
 	
 	<section class="info">
-		<p> Hello ,I&#39;m Larry Page in Google. <br/>
+		<p> Hello ,I&#39;m Su Page in Google. <br/>
 			This is my blog,believe it or not.</p>
 	</section>
 	 
@@ -191,7 +211,7 @@ sudo add-apt-repository p">
 		
 		
 	</div>
-		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2016 
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2017 
 		
 		<a href="http://www.sujianxun.com" target="_blank" title="Su">Su</a>
 		

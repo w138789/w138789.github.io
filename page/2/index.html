@@ -1,0 +1,321 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>PHP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="Su">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.svg" alt="PHP" title="PHP"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="PHP">PHP</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:www.sujianxun.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main">
+
+  <section class="post" itemscope itemprop="blogPost">
+  
+    <a href="/2017/03/01/数据库主从复制和读写分离/" title="mysql数据库主从复制和读写分离" itemprop="url">
+  
+    <h1 itemprop="name">mysql数据库主从复制和读写分离</h1>
+    
+     
+           <p itemprop="description" >一.主从复制1、主从服务器分别作以下操作：  1.1、版本一致  1.2、初始化表，并在后台启动mysql  1.3、修改root的密码
+2、修改主服务器master:
+   #vi /etc/my.cnf       [mysqld]       log-bin=mysql-b</p>
+        
+    
+    <time datetime="2017-03-01T02:52:20.000Z" itemprop="datePublished">2017-03-01</time>
+  </a>
+</section>
+
+  <section class="post" itemscope itemprop="blogPost">
+  
+    <a href="/2016/06/30/ftp双开/" title="ftp双开" itemprop="url">
+  
+    <h1 itemprop="name">ftp双开</h1>
+    
+     
+           <p itemprop="description" >多用户FTP 对应不同文件夹
+#useradd -d /var/www/ftp1 -s /sbin/nologin ftpuserone
+#passwd ftpuserone
+#useradd -d /var/www/ftp2 -s /sbin/nologin ftpusertw</p>
+        
+    
+    <time datetime="2016-06-30T03:21:38.000Z" itemprop="datePublished">2016-06-30</time>
+  </a>
+</section>
+
+  <section class="post" itemscope itemprop="blogPost">
+  
+    <a href="/2016/06/30/站点配置流程/" title="站点配置流程" itemprop="url">
+  
+    <h1 itemprop="name">站点配置流程</h1>
+    
+     
+           <p itemprop="description" >1.安装nginxyum install nginx -y不行则yum update安装完成，下面直接就可以启动Nginx了：/etc/init.d/nginx startnginx默认站点文件: /usr/share/nginx/html;2.安装FTP可以使用yum命令直接安</p>
+        
+    
+    <time datetime="2016-06-30T03:21:38.000Z" itemprop="datePublished">2016-06-30</time>
+  </a>
+</section>
+
+  <section class="post" itemscope itemprop="blogPost">
+  
+    <a href="/2016/06/29/mysql学习笔记/" title="mysql学习笔记" itemprop="url">
+  
+    <h1 itemprop="name">mysql学习笔记</h1>
+    
+     
+           <p itemprop="description" >1. 数据库操作SHOW DATABASES; 查看数据库列表CREATE DATABASE database_name; 创建数据库DROP DATABASE database_name; 删除数据库SHOW CREATE DATABASE database_name; 查看数</p>
+        
+    
+    <time datetime="2016-06-29T03:21:38.000Z" itemprop="datePublished">2016-06-29</time>
+  </a>
+</section>
+
+  <section class="post" itemscope itemprop="blogPost">
+  
+    <a href="/2016/06/28/mysql远程登录/" title="mysql远程登录" itemprop="url">
+  
+    <h1 itemprop="name">mysql远程登录</h1>
+    
+     
+           <p itemprop="description" >mysql -u root -pmysql&amp;gt;use mysql;mysql&amp;gt;update user set host = ‘%’ where user = ‘root’;mysql&amp;gt;flush privileges;mysql&amp;gt;select host, u</p>
+        
+    
+    <time datetime="2016-06-28T03:47:10.000Z" itemprop="datePublished">2016-06-28</time>
+  </a>
+</section>
+
+  <section class="post" itemscope itemprop="blogPost">
+  
+    <a href="/2016/06/17/linux命令/" title="linux命令" itemprop="url">
+  
+    <h1 itemprop="name">linux命令</h1>
+    
+     
+           <p itemprop="description" >1.删除文件夹下所有文件进入这个文件夹然后用命令 rm -rf *删除单个文件rm -rf su1.conf2.重启服务器启动网站服务//重启服务器重启svnsvnserve -d -r /var/svn//启动php-fpmservice php-fpm startservic</p>
+        
+    
+    <time datetime="2016-06-17T07:35:16.000Z" itemprop="datePublished">2016-06-17</time>
+  </a>
+</section>
+
+  <section class="post" itemscope itemprop="blogPost">
+  
+    <a href="/2016/06/13/mysql脚本定时备份数据库/" title="mysql脚本定时备份数据库" itemprop="url">
+  
+    <h1 itemprop="name">mysql脚本定时备份数据库</h1>
+    
+     
+           <p itemprop="description" >创建文件夹mkdir mysqlDump创建脚本文件vim mysqlDump.shtoday_date=`date +%Y%m%d`today_time=`date +%T`find /root/mysqlDump/ -mtime +10 -name &quot;*.gz&quot; -exec </p>
+        
+    
+    <time datetime="2016-06-13T09:12:30.000Z" itemprop="datePublished">2016-06-13</time>
+  </a>
+</section>
+
+  <section class="post" itemscope itemprop="blogPost">
+  
+    <a href="/2016/06/13/mysql复制数据库/" title="mysql复制数据库" itemprop="url">
+  
+    <h1 itemprop="name">mysql复制数据库</h1>
+    
+     
+           <p itemprop="description" >复制一个数据库说明: mysqldump 老数据库 -u root -p数据库密码 |mysql 新数据库 -u root -p数据库密码[root@localhost mysql]# mysqldump su -u root -p123456 |mysql su_new -u </p>
+        
+    
+    <time datetime="2016-06-13T09:12:30.000Z" itemprop="datePublished">2016-06-13</time>
+  </a>
+</section>
+
+  <section class="post" itemscope itemprop="blogPost">
+  
+    <a href="/2016/06/13/nginx多站点配置/" title="nginx多站点配置" itemprop="url">
+  
+    <h1 itemprop="name">nginx多站点配置</h1>
+    
+     
+           <p itemprop="description" >当我们有了一个 VPS 主机以后，为了不浪费 VPS 的强大资源（相比共享主机1000多个站点挤在一台机器上），往往有想让 VPS 做点什么的想法，银子不能白花啊:)。放置多个网站或者博客是个不错的想法，可是如何配置 web 服务器才能在一个 VPS 上放置多个网站/博客呢？如何</p>
+        
+    
+    <time datetime="2016-06-13T05:40:42.000Z" itemprop="datePublished">2016-06-13</time>
+  </a>
+</section>
+
+  <section class="post" itemscope itemprop="blogPost">
+  
+    <a href="/2016/06/08/phpstorm快捷键/" title="phpstorm快捷键" itemprop="url">
+  
+    <h1 itemprop="name">phpstorm快捷键</h1>
+    
+     
+           <p itemprop="description" >快捷键F5   复制文件/文件夹F6   移动CTRL+N   查找类CIRL+B   找变量的来源，跳到变量申明处CTRL+R   当前窗口替换文本CTRL+E   最近打开的文件CTRL+ []   光标移动到 {}[]开头或结尾位置ctrl+shift+enter(智能完善</p>
+        
+    
+    <time datetime="2016-06-08T02:19:06.000Z" itemprop="datePublished">2016-06-08</time>
+  </a>
+</section>
+
+
+  <nav id="page-nav" class="clearfix">
+    <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+  </nav>
+
+</div>
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+			<li><a href="/categories/designPattern/" title="designPattern">designPattern<sup>2</sup></a></li>
+		
+			<li><a href="/categories/git/" title="git">git<sup>4</sup></a></li>
+		
+			<li><a href="/categories/linux/" title="linux">linux<sup>13</sup></a></li>
+		
+			<li><a href="/categories/mysql/" title="mysql">mysql<sup>5</sup></a></li>
+		
+			<li><a href="/categories/others/" title="others">others<sup>2</sup></a></li>
+		
+			<li><a href="/categories/php/" title="php">php<sup>2</sup></a></li>
+		
+			<li><a href="/categories/win-svn/" title="win_svn">win_svn<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m Su Page in Google. <br/>
+			This is my blog,believe it or not.</p>
+	</section>
+	 
+	<div class="social-font clearfix">
+		
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2017 
+		
+		<a href="http://www.sujianxun.com" target="_blank" title="Su">Su</a>
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+
+
+
+
+
+  </body>
+ </html>
