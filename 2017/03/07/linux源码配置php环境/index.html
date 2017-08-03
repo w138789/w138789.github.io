@@ -36,7 +36,7 @@
 				<h1 class="site-name"><a href="/" title="PHP">PHP</a></h1>
 				<h2 class="blog-motto"></h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -49,7 +49,7 @@
 					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
 						<input type="hidden" name="q" value="site:www.sujianxun.com">
 					</form>
 					
@@ -73,7 +73,7 @@
     </p>
   <p class="article-time">
     <time datetime="2017-03-07T02:20:13.000Z" itemprop="datePublished">2017-03-07</time>
-    Updated:<time datetime="2017-08-01T00:27:34.733Z" itemprop="dateModified">2017-08-01</time>
+    更新日期:<time datetime="2017-08-03T03:41:55.181Z" itemprop="dateModified">2017-08-03</time>
     
   </p>
 </header>
@@ -81,7 +81,7 @@
 		
 		
 		<div id="toc" class="toc-article">
-			<strong class="toc-title">Contents</strong>
+			<strong class="toc-title">文章目录</strong>
 		
 		</div>
 		
@@ -93,7 +93,7 @@
 <p>二.安装mysql<br>1、下载地址<br>wget <a href="http://downloads.mysql.com/archives/get/file/mysql-5.6.27-linux-glibc2.5-x86_64.tar.gz" target="_blank" rel="external">http://downloads.mysql.com/archives/get/file/mysql-5.6.27-linux-glibc2.5-x86_64.tar.gz</a><br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line"><span class="comment">#解压</span></div><div class="line">tar -zxvf mysql-5.6.33-linux-glibc2.5-x86_64.tar.gz</div><div class="line"><span class="comment">#复制解压后的mysql目录</span></div><div class="line">cp -r mysql-5.6.33-linux-glibc2.5-x86_64 /usr/<span class="built_in">local</span>/mysql</div><div class="line"><span class="comment">#添加用户组</span></div><div class="line">groupadd mysql</div><div class="line"><span class="comment">#添加用户mysql 到用户组mysql</span></div><div class="line">useradd -g mysql mysql</div><div class="line"><span class="comment">#安装</span></div><div class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/mysql/&lt;br&gt;mkdir ./data/mysql</div><div class="line">chown -R mysql:mysql ./</div><div class="line">./scripts/mysql_install_db --user=mysql --datadir=/usr/<span class="built_in">local</span>/mysql/data/mysql</div><div class="line">cp support-files/mysql.server /etc/init.d/mysqld</div><div class="line">chmod 755 /etc/init.d/mysqld</div><div class="line">cp support-files/my-default.cnf /etc/my.cnf</div><div class="line"><span class="comment">#修改配置文件</span></div><div class="line">vim /etc/my.cnf</div><div class="line"><span class="comment">#添加</span></div><div class="line"><span class="comment">#修改编码</span></div><div class="line">character-set-server=utf8</div><div class="line"><span class="comment">#修改默认存储引擎</span></div><div class="line">default-storage-engine=MyISAM </div><div class="line">:wq</div><div class="line"><span class="comment">#修改启动脚本</span></div><div class="line">vi /etc/init.d/mysqld</div><div class="line"><span class="comment">#修改项：</span></div><div class="line">basedir=/usr/<span class="built_in">local</span>/mysql/</div><div class="line">datadir=/usr/<span class="built_in">local</span>/mysql/data/mysql</div><div class="line"><span class="comment">#启动服务</span></div><div class="line">service mysqld start</div><div class="line"><span class="comment">#测试连接</span></div><div class="line">./mysql/bin/mysql -uroot</div><div class="line"><span class="comment">#查看mysql编码及程序信息</span></div><div class="line">\s</div><div class="line"><span class="comment">#启动mysql</span></div><div class="line">service mysqld start</div><div class="line"><span class="comment">#关闭mysql</span></div><div class="line">service mysqld stop</div><div class="line"><span class="comment">#查看运行状态</span></div><div class="line">service mysqld status</div><div class="line">6.1 配置环境变量</div><div class="line">vim /etc/profile</div><div class="line">PATH=<span class="variable">$PATH</span>:/usr/<span class="built_in">local</span>/mysql/bin</div><div class="line"><span class="built_in">export</span> PATH</div></pre></td></tr></table></figure></p>
 <p>三、安装PHP </p>
 <ol>
-<li>解压<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">tar -zxvf php-5.3.16.tar.gz</div><div class="line"><span class="built_in">cd</span> /php-5.3.16</div><div class="line">./configure --prefix=/usr/<span class="built_in">local</span>/php \</div><div class="line">--with-apxs2=/usr/<span class="built_in">local</span>/apache2/bin/apxs \</div><div class="line">--with-mysqli=/usr/<span class="built_in">local</span>/mysql/bin/mysql_config \</div><div class="line">--with-pdo-mysql=/usr/<span class="built_in">local</span>/mysql/ \</div><div class="line">--with-mysql \</div><div class="line"> --<span class="built_in">enable</span>-fpm \</div><div class="line">--with-php-config=/usr/<span class="built_in">local</span>/php/bin/php-config  注意mysql_config 的路径</div><div class="line"></div><div class="line"><span class="comment">#下面是nginx的</span></div><div class="line">./configure --prefix=/usr/<span class="built_in">local</span>/php \</div><div class="line">--with-mysqli=/usr/<span class="built_in">local</span>/mysql/bin/mysql_config \</div><div class="line">--with-pdo-mysql=/usr/<span class="built_in">local</span>/mysql/ \</div><div class="line">--with-mysql \</div><div class="line">--<span class="built_in">enable</span>-fpm \</div><div class="line">--with-gd \</div><div class="line">--with-freetype-dir=/usr/include/freetype2/freetype/ \</div><div class="line">--with-php-config=/usr/<span class="built_in">local</span>/php/bin/php-config</div></pre></td></tr></table></figure>
+<li>解压<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">tar -zxvf php-5.3.16.tar.gz</div><div class="line"><span class="built_in">cd</span> /php-5.3.16</div><div class="line">./configure --prefix=/usr/<span class="built_in">local</span>/php \</div><div class="line">--with-apxs2=/usr/<span class="built_in">local</span>/apache2/bin/apxs \</div><div class="line">--with-mysqli=/usr/<span class="built_in">local</span>/mysql/bin/mysql_config \</div><div class="line">--with-pdo-mysql=/usr/<span class="built_in">local</span>/mysql/ \</div><div class="line">--with-mysql \</div><div class="line"> --<span class="built_in">enable</span>-fpm \</div><div class="line">--with-php-config=/usr/<span class="built_in">local</span>/php/bin/php-config  注意mysql_config 的路径</div><div class="line"></div><div class="line"><span class="comment">#下面是nginx的</span></div><div class="line">./configure --prefix=/usr/<span class="built_in">local</span>/php \</div><div class="line">--with-mysqli=/usr/<span class="built_in">local</span>/mysql/bin/mysql_config \</div><div class="line">--with-pdo-mysql=/usr/<span class="built_in">local</span>/mysql/ \</div><div class="line">--with-mysql \</div><div class="line">--<span class="built_in">enable</span>-fpm \</div><div class="line">--with-gd \</div><div class="line">--with-jpeg-dir \</div><div class="line">--with-freetype-dir=/usr/include/freetype2/freetype/ \</div><div class="line">--with-php-config=/usr/<span class="built_in">local</span>/php/bin/php-config</div></pre></td></tr></table></figure>
 </li>
 </ol>
 <p>注意这里有一个-with-apxs2=/usr/local/apache/bin/apxs选项，<br>其中apxs是在安装Apache时产生的，apxs是一个为Apache HTTP服务器编译和安装扩展模块的工具，<br>使之可以用由mod_so提供的LoadModule指令在运行时加载到Apache服务器中。<br>我的理解是通过这个工具把PHP模块动态加载到Apache中<br>出现错误:configure: error: xml2-config not found. Please check your libxml2 installation.<br>运行yum install libxml2，然后再运行yum install libxml2-devel安装完毕后，重新运行上面的./configure命令。</p>
@@ -152,20 +152,20 @@
 
 	
 </div>  
-      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
 
   <div id="toc" class="toc-aside">
-  <strong class="toc-title">Contents</strong>
+  <strong class="toc-title">文章目录</strong>
   
   </div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
 <aside class="clearfix">
 
   
 <div class="categorieslist">
-	<p class="asidetitle">Categories</p>
+	<p class="asidetitle">分类</p>
 		<ul>
 		
 			<li><a href="/categories/designPattern/" title="designPattern">designPattern<sup>2</sup></a></li>
