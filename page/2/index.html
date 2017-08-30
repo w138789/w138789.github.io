@@ -151,12 +151,12 @@
 
   <section class="post" itemscope itemprop="blogPost">
   
-    <a href="/2016/06/13/mysql复制数据库/" title="mysql复制数据库" itemprop="url">
+    <a href="/2016/06/13/mysql脚本定时备份数据库/" title="mysql脚本定时备份数据库" itemprop="url">
   
-    <h1 itemprop="name">mysql复制数据库</h1>
+    <h1 itemprop="name">mysql脚本定时备份数据库</h1>
     
      
-           <p itemprop="description" >复制一个数据库说明: mysqldump 老数据库 -u root -p数据库密码 |mysql 新数据库 -u root -p数据库密码[root@localhost mysql]# mysqldump su -u root -p123456 |mysql su_new -u </p>
+           <p itemprop="description" >创建文件夹mkdir mysqlDump创建脚本文件vim mysqlDump.shtoday_date=`date +%Y%m%d`today_time=`date +%T`find /root/mysqlDump/ -mtime +10 -name &quot;*.gz&quot; -exec </p>
         
     
     <time datetime="2016-06-13T09:12:30.000Z" itemprop="datePublished">2016-06-13</time>
@@ -165,12 +165,12 @@
 
   <section class="post" itemscope itemprop="blogPost">
   
-    <a href="/2016/06/13/mysql脚本定时备份数据库/" title="mysql脚本定时备份数据库" itemprop="url">
+    <a href="/2016/06/13/mysql复制数据库/" title="mysql复制数据库" itemprop="url">
   
-    <h1 itemprop="name">mysql脚本定时备份数据库</h1>
+    <h1 itemprop="name">mysql复制数据库</h1>
     
      
-           <p itemprop="description" >创建文件夹mkdir mysqlDump创建脚本文件vim mysqlDump.shtoday_date=`date +%Y%m%d`today_time=`date +%T`find /root/mysqlDump/ -mtime +10 -name &quot;*.gz&quot; -exec </p>
+           <p itemprop="description" >复制一个数据库说明: mysqldump 老数据库 -u root -p数据库密码 |mysql 新数据库 -u root -p数据库密码[root@localhost mysql]# mysqldump su -u root -p123456 |mysql su_new -u </p>
         
     
     <time datetime="2016-06-13T09:12:30.000Z" itemprop="datePublished">2016-06-13</time>
