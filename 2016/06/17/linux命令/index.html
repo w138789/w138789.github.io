@@ -36,7 +36,7 @@
 				<h1 class="site-name"><a href="/" title="PHP">PHP</a></h1>
 				<h2 class="blog-motto"></h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -49,7 +49,7 @@
 					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
 						<input type="hidden" name="q" value="site:www.sujianxun.com">
 					</form>
 					
@@ -73,7 +73,7 @@
     </p>
   <p class="article-time">
     <time datetime="2016-06-17T07:35:16.000Z" itemprop="datePublished">2016-06-17</time>
-    Updated:<time datetime="2017-08-07T04:51:29.935Z" itemprop="dateModified">2017-08-07</time>
+    更新日期:<time datetime="2017-09-07T01:40:21.783Z" itemprop="dateModified">2017-09-07</time>
     
   </p>
 </header>
@@ -81,11 +81,11 @@
 		
 		
 		<div id="toc" class="toc-article">
-			<strong class="toc-title">Contents</strong>
+			<strong class="toc-title">文章目录</strong>
 		
 		</div>
 		
-		<p>1.删除文件夹下所有文件<br>进入这个文件夹<br>然后用命令 rm -rf *<br>删除单个文件<br>rm -rf su1.conf<br>2.重启服务器启动网站服务<br>//重启服务器重启svn<br>svnserve -d -r /var/svn<br>//启动php-fpm<br>service php-fpm start<br>service httpd start<br>service mysqld start<br>/etc/init.d/vsftpd start<br>3.修改文件夹可写权限<br>chmod -R a+w 目录名   -R是递归久是在该目录下所有文件将都按照这个权限设置<br>chmod 664 文件正常权限<br>4.查找文件位置<br>find / -name access.log //文件名字<br>5.复制文件<br>cp su1.conf su2.conf (同一文件夹下) 或者 cp su1.conf /etc/nginx/vhost/su2.conf (复制到另一个文件夹下)<br>6.重命名文件<br>mv su3.conf su1.conf<br>7.压缩忽略单个文件夹<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">zip -r lanren11.zip * -x <span class="string">"images*"</span></div></pre></td></tr></table></figure></p>
+		<p>1.删除文件夹下所有文件<br>进入这个文件夹<br>然后用命令 rm -rf *<br>删除单个文件<br>rm -rf su1.conf<br>2.重启服务器启动网站服务<br>//重启服务器重启svn<br>svnserve -d -r /var/svn<br>//启动php-fpm<br>service php-fpm start<br>service httpd start<br>service mysqld start<br>/etc/init.d/vsftpd start<br>3.修改文件夹可写权限<br>chmod -R a+w 目录名   -R是递归久是在该目录下所有文件将都按照这个权限设置<br>chmod 664 文件正常权限<br>4.查找文件位置<br>find / -name access.log //文件名字<br>5.复制文件<br>cp su1.conf su2.conf (同一文件夹下) 或者 cp su1.conf /etc/nginx/vhost/su2.conf (复制到另一个文件夹下)<br>6.重命名文件<br>mv su3.conf su1.conf<br>7.压缩忽略单个文件夹<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">zip -r lanren11.zip * -x <span class="string">"images*"</span></div><div class="line">//打包并压缩文件夹</div><div class="line">tar -zcvf sanyun.tar.gz *</div></pre></td></tr></table></figure></p>
 <p>压缩忽略多个文件夹<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">zip -r lanren22.zip * -x <span class="string">"data*"</span> -x <span class="string">"ueditor*"</span></div></pre></td></tr></table></figure></p>
 <p>每秒跟踪文件存储<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">watch -n1 ls -lh</div><div class="line"><span class="comment">#查看cpu使用</span></div><div class="line">top</div><div class="line"><span class="comment">#查看内存使用</span></div><div class="line">free -m</div></pre></td></tr></table></figure></p>
 <p>加入开机自启动<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line"><span class="comment">#查看开机自启动</span></div><div class="line">[root@iZbp14a08o2w4yosoq3h1mZ ~]<span class="comment"># chkconfig --list nginx</span></div><div class="line">nginx          	0:off	1:off	2:on	3:on	4:on	5:on	6:off</div><div class="line"><span class="comment">#启动开机自启</span></div><div class="line">[root@iZbp14a08o2w4yosoq3h1mZ ~]<span class="comment"># chkconfig nginx on</span></div><div class="line"><span class="comment">#关闭开启自启</span></div><div class="line">[root@iZbp14a08o2w4yosoq3h1mZ ~]<span class="comment"># chkconfig nginx off</span></div></pre></td></tr></table></figure></p>
@@ -126,9 +126,9 @@
 
 
 <div class="next">
-<a href="/2016/06/13/mysql脚本定时备份数据库/"  title="mysql脚本定时备份数据库">
+<a href="/2016/06/13/mysql复制数据库/"  title="mysql复制数据库">
  <strong>NEXT:</strong><br/> 
- <span>mysql脚本定时备份数据库
+ <span>mysql复制数据库
 </span>
 </a>
 </div>
@@ -137,20 +137,20 @@
 
 	
 </div>  
-      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
 
   <div id="toc" class="toc-aside">
-  <strong class="toc-title">Contents</strong>
+  <strong class="toc-title">文章目录</strong>
   
   </div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
 <aside class="clearfix">
 
   
 <div class="categorieslist">
-	<p class="asidetitle">Categories</p>
+	<p class="asidetitle">分类</p>
 		<ul>
 		
 			<li><a href="/categories/designPattern/" title="designPattern">designPattern<sup>2</sup></a></li>
