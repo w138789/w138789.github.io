@@ -4,12 +4,14 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>GIT命令 | PHP</title>
+    <title>vpn翻墙 | PHP</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="Su">
     
-    <meta name="description" content="强制覆盖本地文件git fetch --allgit reset --hard origin/master">
+    <meta name="description" content="1购买bandwagonhost服务器搬瓦工，因其官网网站标识是BandwagonHost，有点类似BanWaGong的拼写，所以我们国内的站长喜欢称作为搬瓦工VPS。
+https://bandwagonhost.com/index.php登录网站后，点击导航栏中【VPS Hosting】按钮购买
+">
     
     
     
@@ -65,15 +67,15 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/05/10/git命令/" title="GIT命令" itemprop="url">GIT命令</a>
+      <a href="/2016/05/23/vpn翻墙/" title="vpn翻墙" itemprop="url">vpn翻墙</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://www.sujianxun.com" title="Su">Su</a>
     </p>
   <p class="article-time">
-    <time datetime="2017-05-10T02:20:13.000Z" itemprop="datePublished">2017-05-10</time>
-    Updated:<time datetime="2017-08-01T00:27:34.733Z" itemprop="dateModified">2017-08-01</time>
+    <time datetime="2016-05-23T02:20:13.000Z" itemprop="datePublished">2016-05-23</time>
+    Updated:<time datetime="2017-09-19T03:47:49.436Z" itemprop="dateModified">2017-09-19</time>
     
   </p>
 </header>
@@ -85,21 +87,27 @@
 		
 		</div>
 		
-		<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">强制覆盖本地文件</div><div class="line">git fetch --all</div><div class="line">git reset --hard origin/master</div></pre></td></tr></table></figure>  
+		<p>1购买bandwagonhost服务器<br>搬瓦工，因其官网网站标识是BandwagonHost，有点类似BanWaGong的拼写，所以我们国内的站长喜欢称作为搬瓦工VPS。</p>
+<p><a href="https://bandwagonhost.com/index.php" target="_blank" rel="external">https://bandwagonhost.com/index.php</a><br>登录网站后，点击导航栏中【VPS Hosting】按钮购买</p>
+<p>修改VPS密码<br>使用ssh工具登录服务器，输入VPS的IP地址、端口号、用户名和密码。具体登录方法不在本次讲解的范围内，恕不赘述。<br>然后输入shell命令<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">passwd</div></pre></td></tr></table></figure></p>
+<p>安装shadowsocks<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">wget –no-check-certificate https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks.sh  </div><div class="line">chmod +x shadowsocks.sh  </div><div class="line">./shadowsocks.sh 2&gt;&amp;1 | tee shadowsocks.log</div></pre></td></tr></table></figure></p>
+<p>配置开机自动启动<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">打开rc.local文件</div><div class="line"></div><div class="line">vi /etc/rc.local</div><div class="line"></div><div class="line">输入下面的代码</div><div class="line"></div><div class="line">ssserver -c /etc/shadowsocks.json -d start</div><div class="line"></div><div class="line">shadowsocks服务相关命令</div><div class="line"></div><div class="line">启动shadowsocks服务</div><div class="line"></div><div class="line">ssserver -c /etc/shadowsocks.json -d start</div><div class="line"></div><div class="line">关闭shadowsocks服务</div><div class="line"></div><div class="line">ssserver -c /etc/shadowsocks.json -d stop</div><div class="line"></div><div class="line">重启shadowsocks服务</div><div class="line"></div><div class="line">ssserver -c /etc/shadowsocks.json -d restart</div></pre></td></tr></table></figure></p>
+<p>教程地址:<br><a href="http://blog.csdn.net/win_turn/article/details/51559867" target="_blank" rel="external">http://blog.csdn.net/win_turn/article/details/51559867</a><br><a href="http://blog.csdn.net/qq_19835843/article/details/52233111" target="_blank" rel="external">http://blog.csdn.net/qq_19835843/article/details/52233111</a></p>
+  
 	</div>
 		<footer class="article-footer clearfix">
 
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/git/">git</a>
+  <a class="article-category-link" href="/categories/vpn/">vpn</a>
 </div>
 
 
 
 <div class="article-share" id="share">
 
-  <div data-url="http://www.sujianxun.com/2017/05/10/git命令/" data-title="GIT命令 | PHP" data-tsina="null" class="share clearfix">
+  <div data-url="http://www.sujianxun.com/2016/05/23/vpn翻墙/" data-title="vpn翻墙 | PHP" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -108,14 +116,14 @@
 	
 <nav class="article-nav clearfix">
  
-
-<div class="next">
-<a href="/2017/05/02/设计模式--策略模式/"  title="设计模式--策略模式">
- <strong>NEXT:</strong><br/> 
- <span>设计模式--策略模式
-</span>
+ <div class="prev" >
+ <a href="/2016/05/23/git-webHook/" title="GIT-webHook配置">
+  <strong>PREVIOUS:</strong><br/>
+  <span>
+  GIT-webHook配置</span>
 </a>
 </div>
+
 
 </nav>
 
