@@ -4,19 +4,14 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>234234 | PHP</title>
+    <title>vpn翻墙 | PHP</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="Su">
     
-    <meta name="description" content="一、 ngrok官网设置
-
-上 http://www.ngrok.cc  注册账号
-开通两条隧道tcp,http, 自定义域名解析记录类型为CHNAME, 记录值为sever.ngrok.cc
-下载客户端解压进入文件夹
-./sunny clientid 隧道id1,隧道id2
-
-二、 ngrok其他">
+    <meta name="description" content="1购买bandwagonhost服务器搬瓦工，因其官网网站标识是BandwagonHost，有点类似BanWaGong的拼写，所以我们国内的站长喜欢称作为搬瓦工VPS。
+https://bandwagonhost.com/index.php登录网站后，点击导航栏中【VPS Hosting】按钮购买
+">
     
     
     
@@ -43,7 +38,7 @@
 				<h1 class="site-name"><a href="/" title="PHP">PHP</a></h1>
 				<h2 class="blog-motto"></h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -56,7 +51,7 @@
 					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
 						<input type="hidden" name="q" value="site:www.sujianxun.com">
 					</form>
 					
@@ -72,15 +67,15 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/04/05/vpn翻墙/" title="234234" itemprop="url">234234</a>
+      <a href="/2017/09/20/vpn翻墙/" title="vpn翻墙" itemprop="url">vpn翻墙</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://www.sujianxun.com" title="Su">Su</a>
     </p>
   <p class="article-time">
-    <time datetime="2017-04-05T11:20:13.000Z" itemprop="datePublished">2017-04-05</time>
-    更新日期:<time datetime="2017-09-20T01:33:11.782Z" itemprop="dateModified">2017-09-20</time>
+    <time datetime="2017-09-20T02:20:13.000Z" itemprop="datePublished">2017-09-20</time>
+    Updated:<time datetime="2017-09-20T02:11:29.953Z" itemprop="dateModified">2017-09-20</time>
     
   </p>
 </header>
@@ -88,27 +83,17 @@
 		
 		
 		<div id="toc" class="toc-article">
-			<strong class="toc-title">文章目錄</strong>
+			<strong class="toc-title">Contents</strong>
 		
 		</div>
 		
-		<p>一、 ngrok官网设置</p>
-<ol>
-<li>上 <a href="http://www.ngrok.cc" target="_blank" rel="external">http://www.ngrok.cc</a>  注册账号</li>
-<li>开通两条隧道tcp,http, 自定义域名解析记录类型为CHNAME, 记录值为sever.ngrok.cc</li>
-<li>下载客户端解压进入文件夹</li>
-<li>./sunny clientid 隧道id1,隧道id2</li>
-</ol>
-<p>二、 ngrok其他服务器设置</p>
-<ol>
-<li><a href="http://ngrok.2bdata.com/" target="_blank" rel="external">http://ngrok.2bdata.com/</a> 上下载客户端</li>
-<li>解压客户端进入文件夹</li>
-<li><p>编辑ngrok.cfg</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">vim ngrok.cfg</div><div class="line">server_addr: <span class="string">"tunnel.2bdata.com:4443"</span></div><div class="line">trust_host_root_certs: <span class="literal">false</span></div><div class="line">tunnels:</div><div class="line">  su:</div><div class="line">    proto:</div><div class="line">      http: <span class="string">"80"</span></div><div class="line">  ssh:</div><div class="line">    remote_port: 7026</div><div class="line">    proto:</div><div class="line">      tcp: <span class="string">"22"</span></div><div class="line">:wq</div></pre></td></tr></table></figure>
-</li>
-<li><p>启动ngrok</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">./ngrok -config ngrok.cfg start su ssh</div></pre></td></tr></table></figure></li>
-</ol>
+		<p>1购买bandwagonhost服务器<br>搬瓦工，因其官网网站标识是BandwagonHost，有点类似BanWaGong的拼写，所以我们国内的站长喜欢称作为搬瓦工VPS。</p>
+<p><a href="https://bandwagonhost.com/index.php" target="_blank" rel="external">https://bandwagonhost.com/index.php</a><br>登录网站后，点击导航栏中【VPS Hosting】按钮购买</p>
+<p>修改VPS密码<br>使用ssh工具登录服务器，输入VPS的IP地址、端口号、用户名和密码。具体登录方法不在本次讲解的范围内，恕不赘述。<br>然后输入shell命令<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">passwd</div></pre></td></tr></table></figure></p>
+<p>安装shadowsocks<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">wget –no-check-certificate https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks.sh  </div><div class="line">chmod +x shadowsocks.sh  </div><div class="line">./shadowsocks.sh 2&gt;&amp;1 | tee shadowsocks.log</div></pre></td></tr></table></figure></p>
+<p>配置开机自动启动<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">打开rc.local文件</div><div class="line"></div><div class="line">vi /etc/rc.local</div><div class="line"></div><div class="line">输入下面的代码</div><div class="line"></div><div class="line">ssserver -c /etc/shadowsocks.json -d start</div><div class="line"></div><div class="line">shadowsocks服务相关命令</div><div class="line"></div><div class="line">启动shadowsocks服务</div><div class="line"></div><div class="line">ssserver -c /etc/shadowsocks.json -d start</div><div class="line"></div><div class="line">关闭shadowsocks服务</div><div class="line"></div><div class="line">ssserver -c /etc/shadowsocks.json -d stop</div><div class="line"></div><div class="line">重启shadowsocks服务</div><div class="line"></div><div class="line">ssserver -c /etc/shadowsocks.json -d restart</div></pre></td></tr></table></figure></p>
+<p>教程地址:<br><a href="http://blog.csdn.net/win_turn/article/details/51559867" target="_blank" rel="external">http://blog.csdn.net/win_turn/article/details/51559867</a><br><a href="http://blog.csdn.net/qq_19835843/article/details/52233111" target="_blank" rel="external">http://blog.csdn.net/qq_19835843/article/details/52233111</a></p>
+<p>linux 实现翻墙<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">yum install python-pip</div><div class="line">在CentOS下需要用到pip，安装pip包，输入yum install python-pip，提示No package python-pip available.Error: Nothing to <span class="keyword">do</span></div><div class="line">因为没有此rpm包，此包包含在epel源里面</div><div class="line">输入rpm -ivh http://dl.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm ，</div><div class="line">之后再安装pip,输入yum install python-pip即可</div><div class="line">pip install shadowsocks</div><div class="line">vim /etc/shadowsocks.json</div><div class="line">&#123;</div><div class="line">    <span class="string">"server"</span>:<span class="string">"服务器的ip"</span>,</div><div class="line">    <span class="string">"server_port"</span>:19175,</div><div class="line">    <span class="string">"local_address"</span>:<span class="string">"127.0.0.1"</span>,</div><div class="line">    <span class="string">"local_port"</span>:1080,</div><div class="line">    <span class="string">"password"</span>:<span class="string">"密码"</span>,</div><div class="line">    <span class="string">"timeout"</span>:300,</div><div class="line">    <span class="string">"method"</span>:<span class="string">"aes-256-cfb"</span>,</div><div class="line">    <span class="string">"fast_open"</span>:<span class="literal">false</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">sslocal -c /etc/shadowsocks.json -d start</div><div class="line">sslocal -c /etc/shadowsocks.json -d stop</div><div class="line">sslocal -c /etc/shadowsocks.json -d restart</div><div class="line"></div><div class="line">安装Privoxy</div><div class="line">yum install -y privoxy</div><div class="line">vim /etc/privoxy/config</div><div class="line">增加</div><div class="line">forward-socks5 / 127.0.0.1:1080 .</div><div class="line"></div><div class="line">service privoxy start</div><div class="line"></div><div class="line">执行vim /etc/profile,添加如下三句:</div><div class="line"></div><div class="line"><span class="built_in">export</span> http_proxy=http://127.0.0.1:8118</div><div class="line"><span class="built_in">export</span> https_proxy=http://127.0.0.1:8118</div><div class="line"><span class="built_in">export</span> ftp_proxy=http://127.0.0.1:8118</div><div class="line"></div><div class="line"><span class="built_in">source</span> /etc/profile</div><div class="line"></div><div class="line">浏览器代理填写ip: 127.0.0.1 prot: 8118</div></pre></td></tr></table></figure></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -123,7 +108,7 @@
 
 <div class="article-share" id="share">
 
-  <div data-url="http://www.sujianxun.com/2017/04/05/vpn翻墙/" data-title="234234 | PHP" data-tsina="null" class="share clearfix">
+  <div data-url="http://www.sujianxun.com/2017/09/20/vpn翻墙/" data-title="vpn翻墙 | PHP" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -132,19 +117,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2017/04/10/git忽略文件/" title="GIT忽略文件">
-  <strong>PREVIOUS:</strong><br/>
-  <span>
-  GIT忽略文件</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2017/04/05/ngrok内网穿透/"  title="ngrok内网穿透">
+<a href="/2017/05/10/git命令/"  title="GIT命令">
  <strong>NEXT:</strong><br/> 
- <span>ngrok内网穿透
+ <span>GIT命令
 </span>
 </a>
 </div>
@@ -153,20 +130,20 @@
 
 	
 </div>  
-      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
 
   <div id="toc" class="toc-aside">
-  <strong class="toc-title">文章目錄</strong>
+  <strong class="toc-title">Contents</strong>
   
   </div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
 <aside class="clearfix">
 
   
 <div class="categorieslist">
-	<p class="asidetitle">分類</p>
+	<p class="asidetitle">Categories</p>
 		<ul>
 		
 			<li><a href="/categories/designPattern/" title="designPattern">designPattern<sup>2</sup></a></li>
