@@ -4,12 +4,14 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>mysql学习笔记 | PHP</title>
+    <title>CentOS 6.5yum安装MySQL 5.6 | PHP</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="Su">
     
-    <meta name="description" content="1. 数据库操作SHOW DATABASES; 查看数据库列表CREATE DATABASE database_name; 创建数据库DROP DATABASE database_name; 删除数据库SHOW CREATE DATABASE database_name; 查看数据库信息SHOW E">
+    <meta name="description" content="背景根据客户要求用系统自带的yum命令来安装MySQL 5.6，下面记录一下整个安装、配置过程。
+CentOS 6.5 默认yum只能安装mysql 5.1安装前要检查机器原来是否安装过mysql，如有安装需要先进行数据备份、清理。
+[root@snails ~]# yum list install">
     
     
     
@@ -65,15 +67,15 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/06/29/mysql学习笔记/" title="mysql学习笔记" itemprop="url">mysql学习笔记</a>
+      <a href="/2016/06/13/CentOS 6.5yum安装MySQL 5.6/" title="CentOS 6.5yum安装MySQL 5.6" itemprop="url">CentOS 6.5yum安装MySQL 5.6</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://www.sujianxun.com" title="Su">Su</a>
     </p>
   <p class="article-time">
-    <time datetime="2016-06-29T03:21:38.000Z" itemprop="datePublished">2016-06-29</time>
-    更新日期:<time datetime="2017-08-01T00:27:34.733Z" itemprop="dateModified">2017-08-01</time>
+    <time datetime="2016-06-13T09:12:30.000Z" itemprop="datePublished">2016-06-13</time>
+    更新日期:<time datetime="2017-09-20T03:46:41.137Z" itemprop="dateModified">2017-09-20</time>
     
   </p>
 </header>
@@ -82,10 +84,16 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		
+		<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#将-mysql56-community-的enabled设置为１-mysql57-community-的enabled设置为0"><span class="toc-number">1.</span> <span class="toc-text">将[mysql56-community]的enabled设置为１,[mysql57-community]的enabled设置为0</span></a></li></ol>
 		</div>
 		
-		<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">1. 数据库操作</div><div class="line">SHOW DATABASES; 查看数据库列表</div><div class="line">CREATE DATABASE database_name; 创建数据库</div><div class="line">DROP DATABASE database_name; 删除数据库</div><div class="line">SHOW CREATE DATABASE database_name; 查看数据库信息</div><div class="line">SHOW ENGINES \G 查看数据库支持的存储引擎</div><div class="line">SHOW VARIABLES LIKE <span class="string">'storage_engine'</span>; 查看默认存储引擎</div><div class="line">2. 数据表操作</div><div class="line">创建数据表</div><div class="line">CREATE TABLE tb_1(</div><div class="line">id int(11) PRIMARY KEY,</div><div class="line">name varchar(22)</div><div class="line">);</div><div class="line">SHOW TABLES; 查看数据表列表</div><div class="line">PRIMARY KEY 使用主键约束</div><div class="line">NOT NULL 非空性约束</div><div class="line">UNIQUE 唯一性约束</div><div class="line">DEFAULT 11 默认约束</div><div class="line">AUTO_INCREMENT 表属性值自动增加</div><div class="line">DESCRIBE tb_1; DESC tb_1;(简写) 查看数据表结构</div><div class="line">SHOW CREATE TABLE tb_1; 查看表的详细结构</div><div class="line">ALTER TABLE tb_1 RENAME tb_2; 修改表名</div><div class="line">ALTER TABLE tb_1 MODIFY name VARCHAR(50); 修改字段数据类型</div><div class="line">ALTER TABLE tb_1 CHANGE salary sala VARCHAR(10); 修改字段名</div><div class="line">ALTER TABLE tb_1 ADD manaId int(10); 添加无完整性约束条件字段</div><div class="line">ALTER TABLE tb_1 ADD manaId int(10) NOT NULL; 添加有完整性约束条件字段</div><div class="line">ALTER TABLE tb_1 ADD manaId int(10) FIRST; 在表的第一列添加一个字段</div><div class="line">ALTER TABLE tb_1 ADD manaId int(10) AFTER name; 在表的指定列添加一个字段</div><div class="line">ALTER TABLE tb_1 DROP manaId; 删除字段</div><div class="line">ALTER TABLE tb_1 MODIFY manaId VARCHAR(10) FIRST; 修改字段为第一个字段</div><div class="line">ALTER TABLE tb_1 MODIFY manaId VARCHAR(10) AFTER name; 修改字段到指定列之后</div><div class="line">ALTER TABLE tb_3 ENGINE=InnoDB; 更改表的存储引擎</div><div class="line">DROP TABLE IF EXISTS tb_1; 删除数据表</div><div class="line">CHECK TABLE tb_1; 检查表是否有错误</div><div class="line">OPTIMIZE TABLE tb_1; 整理存储空间碎片,整理空间</div><div class="line">insert into su_tb (id, name) select id, name from su_tb; 插入查询的数据表</div><div class="line">git bash 登录mysql: winpty mysql -u root</div></pre></td></tr></table></figure>
+		<p>背景<br>根据客户要求用系统自带的yum命令来安装MySQL 5.6，下面记录一下整个安装、配置过程。</p>
+<p>CentOS 6.5 默认yum只能安装mysql 5.1<br>安装前要检查机器原来是否安装过mysql，如有安装需要先进行数据备份、清理。</p>
+<p>[root@snails ~]# yum list installed | grep mysql<br>[root@snails ~]# ps -ef|grep mysql<br>[root@snails ~]# service mysqld stop<br>[root@snails ~]# rpm -e mysql-libs –nodeps<br>[root@snails ~]# yum -y remove mysql mysql-*<br>设置安装源</p>
+<p>[root@snails ~]# wget <a href="http://repo.mysql.com/mysql57-community-release-el6-8.noarch.rpm" target="_blank" rel="external">http://repo.mysql.com/mysql57-community-release-el6-8.noarch.rpm</a><br>[root@snails ~]# rpm -ivh mysql57-community-release-el6-8.noarch.rpm<br>[root@snails ~]# ls -1 /etc/yum.repos.d/mysql-community*<br>[root@snails ~]# yum repolist all | grep mysql<br>[root@snails ~]# vi /etc/yum.repos.d/mysql-community.repo</p>
+<h3 id="将-mysql56-community-的enabled设置为１-mysql57-community-的enabled设置为0"><a href="#将-mysql56-community-的enabled设置为１-mysql57-community-的enabled设置为0" class="headerlink" title="将[mysql56-community]的enabled设置为１,[mysql57-community]的enabled设置为0"></a>将[mysql56-community]的enabled设置为１,[mysql57-community]的enabled设置为0</h3><p>[root@snails ~]# yum repolist enabled | grep mysql<br>mysql-connectors-community MySQL Connectors Community                         21<br>mysql-tools-community      MySQL Tools Community                              37<br>mysql56-community          MySQL 5.6 Community Server                        265<br>注意:<br>如果不使用5.7 或者其他任何版本，只能有一个是 enabled=1的，其他的都得enabled=0。<br>安装MySQL</p>
+<p>[root@snails ~]# yum -y install mysql-server mysql</p>
+<p>作者：技术学习<br>链接：<a href="http://www.jianshu.com/p/5a2e4e0b6eda" target="_blank" rel="external">http://www.jianshu.com/p/5a2e4e0b6eda</a><br>來源：简书<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -100,7 +108,7 @@
 
 <div class="article-share" id="share">
 
-  <div data-url="http://www.sujianxun.com/2016/06/29/mysql学习笔记/" data-title="mysql学习笔记 | PHP" data-tsina="null" class="share clearfix">
+  <div data-url="http://www.sujianxun.com/2016/06/13/CentOS 6.5yum安装MySQL 5.6/" data-title="CentOS 6.5yum安装MySQL 5.6 | PHP" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -110,18 +118,18 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2016/06/30/ftp双开/" title="ftp双开">
+ <a href="/2016/06/13/mysql复制数据库 - 副本/" title="CentOS 6.5yum安装MySQL 5.6">
   <strong>PREVIOUS:</strong><br/>
   <span>
-  ftp双开</span>
+  CentOS 6.5yum安装MySQL 5.6</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2016/06/28/mysql远程登录/"  title="mysql远程登录">
+<a href="/2016/06/13/mysql复制数据库/"  title="mysql复制数据库">
  <strong>NEXT:</strong><br/> 
- <span>mysql远程登录
+ <span>mysql复制数据库
 </span>
 </a>
 </div>
@@ -134,7 +142,7 @@
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  
+  <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#将-mysql56-community-的enabled设置为１-mysql57-community-的enabled设置为0"><span class="toc-number">1.</span> <span class="toc-text">将[mysql56-community]的enabled设置为１,[mysql57-community]的enabled设置为0</span></a></li></ol>
   </div>
 
 <div id="asidepart">
