@@ -62,6 +62,24 @@
 
   <section class="post" itemscope itemprop="blogPost">
   
+    <a href="/2017/03/03/nginx负载均衡简单配置/" title="nginx负载均衡简单配置" itemprop="url">
+  
+    <h1 itemprop="name">nginx负载均衡简单配置</h1>
+    
+     
+           <p itemprop="description" >nginx负载均衡简单配置
+准备三台虚拟机来做这个实验：
+192.168.232.132        web服务器192.168.232.133        web服务器192.168.232.134        负载均衡服务器
+首先三台电脑预装nginx软件：
+1、导入外</p>
+        
+    
+    <time datetime="2017-03-03T06:20:13.000Z" itemprop="datePublished">2017-03-03</time>
+  </a>
+</section>
+
+  <section class="post" itemscope itemprop="blogPost">
+  
     <a href="/2017/03/01/数据库主从复制和读写分离/" title="mysql数据库主从复制和读写分离" itemprop="url">
   
     <h1 itemprop="name">mysql数据库主从复制和读写分离</h1>
@@ -78,20 +96,6 @@
 
   <section class="post" itemscope itemprop="blogPost">
   
-    <a href="/2016/06/30/站点配置流程/" title="站点配置流程" itemprop="url">
-  
-    <h1 itemprop="name">站点配置流程</h1>
-    
-     
-           <p itemprop="description" >1.安装nginxyum install nginx -y不行则yum update安装完成，下面直接就可以启动Nginx了：/etc/init.d/nginx startnginx默认站点文件: /usr/share/nginx/html;2.安装FTP可以使用yum命令直接安</p>
-        
-    
-    <time datetime="2016-06-30T03:21:38.000Z" itemprop="datePublished">2016-06-30</time>
-  </a>
-</section>
-
-  <section class="post" itemscope itemprop="blogPost">
-  
     <a href="/2016/06/30/ftp双开/" title="ftp双开" itemprop="url">
   
     <h1 itemprop="name">ftp双开</h1>
@@ -101,6 +105,20 @@
 #useradd -d /var/www/ftp1 -s /sbin/nologin ftpuserone
 #passwd ftpuserone
 #useradd -d /var/www/ftp2 -s /sbin/nologin ftpusertw</p>
+        
+    
+    <time datetime="2016-06-30T03:21:38.000Z" itemprop="datePublished">2016-06-30</time>
+  </a>
+</section>
+
+  <section class="post" itemscope itemprop="blogPost">
+  
+    <a href="/2016/06/30/站点配置流程/" title="站点配置流程" itemprop="url">
+  
+    <h1 itemprop="name">站点配置流程</h1>
+    
+     
+           <p itemprop="description" >1.安装nginxyum install nginx -y不行则yum update安装完成，下面直接就可以启动Nginx了：/etc/init.d/nginx startnginx默认站点文件: /usr/share/nginx/html;2.安装FTP可以使用yum命令直接安</p>
         
     
     <time datetime="2016-06-30T03:21:38.000Z" itemprop="datePublished">2016-06-30</time>
@@ -151,12 +169,12 @@
 
   <section class="post" itemscope itemprop="blogPost">
   
-    <a href="/2016/06/13/mysql复制数据库/" title="mysql复制数据库" itemprop="url">
+    <a href="/2016/06/13/mysql脚本定时备份数据库/" title="mysql脚本定时备份数据库" itemprop="url">
   
-    <h1 itemprop="name">mysql复制数据库</h1>
+    <h1 itemprop="name">mysql脚本定时备份数据库</h1>
     
      
-           <p itemprop="description" >复制一个数据库说明: mysqldump 老数据库 -u root -p数据库密码 |mysql 新数据库 -u root -p数据库密码[root@localhost mysql]# mysqldump su -u root -p123456 |mysql su_new -u </p>
+           <p itemprop="description" >创建文件夹mkdir mysqlDump创建脚本文件vim mysqlDump.shtoday_date=`date +%Y%m%d`today_time=`date +%T`find /root/mysqlDump/ -mtime +10 -name &quot;*.gz&quot; -exec </p>
         
     
     <time datetime="2016-06-13T09:12:30.000Z" itemprop="datePublished">2016-06-13</time>
@@ -165,12 +183,12 @@
 
   <section class="post" itemscope itemprop="blogPost">
   
-    <a href="/2016/06/13/mysql脚本定时备份数据库/" title="mysql脚本定时备份数据库" itemprop="url">
+    <a href="/2016/06/13/mysql复制数据库/" title="mysql复制数据库" itemprop="url">
   
-    <h1 itemprop="name">mysql脚本定时备份数据库</h1>
+    <h1 itemprop="name">mysql复制数据库</h1>
     
      
-           <p itemprop="description" >创建文件夹mkdir mysqlDump创建脚本文件vim mysqlDump.shtoday_date=`date +%Y%m%d`today_time=`date +%T`find /root/mysqlDump/ -mtime +10 -name &quot;*.gz&quot; -exec </p>
+           <p itemprop="description" >复制一个数据库说明: mysqldump 老数据库 -u root -p数据库密码 |mysql 新数据库 -u root -p数据库密码[root@localhost mysql]# mysqldump su -u root -p123456 |mysql su_new -u </p>
         
     
     <time datetime="2016-06-13T09:12:30.000Z" itemprop="datePublished">2016-06-13</time>
@@ -188,20 +206,6 @@
         
     
     <time datetime="2016-06-13T05:40:42.000Z" itemprop="datePublished">2016-06-13</time>
-  </a>
-</section>
-
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/2016/06/08/phpstorm快捷键/" title="phpstorm快捷键" itemprop="url">
-  
-    <h1 itemprop="name">phpstorm快捷键</h1>
-    
-     
-           <p itemprop="description" >快捷键F5   复制文件/文件夹F6   移动CTRL+N   查找类CIRL+B   找变量的来源，跳到变量申明处CTRL+R   当前窗口替换文本CTRL+E   最近打开的文件CTRL+ []   光标移动到 {}[]开头或结尾位置ctrl+shift+enter(智能完善</p>
-        
-    
-    <time datetime="2016-06-08T02:19:06.000Z" itemprop="datePublished">2016-06-08</time>
   </a>
 </section>
 
