@@ -4,12 +4,12 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>linux邮件服务器配置 | PHP</title>
+    <title>WIN杂项 | PHP</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="Su">
     
-    <meta name="description" content="一. 配置邮件发信服务器postfixvim /etc/postfix/main.cfmyhostname = mail.su.commydomain = su.commyorigin = $myhostnamemyorigin = $mydomaininet_interfaces = allmyd">
+    <meta name="description" content="修改win10开机引导项下载diskgenius, 设置 硬盘-&amp;gt;重建主引导记录(MBR)">
     
     
     
@@ -65,15 +65,15 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/03/09/linux邮件服务器配置/" title="linux邮件服务器配置" itemprop="url">linux邮件服务器配置</a>
+      <a href="/2016/05/23/win杂项/" title="WIN杂项" itemprop="url">WIN杂项</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://www.sujianxun.com" title="Su">Su</a>
     </p>
   <p class="article-time">
-    <time datetime="2017-03-09T02:20:13.000Z" itemprop="datePublished">2017-03-09</time>
-    更新日期:<time datetime="2017-08-01T00:27:34.733Z" itemprop="dateModified">2017-08-01</time>
+    <time datetime="2016-05-23T02:20:13.000Z" itemprop="datePublished">2016-05-23</time>
+    更新日期:<time datetime="2017-10-17T05:47:41.593Z" itemprop="dateModified">2017-10-17</time>
     
   </p>
 </header>
@@ -85,12 +85,7 @@
 		
 		</div>
 		
-		<p>一. 配置邮件发信服务器postfix<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">vim /etc/postfix/main.cf</div><div class="line">myhostname = mail.su.com</div><div class="line">mydomain = su.com</div><div class="line">myorigin = <span class="variable">$myhostname</span></div><div class="line">myorigin = <span class="variable">$mydomain</span></div><div class="line">inet_interfaces = all</div><div class="line">mydestination = <span class="variable">$myhostname</span>, <span class="variable">$mydomain</span></div><div class="line">mynetworks = 192.168.83.0/28, 127.0.0.0/8</div><div class="line">:wq</div><div class="line">service postfix restart</div></pre></td></tr></table></figure></p>
-<p>测试发信服务器是否成功安装<br>[root@192 /]# telnet 192.168.83.149 25<br>Trying 192.168.83.149…<br>Connected to 192.168.83.149.<br>Escape character is ‘^]’.<br>220 mail.su.com ESMTP Postfix<br>mail from:su@su.com<br>250 2.1.0 Ok<br>rcpt to:root@su.com<br>250 2.1.5 Ok<br>data<br>354 End data with <cr><lf>.<cr><lf><br>dd<br>.<br>250 2.0.0 Ok: queued as A11FCA32D7<br>quit<br>221 2.0.0 Bye<br>表示已成功发邮件</lf></cr></lf></cr></p>
-<p>二. 配置邮件收信服务器dovecot<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">yum install -y dovecot</div><div class="line">vim /etc/dovecot/dovecot.conf</div><div class="line">protocols = imap pop3 lmtp</div><div class="line">:wq</div><div class="line">vim /etc/dovecot/conf.d/10-auth.conf </div><div class="line">disable_plaintext_auth = no</div><div class="line">:wq</div><div class="line">vim /etc/dovecot/conf.d/10-mail.conf </div><div class="line">mail_location = mbox:~/mail:INBOX=/var/mail/%u</div><div class="line">:wq</div><div class="line">useradd su1</div><div class="line">passwd su1</div><div class="line">useradd su2</div><div class="line">passwd su2</div></pre></td></tr></table></figure></p>
-<p>错误解决办法<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">[root@192 /]<span class="comment"># telnet 192.168.83.149 110</span></div><div class="line">Trying 192.168.83.149...</div><div class="line">Connected to 192.168.83.149.</div><div class="line">Escape character is <span class="string">'^]'</span>.</div><div class="line">+OK Dovecot ready.</div><div class="line">user su1</div><div class="line">+OK</div><div class="line">pass 123</div><div class="line">-ERR [IN-USE] Couldn<span class="string">'t open INBOX: Internal error occurred. Refer to server log for more information. [2017-03-09 04:41:38]</span></div><div class="line"><span class="string">Connection closed by foreign host.</span></div><div class="line"><span class="string"></span></div><div class="line"><span class="string">解决办法</span></div><div class="line"><span class="string">mkdir -p /home/su1/mail/.imap/INBOX</span></div><div class="line"><span class="string">mkdir -p /home/su2/mail/.imap/INBOX</span></div></pre></td></tr></table></figure></p>
-<p>测试是否成功安装<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">[root@192 /]<span class="comment"># telnet 192.168.83.149 110</span></div><div class="line">Trying 192.168.83.149...</div><div class="line">Connected to 192.168.83.149.</div><div class="line">Escape character is <span class="string">'^]'</span>.</div><div class="line">+OK Dovecot ready.</div><div class="line">user su1</div><div class="line">+OK</div><div class="line">pass 123</div><div class="line">+OK Logged <span class="keyword">in</span>.</div><div class="line">list</div><div class="line">+OK 1 messages:</div><div class="line">1 398</div><div class="line">.</div><div class="line">quit</div><div class="line">+OK Logging out.</div><div class="line">Connection closed by foreign host.</div></pre></td></tr></table></figure></p>
-<p>表示成功收信</p>
+		<p>修改win10开机引导项<br>下载diskgenius, 设置 硬盘-&gt;重建主引导记录(MBR)</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -98,14 +93,14 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/linux/">linux</a>
+  <a class="article-category-link" href="/categories/win/">win</a>
 </div>
 
 
 
 <div class="article-share" id="share">
 
-  <div data-url="http://www.sujianxun.com/2017/03/09/linux邮件服务器配置/" data-title="linux邮件服务器配置 | PHP" data-tsina="null" class="share clearfix">
+  <div data-url="http://www.sujianxun.com/2016/05/23/win杂项/" data-title="WIN杂项 | PHP" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -115,21 +110,13 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2017/03/09/shell邮件报警/" title="shell邮件报警">
+ <a href="/2016/05/23/git/" title="GIT配置">
   <strong>PREVIOUS:</strong><br/>
   <span>
-  shell邮件报警</span>
+  GIT配置</span>
 </a>
 </div>
 
-
-<div class="next">
-<a href="/2017/03/07/linux源码配置php环境/"  title="linux源码配置php环境">
- <strong>NEXT:</strong><br/> 
- <span>linux源码配置php环境
-</span>
-</a>
-</div>
 
 </nav>
 

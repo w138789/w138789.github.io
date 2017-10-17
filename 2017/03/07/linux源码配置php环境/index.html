@@ -36,7 +36,7 @@
 				<h1 class="site-name"><a href="/" title="PHP">PHP</a></h1>
 				<h2 class="blog-motto"></h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -49,7 +49,7 @@
 					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
 						<input type="hidden" name="q" value="site:www.sujianxun.com">
 					</form>
 					
@@ -73,7 +73,7 @@
     </p>
   <p class="article-time">
     <time datetime="2017-03-07T02:20:13.000Z" itemprop="datePublished">2017-03-07</time>
-    Updated:<time datetime="2017-08-03T03:41:55.181Z" itemprop="dateModified">2017-08-03</time>
+    更新日期:<time datetime="2017-10-16T05:25:23.021Z" itemprop="dateModified">2017-10-16</time>
     
   </p>
 </header>
@@ -81,7 +81,7 @@
 		
 		
 		<div id="toc" class="toc-article">
-			<strong class="toc-title">Contents</strong>
+			<strong class="toc-title">文章目錄</strong>
 		
 		</div>
 		
@@ -104,7 +104,7 @@
 </li>
 </ol>
 <p>安装CURL扩展<br>进入源码目录<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line"><span class="built_in">cd</span> php/</div><div class="line"><span class="built_in">cd</span> /ext/curl</div><div class="line">make clean</div><div class="line">/usr/<span class="built_in">local</span>/php/bin/phpize</div><div class="line">./configure    --with-php-config=/usr/<span class="built_in">local</span>/php/bin/php-config   --with-curl</div><div class="line">make &amp;&amp; make install</div><div class="line">查看  curl.so文件是否安装到这个目录下</div><div class="line">ll /usr/<span class="built_in">local</span>/php/lib/php/extensions/no-debug-non-zts-20060613/</div><div class="line">vi /usr/<span class="built_in">local</span>/php/lib/php.ini</div><div class="line">extension_dir = <span class="string">"/usr/local/php5/lib/php/extensions/no-debug-non-zts-20060613/"</span>；</div><div class="line">添加如下一行：</div><div class="line">extension=curl.so</div><div class="line">查看是否加载了CURL扩展</div><div class="line">/usr/<span class="built_in">local</span>/php/bin/php -m</div><div class="line">重启http</div></pre></td></tr></table></figure></p>
-<p>安装gd扩展<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">1.进入相应外部库文件位置</div><div class="line">vim /root/php-5.6.9/ext/gd  </div><div class="line"></div><div class="line">提示：在源码包的ext目录下会有很多外部库文件的源码，不知道是不是全部都在那里面。</div><div class="line">2.安装GD库相应的依赖</div><div class="line"></div><div class="line">1.安装vpx</div><div class="line">yum install -y libvpx libvpx-devel  </div><div class="line"></div><div class="line">2.安装jpeg </div><div class="line">yum install -y libjpeg-turbo libjpeg-turbo-devel  </div><div class="line"></div><div class="line">3.安装png </div><div class="line">yum install -y libpng libpng-devel  </div><div class="line"></div><div class="line">4.安装fretype</div><div class="line">yum install -y freetype freetype-devel  </div><div class="line"></div><div class="line">提示：我用的是阿里云的源，这些软件都可以找到，如果不行的话请自行切换</div><div class="line"></div><div class="line"></div><div class="line">3.配置编译GD库</div><div class="line">/usr/<span class="built_in">local</span>/php/bin/phpize &amp;&amp; ./configure --with-php-config=/usr/<span class="built_in">local</span>/php/bin/php-config --with-vpx-dir=/usr/<span class="built_in">local</span>/ --with-jpeg-dir=/usr/<span class="built_in">local</span>/  --with-png-dir=/usr/<span class="built_in">local</span>/ --with-freetype-dir=/usr/<span class="built_in">local</span> &amp;&amp; make &amp;&amp; make install</div><div class="line"></div><div class="line">添加如下一行：</div><div class="line">vim /usr/<span class="built_in">local</span>/php/lib/php.ini</div><div class="line">extension=gd.so</div></pre></td></tr></table></figure></p>
+<p>安装gd扩展<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">1.进入相应外部库文件位置</div><div class="line">vim /root/php-5.6.9/ext/gd  </div><div class="line"></div><div class="line">提示：在源码包的ext目录下会有很多外部库文件的源码，不知道是不是全部都在那里面。</div><div class="line">2.安装GD库相应的依赖</div><div class="line">http://www.centoscn.com/image-text/config/2015/0825/6059.html</div><div class="line">1.安装vpx</div><div class="line">yum install -y libvpx libvpx-devel  </div><div class="line"></div><div class="line">2.安装jpeg </div><div class="line">yum install -y libjpeg-turbo libjpeg-turbo-devel  </div><div class="line"></div><div class="line">3.安装png </div><div class="line">yum install -y libpng libpng-devel  </div><div class="line"></div><div class="line">4.安装fretype</div><div class="line">yum install -y freetype freetype-devel  </div><div class="line"></div><div class="line">提示：我用的是阿里云的源，这些软件都可以找到，如果不行的话请自行切换</div><div class="line"></div><div class="line"></div><div class="line">3.配置编译GD库</div><div class="line">/usr/<span class="built_in">local</span>/php/bin/phpize &amp;&amp; ./configure --with-php-config=/usr/<span class="built_in">local</span>/php/bin/php-config --with-vpx-dir=/usr/<span class="built_in">local</span>/ --with-jpeg-dir=/usr/<span class="built_in">local</span>/  --with-png-dir=/usr/<span class="built_in">local</span>/ --with-freetype-dir=/usr/<span class="built_in">local</span> &amp;&amp; make &amp;&amp; make install</div><div class="line"></div><div class="line">添加如下一行：</div><div class="line">vim /usr/<span class="built_in">local</span>/php/lib/php.ini</div><div class="line">extension=gd.so</div></pre></td></tr></table></figure></p>
 <p>如果不行重新编绎安装php 重新安装前先make clean</p>
 <p>安装mcrypt扩展<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">1 先去http://www.sourceforge.net下载Libmcrypt,mhash,mcrypt安装包 ,下面是我找到的链接</div><div class="line"></div><div class="line">libmcrypt-2.5.8.tar.gz</div><div class="line">下载地址: http://sourceforge.net/project/showfiles.php?group_id=87941&amp;package_id=91774&amp;release_id=487459</div><div class="line">mhash-0.9.9.tar.gz</div><div class="line">下载地址: http://sourceforge.net/project/showfiles.php?group_id=4286&amp;package_id=4300&amp;release_id=645636</div><div class="line">mcrypt-2.6.8.tar.gz</div><div class="line">下载地址: http://sourceforge.net/project/showfiles.php?group_id=87941&amp;package_id=91948&amp;release_id=642101</div><div class="line"></div><div class="line">2 先安装Libmcrypt</div><div class="line"></div><div class="line"><span class="comment">#tar -zxvf libmcrypt-2.5.8.tar.gz</span></div><div class="line"></div><div class="line">   <span class="comment">#cd libmcrypt-2.5.8</span></div><div class="line"></div><div class="line">   <span class="comment">#./configure</span></div><div class="line"></div><div class="line">   <span class="comment">#make</span></div><div class="line"></div><div class="line">   <span class="comment">#make install 说明：libmcript默认安装在/usr/local</span></div><div class="line"></div><div class="line">3 安装mhash</div><div class="line"></div><div class="line">   <span class="comment">#tar -zxvf mhash-0.9.9.9.tar.gz</span></div><div class="line"></div><div class="line">   <span class="comment">#cd mhash-0.9.9.9</span></div><div class="line"></div><div class="line">   <span class="comment">#./configure</span></div><div class="line"></div><div class="line">   <span class="comment">#make</span></div><div class="line"></div><div class="line">   <span class="comment">#make install</span></div><div class="line"></div><div class="line">4 安装mcrypt</div><div class="line"></div><div class="line">   <span class="comment">#tar -zxvf mcrypt-2.6.8.tar.gz</span></div><div class="line"></div><div class="line">   <span class="comment">#cd mcrypt-2.6.8</span></div><div class="line"></div><div class="line">   <span class="comment">#LD_LIBRARY_PATH=/usr/local/lib ./configure</span></div><div class="line"></div><div class="line">   <span class="comment">#make</span></div><div class="line"></div><div class="line">   <span class="comment">#make install</span></div><div class="line">5 安装php扩展</div><div class="line"><span class="built_in">cd</span> /root/php-5.6.3/ext/mcrypt</div><div class="line">/usr/<span class="built_in">local</span>/php/bin/phpize</div><div class="line">./configure</div><div class="line">make &amp;&amp; make install</div><div class="line">添加*.so加载</div><div class="line">vim /usr/<span class="built_in">local</span>/php/lib/php.ini</div><div class="line">extension=mcrypt.so</div></pre></td></tr></table></figure></p>
 <p>nginx 支持php环境<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">nginx最常用的方法是利用 tcp/ip 协议连接 phpfastcgi 接口, 因此要连接php必须先启动fastcgi程序.</div><div class="line"></div><div class="line">启动方法：</div><div class="line"></div><div class="line">1<span class="comment"># /usr/local/bin/php-cgi-b 127.0.0.1:9000 -c /usr/local/php/lib/php.ini</span></div><div class="line"></div><div class="line">2配置php-fpm启动</div><div class="line">cp /usr/<span class="built_in">local</span>/php/etc/php-fpm.conf.default /usr/<span class="built_in">local</span>/php/etc/php-fpm.conf</div><div class="line">cp init.d.php-fpm /etc/init.d/php-fpm</div><div class="line">chmod a+x /etc/init.d/php-fpm</div><div class="line">service php-fpm start</div><div class="line">//php7.1安装注意:</div><div class="line">cp /usr/<span class="built_in">local</span>/php-7.1.1/etc/php-fpm.d/www.conf.default /usr/<span class="built_in">local</span>/php-7.1.1/etc/php-fpm.d/www.conf</div><div class="line"></div><div class="line"></div><div class="line">vim /usr/<span class="built_in">local</span>/nginx/conf/nginx.conf</div><div class="line"><span class="comment">#增加 </span></div><div class="line">location ~ \.php(.*)$  &#123;</div><div class="line">                root            /var/www;</div><div class="line">                fastcgi_pass   127.0.0.1:9000;</div><div class="line">                fastcgi_index  index.php;</div><div class="line">                fastcgi_split_path_info  ^((?U).+\.php)(/?.+)$;</div><div class="line">                fastcgi_param  SCRIPT_FILENAME  <span class="variable">$document_root</span><span class="variable">$fastcgi_script_name</span>;</div><div class="line">                fastcgi_param  PATH_INFO  <span class="variable">$fastcgi_path_info</span>;</div><div class="line">                fastcgi_param  PATH_TRANSLATED  <span class="variable">$document_root</span><span class="variable">$fastcgi_path_info</span>;</div><div class="line">                include        fastcgi_params;</div><div class="line">        &#125;</div></pre></td></tr></table></figure></p>
@@ -152,20 +152,20 @@
 
 	
 </div>  
-      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
 
   <div id="toc" class="toc-aside">
-  <strong class="toc-title">Contents</strong>
+  <strong class="toc-title">文章目錄</strong>
   
   </div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
 <aside class="clearfix">
 
   
 <div class="categorieslist">
-	<p class="asidetitle">Categories</p>
+	<p class="asidetitle">分類</p>
 		<ul>
 		
 			<li><a href="/categories/designPattern/" title="designPattern">designPattern<sup>2</sup></a></li>
@@ -179,6 +179,8 @@
 			<li><a href="/categories/others/" title="others">others<sup>3</sup></a></li>
 		
 			<li><a href="/categories/php/" title="php">php<sup>2</sup></a></li>
+		
+			<li><a href="/categories/win/" title="win">win<sup>1</sup></a></li>
 		
 			<li><a href="/categories/win-svn/" title="win_svn">win_svn<sup>1</sup></a></li>
 		
