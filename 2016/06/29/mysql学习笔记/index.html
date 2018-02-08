@@ -36,7 +36,7 @@
 				<h1 class="site-name"><a href="/" title="PHP">PHP</a></h1>
 				<h2 class="blog-motto"></h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -49,7 +49,7 @@
 					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
 						<input type="hidden" name="q" value="site:www.sujianxun.com">
 					</form>
 					
@@ -73,7 +73,7 @@
     </p>
   <p class="article-time">
     <time datetime="2016-06-29T03:21:38.000Z" itemprop="datePublished">2016-06-29</time>
-    Updated:<time datetime="2017-12-26T00:24:49.446Z" itemprop="dateModified">2017-12-26</time>
+    更新日期:<time datetime="2018-02-08T08:43:00.690Z" itemprop="dateModified">2018-02-08</time>
     
   </p>
 </header>
@@ -81,11 +81,11 @@
 		
 		
 		<div id="toc" class="toc-article">
-			<strong class="toc-title">Contents</strong>
+			<strong class="toc-title">文章目錄</strong>
 		
 		</div>
 		
-		<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">1. 数据库操作</div><div class="line">SHOW DATABASES; 查看数据库列表</div><div class="line">CREATE DATABASE database_name; 创建数据库</div><div class="line">DROP DATABASE database_name; 删除数据库</div><div class="line">SHOW CREATE DATABASE database_name; 查看数据库信息</div><div class="line">SHOW ENGINES \G 查看数据库支持的存储引擎</div><div class="line">SHOW VARIABLES LIKE <span class="string">'storage_engine'</span>; 查看默认存储引擎</div><div class="line">2. 数据表操作</div><div class="line">创建数据表</div><div class="line">CREATE TABLE tb_1(</div><div class="line">id int(11) PRIMARY KEY,</div><div class="line">name varchar(22)</div><div class="line">);</div><div class="line">SHOW TABLES; 查看数据表列表</div><div class="line">PRIMARY KEY 使用主键约束</div><div class="line">NOT NULL 非空性约束</div><div class="line">UNIQUE 唯一性约束</div><div class="line">DEFAULT 11 默认约束</div><div class="line">AUTO_INCREMENT 表属性值自动增加</div><div class="line">DESCRIBE tb_1; DESC tb_1;(简写) 查看数据表结构</div><div class="line">SHOW CREATE TABLE tb_1; 查看表的详细结构</div><div class="line">ALTER TABLE tb_1 RENAME tb_2; 修改表名</div><div class="line">ALTER TABLE tb_1 MODIFY name VARCHAR(50); 修改字段数据类型</div><div class="line">ALTER TABLE tb_1 CHANGE salary sala VARCHAR(10); 修改字段名</div><div class="line">ALTER TABLE tb_1 ADD manaId int(10); 添加无完整性约束条件字段</div><div class="line">ALTER TABLE tb_1 ADD manaId int(10) NOT NULL; 添加有完整性约束条件字段</div><div class="line">ALTER TABLE tb_1 ADD manaId int(10) FIRST; 在表的第一列添加一个字段</div><div class="line">ALTER TABLE tb_1 ADD manaId int(10) AFTER name; 在表的指定列添加一个字段</div><div class="line">ALTER TABLE tb_1 DROP manaId; 删除字段</div><div class="line">ALTER TABLE tb_1 MODIFY manaId VARCHAR(10) FIRST; 修改字段为第一个字段</div><div class="line">ALTER TABLE tb_1 MODIFY manaId VARCHAR(10) AFTER name; 修改字段到指定列之后</div><div class="line">ALTER TABLE tb_3 ENGINE=InnoDB; 更改表的存储引擎</div><div class="line">DROP TABLE IF EXISTS tb_1; 删除数据表</div><div class="line">CHECK TABLE tb_1; 检查表是否有错误</div><div class="line">OPTIMIZE TABLE tb_1; 整理存储空间碎片,整理空间</div><div class="line">insert into su_tb (id, name) select id, name from su_tb; 插入查询的数据表</div><div class="line">git bash 登录mysql: winpty mysql -u root</div></pre></td></tr></table></figure>
+		<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">1. 数据库操作</div><div class="line">SHOW DATABASES; 查看数据库列表</div><div class="line">CREATE DATABASE database_name; 创建数据库</div><div class="line">DROP DATABASE database_name; 删除数据库</div><div class="line">SHOW CREATE DATABASE database_name; 查看数据库信息</div><div class="line">SHOW ENGINES \G 查看数据库支持的存储引擎</div><div class="line">SHOW VARIABLES LIKE <span class="string">'storage_engine'</span>; 查看默认存储引擎</div><div class="line">2. 数据表操作</div><div class="line">创建数据表</div><div class="line">CREATE TABLE tb_1(</div><div class="line">id int(11) PRIMARY KEY,</div><div class="line">name varchar(22)</div><div class="line">);</div><div class="line">SHOW TABLES; 查看数据表列表</div><div class="line">PRIMARY KEY 使用主键约束</div><div class="line">NOT NULL 非空性约束</div><div class="line">UNIQUE 唯一性约束</div><div class="line">DEFAULT 11 默认约束</div><div class="line">AUTO_INCREMENT 表属性值自动增加</div><div class="line">DESCRIBE tb_1; DESC tb_1;(简写) 查看数据表结构</div><div class="line">SHOW CREATE TABLE tb_1; 查看表的详细结构</div><div class="line">ALTER TABLE tb_1 RENAME tb_2; 修改表名</div><div class="line">ALTER TABLE tb_1 MODIFY name VARCHAR(50); 修改字段数据类型</div><div class="line">ALTER TABLE tb_1 CHANGE salary sala VARCHAR(10); 修改字段名</div><div class="line">ALTER TABLE tb_1 ADD manaId int(10); 添加无完整性约束条件字段</div><div class="line">ALTER TABLE tb_1 ADD manaId int(10) NOT NULL; 添加有完整性约束条件字段</div><div class="line">ALTER TABLE tb_1 ADD manaId int(10) FIRST; 在表的第一列添加一个字段</div><div class="line">ALTER TABLE tb_1 ADD manaId int(10) AFTER name; 在表的指定列添加一个字段</div><div class="line">ALTER TABLE tb_1 DROP manaId; 删除字段</div><div class="line">ALTER TABLE tb_1 MODIFY manaId VARCHAR(10) FIRST; 修改字段为第一个字段</div><div class="line">ALTER TABLE tb_1 MODIFY manaId VARCHAR(10) AFTER name; 修改字段到指定列之后</div><div class="line">ALTER TABLE tb_3 ENGINE=InnoDB; 更改表的存储引擎</div><div class="line">DROP TABLE IF EXISTS tb_1; 删除数据表</div><div class="line">CHECK TABLE tb_1; 检查表是否有错误</div><div class="line">OPTIMIZE TABLE tb_1; 整理存储空间碎片,整理空间</div><div class="line">insert into su_tb (id, name) select id, name from su_tb; 插入查询的数据表</div><div class="line">git bash 登录mysql: winpty mysql -u root</div><div class="line">SET PASSWORD = PASSWORD(<span class="string">'newpasswd'</span>); 修改root密码</div></pre></td></tr></table></figure>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -110,10 +110,10 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2016/06/30/ftp双开/" title="ftp双开">
+ <a href="/2016/06/30/站点配置流程/" title="站点配置流程">
   <strong>PREVIOUS:</strong><br/>
   <span>
-  ftp双开</span>
+  站点配置流程</span>
 </a>
 </div>
 
@@ -130,20 +130,20 @@
 
 	
 </div>  
-      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
 
   <div id="toc" class="toc-aside">
-  <strong class="toc-title">Contents</strong>
+  <strong class="toc-title">文章目錄</strong>
   
   </div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
 <aside class="clearfix">
 
   
 <div class="categorieslist">
-	<p class="asidetitle">Categories</p>
+	<p class="asidetitle">分類</p>
 		<ul>
 		
 			<li><a href="/categories/designPattern/" title="designPattern">designPattern<sup>2</sup></a></li>
