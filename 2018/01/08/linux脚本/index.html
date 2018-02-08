@@ -4,12 +4,12 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>GIT-webHook配置 | PHP</title>
+    <title>linux脚本 | PHP</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="Su">
     
-    <meta name="description" content="根文件夹新建webHook.php&amp;lt;?php  $pwd = getcwd();  $command = &#39;cd &#39; . $pwd . &#39; &amp;amp;&amp;amp; git pull&#39;;  $output = shell_exec($command);  print $output;?&amp;gt;gi">
+    <meta name="description" content="备份线上数据库到本地#!/bin/bashecho start: $(date &#39;+%Y%m%d %H:%M:%S&#39;) &amp;gt;&amp;gt; /home/su/log.log# 匹配提示符CMD_PROMPT=&quot;\](\$|#)&quot;passwords=&quot;laobing7026546&quot;expect&amp;lt;&amp;">
     
     
     
@@ -65,15 +65,15 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/05/23/git-webHook/" title="GIT-webHook配置" itemprop="url">GIT-webHook配置</a>
+      <a href="/2018/01/08/linux脚本/" title="linux脚本" itemprop="url">linux脚本</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://www.sujianxun.com" title="Su">Su</a>
     </p>
   <p class="article-time">
-    <time datetime="2016-05-23T02:20:13.000Z" itemprop="datePublished">2016-05-23</time>
-    Updated:<time datetime="2017-12-26T00:24:49.401Z" itemprop="dateModified">2017-12-26</time>
+    <time datetime="2018-01-08T01:35:16.000Z" itemprop="datePublished">2018-01-08</time>
+    Updated:<time datetime="2018-02-08T01:11:20.742Z" itemprop="dateModified">2018-02-08</time>
     
   </p>
 </header>
@@ -85,7 +85,9 @@
 		
 		</div>
 		
-		<p>根文件夹新建webHook.php<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">&lt;?php</div><div class="line">  <span class="variable">$pwd</span> = getcwd();</div><div class="line">  <span class="variable">$command</span> = <span class="string">'cd '</span> . <span class="variable">$pwd</span> . <span class="string">' &amp;&amp; git pull'</span>;</div><div class="line">  <span class="variable">$output</span> = shell_exec(<span class="variable">$command</span>);</div><div class="line">  <span class="built_in">print</span> <span class="variable">$output</span>;</div><div class="line">?&gt;</div><div class="line">git 版本库添加http://siteurl/webHook.php</div><div class="line">修改根文件夹用户为www</div><div class="line">vim /usr/<span class="built_in">local</span>/php/etc/php-fpm.conf</div><div class="line">user = www</div><div class="line">group = www</div><div class="line">配置www用户具有git权限,确保git pull 能够正常使用</div></pre></td></tr></table></figure></p>
+		<p>备份线上数据库到本地<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line"><span class="meta">#!/bin/bash</span></div><div class="line"></div><div class="line"><span class="built_in">echo</span> start: $(date <span class="string">'+%Y%m%d %H:%M:%S'</span>) &gt;&gt; /home/su/log.log</div><div class="line"></div><div class="line"><span class="comment"># 匹配提示符</span></div><div class="line">CMD_PROMPT=<span class="string">"\](\$|#)"</span></div><div class="line"></div><div class="line">passwords=<span class="string">"laobing7026546"</span></div><div class="line"></div><div class="line">expect&lt;&lt;-END</div><div class="line"><span class="built_in">set</span> timeout 5</div><div class="line">send_user staring\r</div><div class="line">    spawn /usr/bin/scp laobing@120.78.81.67:/home/laobing/mysqlDump/*.sql.gz /home/su/databaseBak/</div><div class="line">    expect -re <span class="variable">$CMD_PROMPT</span></div><div class="line">    send -- <span class="variable">$passwords</span>\r</div><div class="line">    expect -re <span class="variable">$CMD_PROMPT</span></div><div class="line"><span class="built_in">set</span> timeout 6000</div><div class="line">    expect eof</div><div class="line"><span class="built_in">exit</span></div><div class="line">END</div><div class="line"></div><div class="line">rename <span class="string">'s/\:/-/'</span> /home/su/databaseBak/*.sql.gz</div><div class="line">rename <span class="string">'s/\:/-/'</span> /home/su/databaseBak/*.sql.gz</div><div class="line">cp /home/su/databaseBak/*.sql.gz /mnt/d/work/老兵/数据库/bak/temporary/</div><div class="line">rm -rf /home/su/databaseBak/*.sql.gz</div><div class="line"></div><div class="line"><span class="built_in">echo</span> end: $(date <span class="string">'+%Y%m%d %H:%M:%S'</span>) &gt;&gt; /home/su/log.log</div></pre></td></tr></table></figure></p>
+<p>免输入密码启动服务<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line"><span class="meta">#!/bin/bash</span></div><div class="line"><span class="built_in">echo</span> 123456 | sudo -S service php7.1-fpm start</div><div class="line"><span class="built_in">echo</span> 123456 | sudo -S service mysql start</div><div class="line"><span class="built_in">echo</span> 123456 | sudo -S service nginx start</div><div class="line"><span class="built_in">echo</span> 123456 | sudo -S service cron start</div></pre></td></tr></table></figure></p>
+<p>备份远程库到本地<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line"><span class="meta">#!/bin/bash</span></div><div class="line">mysqldump -h120.78.81.67 -u root -pLaobing1981! laobing &gt; /home/su/databaseBak/laobing.sql</div><div class="line">mysql -u root -p123456 laobing &lt; /home/su/databaseBak/laobing.sql</div></pre></td></tr></table></figure></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -93,14 +95,14 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/git/">git</a>
+  <a class="article-category-link" href="/categories/linux/">linux</a>
 </div>
 
 
 
 <div class="article-share" id="share">
 
-  <div data-url="http://www.sujianxun.com/2016/05/23/git-webHook/" data-title="GIT-webHook配置 | PHP" data-tsina="null" class="share clearfix">
+  <div data-url="http://www.sujianxun.com/2018/01/08/linux脚本/" data-title="linux脚本 | PHP" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -109,19 +111,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2016/05/23/linux代理服务器(虚拟机)/" title="linux代理服务器(虚拟机)">
-  <strong>PREVIOUS:</strong><br/>
-  <span>
-  linux代理服务器(虚拟机)</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2016/05/23/git/"  title="GIT配置">
+<a href="/2017/09/20/CentOS 6.5yum安装MySQL 5.6/"  title="CentOS 6.5yum安装MySQL 5.6">
  <strong>NEXT:</strong><br/> 
- <span>GIT配置
+ <span>CentOS 6.5yum安装MySQL 5.6
 </span>
 </a>
 </div>
