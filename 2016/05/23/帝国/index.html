@@ -4,14 +4,12 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>vpn | PHP</title>
+    <title>GIT配置 | PHP</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="Su">
     
-    <meta name="description" content="1购买bandwagonhost服务器搬瓦工，因其官网网站标识是BandwagonHost，有点类似BanWaGong的拼写，所以我们国内的站长喜欢称作为搬瓦工VPS。
-https://bandwagonhost.com/index.php登录网站后，点击导航栏中【VPS Hosting】按钮购买
-">
+    <meta name="description" content="truncate table gz_ad_content;truncate table gz_ad_position;truncate table gz_article;truncate table gz_article_cate;truncate table gz_attribute;trunca">
     
     
     
@@ -67,15 +65,15 @@ https://bandwagonhost.com/index.php登录网站后，点击导航栏中【VPS Ho
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/09/20/vpn/" title="vpn" itemprop="url">vpn</a>
+      <a href="/2016/05/23/帝国/" title="GIT配置" itemprop="url">GIT配置</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://www.sujianxun.com" title="Su">Su</a>
     </p>
   <p class="article-time">
-    <time datetime="2017-09-20T09:12:30.000Z" itemprop="datePublished">2017-09-20</time>
-    Updated:<time datetime="2017-12-26T00:24:49.486Z" itemprop="dateModified">2017-12-26</time>
+    <time datetime="2016-05-23T02:20:13.000Z" itemprop="datePublished">2016-05-23</time>
+    Updated:<time datetime="2018-03-28T06:18:18.676Z" itemprop="dateModified">2018-03-28</time>
     
   </p>
 </header>
@@ -87,28 +85,21 @@ https://bandwagonhost.com/index.php登录网站后，点击导航栏中【VPS Ho
 		
 		</div>
 		
-		<p>1购买bandwagonhost服务器<br>搬瓦工，因其官网网站标识是BandwagonHost，有点类似BanWaGong的拼写，所以我们国内的站长喜欢称作为搬瓦工VPS。</p>
-<p><a href="https://bandwagonhost.com/index.php" target="_blank" rel="external">https://bandwagonhost.com/index.php</a><br>登录网站后，点击导航栏中【VPS Hosting】按钮购买</p>
-<p>修改VPS密码<br>使用ssh工具登录服务器，输入VPS的IP地址、端口号、用户名和密码。具体登录方法不在本次讲解的范围内，恕不赘述。<br>然后输入shell命令<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">passwd</div></pre></td></tr></table></figure></p>
-<p>安装shadowsocks<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">wget –no-check-certificate https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks.sh  </div><div class="line">chmod +x shadowsocks.sh  </div><div class="line">./shadowsocks.sh 2&gt;&amp;1 | tee shadowsocks.log</div></pre></td></tr></table></figure></p>
-<p>配置开机自动启动<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">打开rc.local文件</div><div class="line"></div><div class="line">vi /etc/rc.local</div><div class="line"></div><div class="line">输入下面的代码</div><div class="line"></div><div class="line">ssserver -c /etc/shadowsocks.json -d start</div><div class="line"></div><div class="line">shadowsocks服务相关命令</div><div class="line"></div><div class="line">启动shadowsocks服务</div><div class="line"></div><div class="line">ssserver -c /etc/shadowsocks.json -d start</div><div class="line"></div><div class="line">关闭shadowsocks服务</div><div class="line"></div><div class="line">ssserver -c /etc/shadowsocks.json -d stop</div><div class="line"></div><div class="line">重启shadowsocks服务</div><div class="line"></div><div class="line">ssserver -c /etc/shadowsocks.json -d restart</div></pre></td></tr></table></figure></p>
-<p>教程地址:<br><a href="http://blog.csdn.net/win_turn/article/details/51559867" target="_blank" rel="external">http://blog.csdn.net/win_turn/article/details/51559867</a><br><a href="http://blog.csdn.net/qq_19835843/article/details/52233111" target="_blank" rel="external">http://blog.csdn.net/qq_19835843/article/details/52233111</a></p>
-<p>linux 实现翻墙<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">yum install python-pip</div><div class="line">在CentOS下需要用到pip，安装pip包，输入yum install python-pip，提示No package python-pip available.Error: Nothing to <span class="keyword">do</span></div><div class="line">因为没有此rpm包，此包包含在epel源里面</div><div class="line">输入rpm -ivh http://dl.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm ，</div><div class="line">之后再安装pip,输入yum install python-pip即可</div><div class="line">pip install shadowsocks</div><div class="line">vim /etc/shadowsocks.json</div><div class="line">&#123;</div><div class="line">    <span class="string">"server"</span>:<span class="string">"服务器的ip"</span>,</div><div class="line">    <span class="string">"server_port"</span>:19175,</div><div class="line">    <span class="string">"local_address"</span>:<span class="string">"127.0.0.1"</span>,</div><div class="line">    <span class="string">"local_port"</span>:1080,</div><div class="line">    <span class="string">"password"</span>:<span class="string">"密码"</span>,</div><div class="line">    <span class="string">"timeout"</span>:300,</div><div class="line">    <span class="string">"method"</span>:<span class="string">"aes-256-cfb"</span>,</div><div class="line">    <span class="string">"fast_open"</span>:<span class="literal">false</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">sslocal -c /etc/shadowsocks.json -d start</div><div class="line">sslocal -c /etc/shadowsocks.json -d stop</div><div class="line">sslocal -c /etc/shadowsocks.json -d restart</div><div class="line"></div><div class="line">安装Privoxy</div><div class="line">yum install -y privoxy</div><div class="line">vim /etc/privoxy/config</div><div class="line">增加</div><div class="line">forward-socks5 / 127.0.0.1:1080 .</div><div class="line"></div><div class="line">service privoxy start</div><div class="line"></div><div class="line">执行vim /etc/profile,添加如下三句:</div><div class="line"></div><div class="line"><span class="built_in">export</span> http_proxy=http://127.0.0.1:8118</div><div class="line"><span class="built_in">export</span> https_proxy=http://127.0.0.1:8118</div><div class="line"><span class="built_in">export</span> ftp_proxy=http://127.0.0.1:8118</div><div class="line"></div><div class="line"><span class="built_in">source</span> /etc/profile</div><div class="line"></div><div class="line">浏览器代理填写ip: 127.0.0.1 prot: 8118</div></pre></td></tr></table></figure></p>
-  
+		<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">truncate table gz_ad_content;</div><div class="line">truncate table gz_ad_position;</div><div class="line">truncate table gz_article;</div><div class="line">truncate table gz_article_cate;</div><div class="line">truncate table gz_attribute;</div><div class="line">truncate table gz_bonus_list;</div><div class="line">truncate table gz_bonus_type;</div><div class="line">truncate table gz_brand;</div><div class="line">truncate table gz_category_sub_goods;</div><div class="line">truncate table gz_comment;</div><div class="line">truncate table gz_distribution_drawmoney;</div><div class="line">truncate table gz_distribution_money_change;</div><div class="line">truncate table gz_distributor_relationship;</div><div class="line">truncate table gz_distributor_relationship_user;</div><div class="line">truncate table gz_dividends_log;</div><div class="line">truncate table gz_freecatalog;</div><div class="line">truncate table gz_friend_link;</div><div class="line">truncate table gz_goods;</div><div class="line">truncate table gz_goods_attr;</div><div class="line">truncate table gz_goods_attr_stock;</div><div class="line">truncate table gz_goods_cache_list;</div><div class="line">truncate table gz_goods_cache_site;</div><div class="line">truncate table gz_goods_cache_url;</div><div class="line">truncate table gz_goods_cate;</div><div class="line">truncate table gz_goods_collect;</div><div class="line">truncate table gz_goods_gallery;</div><div class="line">truncate table gz_goods_gallery_copy;</div><div class="line">truncate table gz_goods_gift;</div><div class="line">truncate table gz_goods_groupbuy;</div><div class="line">truncate table gz_goods_groupbuy_price;</div><div class="line">truncate table gz_goods_keyword;</div><div class="line">truncate table gz_goods_order;</div><div class="line">truncate table gz_goods_order_action;</div><div class="line">truncate table gz_goods_order_action_log;</div><div class="line">truncate table gz_goods_order_action_v2;</div><div class="line">truncate table gz_goods_order_address;</div><div class="line">truncate table gz_goods_order_daigou;</div><div class="line">truncate table gz_goods_order_info;</div><div class="line">truncate table gz_goods_order_info_daigou;</div><div class="line">truncate table gz_goods_order_status;</div><div class="line">truncate table gz_goods_sn;</div><div class="line">truncate table gz_goods_tuijian;</div><div class="line">truncate table gz_goods_user_config;</div><div class="line">truncate table gz_goods_user_price;</div><div class="line">truncate table gz_lts_site;</div><div class="line">truncate table gz_message;</div><div class="line">truncate table gz_nav;</div><div class="line">truncate table gz_nav_wx;</div><div class="line">truncate table gz_nei_userdbinfo;</div><div class="line">truncate table gz_photos;</div><div class="line">truncate table gz_platform_money_change;</div><div class="line">truncate table gz_qitian;</div><div class="line">truncate table gz_recharge;</div><div class="line">truncate table gz_shipping;</div><div class="line">truncate table gz_shipping_area;</div><div class="line">truncate table gz_shipping_name;</div><div class="line">truncate table gz_shipping_sn;</div><div class="line">truncate table gz_shop_yuyue;</div><div class="line">truncate table gz_sign;</div><div class="line">truncate table gz_stats_keywords;</div><div class="line">truncate table gz_stats_page;</div><div class="line">truncate table gz_stats_referer;</div><div class="line">truncate table gz_suppliers_goods;</div><div class="line">truncate table gz_suppliers_shoppong_area;</div><div class="line">truncate table gz_top_cate;</div><div class="line">truncate table gz_top_cate_goods;</div><div class="line">truncate table gz_topic;</div><div class="line">truncate table gz_udaili_siteset;</div><div class="line">truncate table gz_user;</div><div class="line">truncate table gz_user_address;</div><div class="line">truncate table gz_user_bank;</div><div class="line">truncate table gz_user_drawmoney;</div><div class="line">truncate table gz_user_message;</div><div class="line">truncate table gz_user_money_change;</div><div class="line">truncate table gz_user_money_change_cache;</div><div class="line">truncate table gz_user_money_record;</div><div class="line">truncate table gz_user_point_change;</div><div class="line">truncate table gz_user_salesmen_brand;</div><div class="line">truncate table gz_user_share;</div><div class="line">truncate table gz_user_tuijian;</div><div class="line">truncate table gz_user_tuijian_fx;</div><div class="line">truncate table gz_wx_article;</div><div class="line">truncate table gz_wx_cate;</div><div class="line">truncate table gz_wxdiymen;</div><div class="line">truncate table gz_wxkeyword;</div></pre></td></tr></table></figure>  
 	</div>
 		<footer class="article-footer clearfix">
 
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/others/">others</a>
+  <a class="article-category-link" href="/categories/git/">git</a>
 </div>
 
 
 
 <div class="article-share" id="share">
 
-  <div data-url="http://www.sujianxun.com/2017/09/20/vpn/" data-title="vpn | PHP" data-tsina="null" class="share clearfix">
+  <div data-url="http://www.sujianxun.com/2016/05/23/帝国/" data-title="GIT配置 | PHP" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -118,18 +109,18 @@ https://bandwagonhost.com/index.php登录网站后，点击导航栏中【VPS Ho
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2018/01/08/linux脚本/" title="linux脚本">
+ <a href="/2016/05/23/composer+phinx/" title="composer+phinx">
   <strong>PREVIOUS:</strong><br/>
   <span>
-  linux脚本</span>
+  composer+phinx</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2017/09/20/CentOS 6.5yum安装MySQL 5.6/"  title="CentOS 6.5yum安装MySQL 5.6">
+<a href="/2016/05/23/win杂项/"  title="WIN杂项">
  <strong>NEXT:</strong><br/> 
- <span>CentOS 6.5yum安装MySQL 5.6
+ <span>WIN杂项
 </span>
 </a>
 </div>
