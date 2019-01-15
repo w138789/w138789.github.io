@@ -62,6 +62,34 @@
 
   <section class="post" itemscope itemprop="blogPost">
   
+    <a href="/2017/03/09/shell邮件报警/" title="shell邮件报警" itemprop="url">
+  
+    <h1 itemprop="name">shell邮件报警</h1>
+    
+     
+           <p itemprop="description" >一. 编写报警脚本在root文件夹下#硬盘报警vim disk.sh#!/bin/bash#disk.sh#取得硬盘已使用空间num=`df |awk &#39;NR==2&amp;#123;print int($5)&amp;#125;&#39;`if [ $num -gt 25 ]then	echo &quot;di</p>
+        
+    
+    <time datetime="2017-03-09T06:20:13.000Z" itemprop="datePublished">2017-03-09</time>
+  </a>
+</section>
+
+  <section class="post" itemscope itemprop="blogPost">
+  
+    <a href="/2017/03/09/linux邮件服务器配置/" title="linux邮件服务器配置" itemprop="url">
+  
+    <h1 itemprop="name">linux邮件服务器配置</h1>
+    
+     
+           <p itemprop="description" >一. 配置邮件发信服务器postfixvim /etc/postfix/main.cfmyhostname = mail.su.commydomain = su.commyorigin = $myhostnamemyorigin = $mydomaininet_interface</p>
+        
+    
+    <time datetime="2017-03-09T02:20:13.000Z" itemprop="datePublished">2017-03-09</time>
+  </a>
+</section>
+
+  <section class="post" itemscope itemprop="blogPost">
+  
     <a href="/2017/03/07/linux源码配置php环境/" title="linux源码配置php环境" itemprop="url">
   
     <h1 itemprop="name">linux源码配置php环境</h1>
@@ -128,20 +156,6 @@ service ip</p>
 
   <section class="post" itemscope itemprop="blogPost">
   
-    <a href="/2016/06/30/站点配置流程/" title="站点配置流程" itemprop="url">
-  
-    <h1 itemprop="name">站点配置流程</h1>
-    
-     
-           <p itemprop="description" >1.安装nginxyum install nginx -y不行则yum update出现 No package nginx available. Error: Nothing to do增加源码包:rpm -ivh http://nginx.org/packages/centos</p>
-        
-    
-    <time datetime="2016-06-30T03:21:38.000Z" itemprop="datePublished">2016-06-30</time>
-  </a>
-</section>
-
-  <section class="post" itemscope itemprop="blogPost">
-  
     <a href="/2016/06/30/ftp双开/" title="ftp双开" itemprop="url">
   
     <h1 itemprop="name">ftp双开</h1>
@@ -151,6 +165,20 @@ service ip</p>
 #useradd -d /var/www/ftp1 -s /sbin/nologin ftpuserone
 #passwd ftpuserone
 #useradd -d /var/www/ftp2 -s /sbin/nologin ftpusertw</p>
+        
+    
+    <time datetime="2016-06-30T03:21:38.000Z" itemprop="datePublished">2016-06-30</time>
+  </a>
+</section>
+
+  <section class="post" itemscope itemprop="blogPost">
+  
+    <a href="/2016/06/30/站点配置流程/" title="站点配置流程" itemprop="url">
+  
+    <h1 itemprop="name">站点配置流程</h1>
+    
+     
+           <p itemprop="description" >1.安装nginxyum install nginx -y不行则yum update出现 No package nginx available. Error: Nothing to do增加源码包:rpm -ivh http://nginx.org/packages/centos</p>
         
     
     <time datetime="2016-06-30T03:21:38.000Z" itemprop="datePublished">2016-06-30</time>
@@ -185,34 +213,6 @@ service ip</p>
   </a>
 </section>
 
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/2016/06/17/linux命令/" title="linux命令" itemprop="url">
-  
-    <h1 itemprop="name">linux命令</h1>
-    
-     
-           <p itemprop="description" >1.删除文件夹下所有文件进入这个文件夹然后用命令 rm -rf *删除单个文件rm -rf su1.conf2.重启服务器启动网站服务//重启服务器重启svnsvnserve -d -r /var/svn//启动php-fpmservice php-fpm startservic</p>
-        
-    
-    <time datetime="2016-06-17T07:35:16.000Z" itemprop="datePublished">2016-06-17</time>
-  </a>
-</section>
-
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/2016/06/13/mysql脚本定时备份数据库/" title="mysql脚本定时备份数据库" itemprop="url">
-  
-    <h1 itemprop="name">mysql脚本定时备份数据库</h1>
-    
-     
-           <p itemprop="description" >创建文件夹mkdir mysqlDump创建脚本文件vim mysqlDump.shtoday_date=`date +%Y%m%d`today_time=`date +%T`find /root/mysqlDump/ -mtime +10 -name &quot;*.gz&quot; -exec </p>
-        
-    
-    <time datetime="2016-06-13T09:12:30.000Z" itemprop="datePublished">2016-06-13</time>
-  </a>
-</section>
-
 
   <nav id="page-nav" class="clearfix">
     <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -232,13 +232,13 @@ service ip</p>
 		
 			<li><a href="/categories/designPattern/" title="designPattern">designPattern<sup>2</sup></a></li>
 		
-			<li><a href="/categories/git/" title="git">git<sup>5</sup></a></li>
+			<li><a href="/categories/git/" title="git">git<sup>4</sup></a></li>
 		
-			<li><a href="/categories/linux/" title="linux">linux<sup>14</sup></a></li>
+			<li><a href="/categories/linux/" title="linux">linux<sup>15</sup></a></li>
 		
 			<li><a href="/categories/mysql/" title="mysql">mysql<sup>6</sup></a></li>
 		
-			<li><a href="/categories/others/" title="others">others<sup>3</sup></a></li>
+			<li><a href="/categories/others/" title="others">others<sup>5</sup></a></li>
 		
 			<li><a href="/categories/php/" title="php">php<sup>2</sup></a></li>
 		
@@ -268,7 +268,7 @@ service ip</p>
 		
 		
 	</div>
-		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2018 
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2019 
 		
 		<a href="http://www.sujianxun.com" target="_blank" title="Su">Su</a>
 		

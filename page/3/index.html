@@ -62,12 +62,40 @@
 
   <section class="post" itemscope itemprop="blogPost">
   
+    <a href="/2016/06/17/linux命令/" title="linux命令" itemprop="url">
+  
+    <h1 itemprop="name">linux命令</h1>
+    
+     
+           <p itemprop="description" >1.删除文件夹下所有文件进入这个文件夹然后用命令 rm -rf *删除单个文件rm -rf su1.conf2.重启服务器启动网站服务//重启服务器重启svnsvnserve -d -r /var/svn//启动php-fpmservice php-fpm startservic</p>
+        
+    
+    <time datetime="2016-06-17T07:35:16.000Z" itemprop="datePublished">2016-06-17</time>
+  </a>
+</section>
+
+  <section class="post" itemscope itemprop="blogPost">
+  
     <a href="/2016/06/13/mysql复制数据库/" title="mysql复制数据库" itemprop="url">
   
     <h1 itemprop="name">mysql复制数据库</h1>
     
      
            <p itemprop="description" >复制一个数据库说明: mysqldump 老数据库 -u root -p数据库密码 |mysql 新数据库 -u root -p数据库密码[root@localhost mysql]# mysqldump su -u root -p123456 |mysql su_new -u </p>
+        
+    
+    <time datetime="2016-06-13T09:12:30.000Z" itemprop="datePublished">2016-06-13</time>
+  </a>
+</section>
+
+  <section class="post" itemscope itemprop="blogPost">
+  
+    <a href="/2016/06/13/mysql脚本定时备份数据库/" title="mysql脚本定时备份数据库" itemprop="url">
+  
+    <h1 itemprop="name">mysql脚本定时备份数据库</h1>
+    
+     
+           <p itemprop="description" >创建文件夹mkdir mysqlDump创建脚本文件vim mysqlDump.shtoday_date=`date +%Y%m%d`today_time=`date +%T`find /root/mysqlDump/ -mtime +10 -name &quot;*.gz&quot; -exec </p>
         
     
     <time datetime="2016-06-13T09:12:30.000Z" itemprop="datePublished">2016-06-13</time>
@@ -150,57 +178,26 @@ sudo add-apt-re</p>
 
   <section class="post" itemscope itemprop="blogPost">
   
-    <a href="/2016/05/23/git-webHook/" title="GIT-webHook配置" itemprop="url">
-  
-    <h1 itemprop="name">GIT-webHook配置</h1>
-    
-     
-           <p itemprop="description" >根文件夹新建webHook.php&amp;lt;?php  $pwd = getcwd();  $command = &#39;cd &#39; . $pwd . &#39; &amp;amp;&amp;amp; git pull&#39;;  $output = shell_exec($command);  print $outp</p>
-        
-    
-    <time datetime="2016-05-23T02:20:13.000Z" itemprop="datePublished">2016-05-23</time>
-  </a>
-</section>
-
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/2016/05/23/composer+phinx/" title="composer+phinx" itemprop="url">
-  
-    <h1 itemprop="name">composer+phinx</h1>
-    
-     
-           <p itemprop="description" >1 安装composerphp -r &quot;copy(&#39;https://install.phpcomposer.com/installer&#39;, &#39;composer-setup.php&#39;);&quot;php composer-setup.phpphp -r &quot;unlink(&#39;composer-</p>
-        
-    
-    <time datetime="2016-05-23T02:20:13.000Z" itemprop="datePublished">2016-05-23</time>
-  </a>
-</section>
-
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/2016/05/23/linux代理服务器(虚拟机)/" title="linux代理服务器(虚拟机)" itemprop="url">
-  
-    <h1 itemprop="name">linux代理服务器(虚拟机)</h1>
-    
-     
-           <p itemprop="description" >三台机器分别为主机,squid-server,web-server
-一. 普通代理服务器设置
-
-主机VMnet1和squid-server eth0 同一网段, squid-server eth1 和 web-server同一网段主机 ip: 192.168.10.2squid-</p>
-        
-    
-    <time datetime="2016-05-23T02:20:13.000Z" itemprop="datePublished">2016-05-23</time>
-  </a>
-</section>
-
-  <section class="post" itemscope itemprop="blogPost">
-  
     <a href="/2016/05/23/win_svn/" title="WIN SVN配置" itemprop="url">
   
     <h1 itemprop="name">WIN SVN配置</h1>
     
      
            <p itemprop="description" >1，新建一个目录用于存储SVN所有文件mkdir D:/svn2，新建一个版本仓库svnadmin create D:/svn/repository3.打开 svnserve.conf[general]anon-access = noneauth-access = writepa</p>
+        
+    
+    <time datetime="2016-05-23T02:20:13.000Z" itemprop="datePublished">2016-05-23</time>
+  </a>
+</section>
+
+  <section class="post" itemscope itemprop="blogPost">
+  
+    <a href="/2016/05/23/win杂项/" title="WIN杂项" itemprop="url">
+  
+    <h1 itemprop="name">WIN杂项</h1>
+    
+     
+           <p itemprop="description" >修改win10开机引导项下载diskgenius, 设置 硬盘-&amp;gt;重建主引导记录(MBR)下载easybcd,编辑疏导菜单</p>
         
     
     <time datetime="2016-05-23T02:20:13.000Z" itemprop="datePublished">2016-05-23</time>
@@ -226,13 +223,13 @@ sudo add-apt-re</p>
 		
 			<li><a href="/categories/designPattern/" title="designPattern">designPattern<sup>2</sup></a></li>
 		
-			<li><a href="/categories/git/" title="git">git<sup>5</sup></a></li>
+			<li><a href="/categories/git/" title="git">git<sup>4</sup></a></li>
 		
-			<li><a href="/categories/linux/" title="linux">linux<sup>14</sup></a></li>
+			<li><a href="/categories/linux/" title="linux">linux<sup>15</sup></a></li>
 		
 			<li><a href="/categories/mysql/" title="mysql">mysql<sup>6</sup></a></li>
 		
-			<li><a href="/categories/others/" title="others">others<sup>3</sup></a></li>
+			<li><a href="/categories/others/" title="others">others<sup>5</sup></a></li>
 		
 			<li><a href="/categories/php/" title="php">php<sup>2</sup></a></li>
 		
@@ -262,7 +259,7 @@ sudo add-apt-re</p>
 		
 		
 	</div>
-		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2018 
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2019 
 		
 		<a href="http://www.sujianxun.com" target="_blank" title="Su">Su</a>
 		
