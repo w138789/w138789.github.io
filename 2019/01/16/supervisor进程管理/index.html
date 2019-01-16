@@ -37,7 +37,7 @@
 				<h1 class="site-name"><a href="/" title="PHP">PHP</a></h1>
 				<h2 class="blog-motto"></h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -50,7 +50,7 @@
 					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
 						<input type="hidden" name="q" value="site:www.sujianxun.com">
 					</form>
 					
@@ -74,7 +74,7 @@
     </p>
   <p class="article-time">
     <time datetime="2019-01-16T07:35:16.000Z" itemprop="datePublished">2019-01-16</time>
-    Updated:<time datetime="2019-01-16T09:31:06.438Z" itemprop="dateModified">2019-01-16</time>
+    更新日期:<time datetime="2019-01-16T09:33:47.256Z" itemprop="dateModified">2019-01-16</time>
     
   </p>
 </header>
@@ -82,14 +82,15 @@
 		
 		
 		<div id="toc" class="toc-article">
-			<strong class="toc-title">Contents</strong>
+			<strong class="toc-title">文章目錄</strong>
 		
 		</div>
 		
 		<p>安装<br>yum install -y supervisor</p>
 <p>启动服务<br>sudo service supervisor start<br>查看进程<br>sudo supervisorctl status<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">su@su:/var/www/santai$ sudo supervisorctl status</div><div class="line">jPush                            RUNNING   pid 8910, uptime 0:20:00</div><div class="line">wechatMessage                    RUNNING   pid 8909, uptime 0:20:00</div></pre></td></tr></table></figure></p>
 <p>杀死服务<br>sudo pkill supervisord</p>
-<p>配置文件:<br>sudo vim /etc/supervisor/conf.d/jPush.conf<br>添加:<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">[program:jPush]</div><div class="line"><span class="built_in">command</span>= /usr/<span class="built_in">local</span>/php7.2.5/bin/php think queue:work --queue=<span class="string">"jPush"</span> --delay=0 --memory=128 --sleep=3 --tries=0 --daemon  </div><div class="line">directory= /var/www/santai </div><div class="line">user=su </div><div class="line">;process_name=%(process_num)02d</div><div class="line">;numprocs=5 ;启动几个进程 </div><div class="line">autostart=<span class="literal">true</span> ;随着supervisord的启动而启动 </div><div class="line">autorestart=<span class="literal">true</span> ;自动启动 </div><div class="line">startsecs=1 ;程序重启时候停留在runing状态的秒数 </div><div class="line">startretries=5 ;启动失败时的最多重试次数 </div><div class="line">redirect_stderr=<span class="literal">true</span> ;重定向stderr到stdout  </div><div class="line">stdout_logfile=/var/www/santai/<span class="built_in">log</span>/supervisor/jPush ;stdout文件</div><div class="line">:wq</div><div class="line">多个进程复制多个文件</div><div class="line">服务开启的时候可能其中一个无法正常启动,需要手动启动相应进程</div><div class="line">sudo supervisorctl start jPush</div></pre></td></tr></table></figure></p>
+<p>配置文件:<br>sudo vim /etc/supervisor/conf.d/jPush.conf<br>添加:<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">[program:jPush]</div><div class="line"><span class="built_in">command</span>= /usr/<span class="built_in">local</span>/php7.2.5/bin/php think queue:work --queue=<span class="string">"jPush"</span> --delay=0 --memory=128 --sleep=3 --tries=0 --daemon  </div><div class="line">directory= /var/www/santai </div><div class="line">user=su </div><div class="line">;process_name=%(process_num)02d</div><div class="line">;numprocs=5 ;启动几个进程 </div><div class="line">autostart=<span class="literal">true</span> ;随着supervisord的启动而启动 </div><div class="line">autorestart=<span class="literal">true</span> ;自动启动 </div><div class="line">startsecs=1 ;程序重启时候停留在runing状态的秒数 </div><div class="line">startretries=5 ;启动失败时的最多重试次数 </div><div class="line">redirect_stderr=<span class="literal">true</span> ;重定向stderr到stdout  </div><div class="line">stdout_logfile=/var/www/santai/<span class="built_in">log</span>/supervisor/jPush ;stdout文件</div></pre></td></tr></table></figure></p>
+<p>:wq<br>多个进程复制多个文件<br>服务开启的时候可能其中一个无法正常启动,需要手动启动相应进程<br>sudo supervisorctl start jPush</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -126,20 +127,20 @@
 
 	
 </div>  
-      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
 
   <div id="toc" class="toc-aside">
-  <strong class="toc-title">Contents</strong>
+  <strong class="toc-title">文章目錄</strong>
   
   </div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
 <aside class="clearfix">
 
   
 <div class="categorieslist">
-	<p class="asidetitle">Categories</p>
+	<p class="asidetitle">分類</p>
 		<ul>
 		
 			<li><a href="/categories/designPattern/" title="designPattern">designPattern<sup>2</sup></a></li>
