@@ -4,12 +4,12 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>mysql学习笔记 | PHP</title>
+    <title>redis配置 | PHP</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="Su">
     
-    <meta name="description" content="1. 数据库操作SHOW DATABASES; 查看数据库列表CREATE DATABASE database_name; 创建数据库DROP DATABASE database_name; 删除数据库SHOW CREATE DATABASE database_name; 查看数据库信息SHOW E">
+    <meta name="description" content="redis.confdaemonize no 改为 daemonize yes 后台运行,,保证退出命令行不停止appendonly no 改为 appendonly yes #数据持久化dir ./ 改为 dir /usr/loca/redis/database #数据保存目录port 6379 ">
     
     
     
@@ -65,15 +65,15 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/06/29/mysql学习笔记/" title="mysql学习笔记" itemprop="url">mysql学习笔记</a>
+      <a href="/2016/05/23/redis配置/" title="redis配置" itemprop="url">redis配置</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://www.sujianxun.com" title="Su">Su</a>
     </p>
   <p class="article-time">
-    <time datetime="2016-06-29T03:21:38.000Z" itemprop="datePublished">2016-06-29</time>
-    Updated:<time datetime="2018-06-09T14:42:30.766Z" itemprop="dateModified">2018-06-09</time>
+    <time datetime="2016-05-23T02:20:13.000Z" itemprop="datePublished">2016-05-23</time>
+    Updated:<time datetime="2019-01-17T02:54:26.243Z" itemprop="dateModified">2019-01-17</time>
     
   </p>
 </header>
@@ -85,7 +85,7 @@
 		
 		</div>
 		
-		<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">1. 数据库操作</div><div class="line">SHOW DATABASES; 查看数据库列表</div><div class="line">CREATE DATABASE database_name; 创建数据库</div><div class="line">DROP DATABASE database_name; 删除数据库</div><div class="line">SHOW CREATE DATABASE database_name; 查看数据库信息</div><div class="line">SHOW ENGINES \G 查看数据库支持的存储引擎</div><div class="line">SHOW VARIABLES LIKE <span class="string">'storage_engine'</span>; 查看默认存储引擎</div><div class="line">2. 数据表操作</div><div class="line">创建数据表</div><div class="line">CREATE TABLE tb_1(</div><div class="line">id int(11) PRIMARY KEY,</div><div class="line">name varchar(22)</div><div class="line">);</div><div class="line">SHOW TABLES; 查看数据表列表</div><div class="line">PRIMARY KEY 使用主键约束</div><div class="line">NOT NULL 非空性约束</div><div class="line">UNIQUE 唯一性约束</div><div class="line">DEFAULT 11 默认约束</div><div class="line">AUTO_INCREMENT 表属性值自动增加</div><div class="line">DESCRIBE tb_1; DESC tb_1;(简写) 查看数据表结构</div><div class="line">SHOW CREATE TABLE tb_1; 查看表的详细结构</div><div class="line">ALTER TABLE tb_1 RENAME tb_2; 修改表名</div><div class="line">ALTER TABLE tb_1 MODIFY name VARCHAR(50); 修改字段数据类型</div><div class="line">ALTER TABLE tb_1 CHANGE salary sala VARCHAR(10); 修改字段名</div><div class="line">ALTER TABLE tb_1 ADD manaId int(10); 添加无完整性约束条件字段</div><div class="line">ALTER TABLE tb_1 ADD manaId int(10) NOT NULL; 添加有完整性约束条件字段</div><div class="line">ALTER TABLE tb_1 ADD manaId int(10) FIRST; 在表的第一列添加一个字段</div><div class="line">ALTER TABLE tb_1 ADD manaId int(10) AFTER name; 在表的指定列添加一个字段</div><div class="line">ALTER TABLE tb_1 DROP manaId; 删除字段</div><div class="line">ALTER TABLE tb_1 MODIFY manaId VARCHAR(10) FIRST; 修改字段为第一个字段</div><div class="line">ALTER TABLE tb_1 MODIFY manaId VARCHAR(10) AFTER name; 修改字段到指定列之后</div><div class="line">ALTER TABLE tb_3 ENGINE=InnoDB; 更改表的存储引擎</div><div class="line">DROP TABLE IF EXISTS tb_1; 删除数据表</div><div class="line">CHECK TABLE tb_1; 检查表是否有错误</div><div class="line">OPTIMIZE TABLE tb_1; 整理存储空间碎片,整理空间</div><div class="line">insert into su_tb (id, name) select id, name from su_tb; 插入查询的数据表</div><div class="line">git bash 登录mysql: winpty mysql -u root</div><div class="line">SET PASSWORD = PASSWORD(<span class="string">'newpasswd'</span>); 修改root密码</div></pre></td></tr></table></figure>
+		<p>redis.conf<br>daemonize no 改为 daemonize yes 后台运行,,保证退出命令行不停止<br>appendonly no 改为 appendonly yes #数据持久化<br>dir ./ 改为 dir /usr/loca/redis/database #数据保存目录<br>port 6379 改为 port 6388 改变端口号</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -93,14 +93,14 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/mysql/">mysql</a>
+  <a class="article-category-link" href="/categories/linux/">linux</a>
 </div>
 
 
 
 <div class="article-share" id="share">
 
-  <div data-url="http://www.sujianxun.com/2016/06/29/mysql学习笔记/" data-title="mysql学习笔记 | PHP" data-tsina="null" class="share clearfix">
+  <div data-url="http://www.sujianxun.com/2016/05/23/redis配置/" data-title="redis配置 | PHP" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -110,18 +110,18 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2016/06/30/ftp双开/" title="ftp双开">
+ <a href="/2016/05/23/linux_svn/" title="SVN配置">
   <strong>PREVIOUS:</strong><br/>
   <span>
-  ftp双开</span>
+  SVN配置</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2016/06/28/mysql远程登录/"  title="mysql远程登录">
+<a href="/2016/05/23/win杂项/"  title="WIN杂项">
  <strong>NEXT:</strong><br/> 
- <span>mysql远程登录
+ <span>WIN杂项
 </span>
 </a>
 </div>
