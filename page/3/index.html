@@ -90,12 +90,12 @@
 
   <section class="post" itemscope itemprop="blogPost">
   
-    <a href="/2016/06/13/mysql脚本定时备份数据库/" title="mysql脚本定时备份数据库" itemprop="url">
+    <a href="/2016/06/13/mysql复制数据库/" title="mysql复制数据库" itemprop="url">
   
-    <h1 itemprop="name">mysql脚本定时备份数据库</h1>
+    <h1 itemprop="name">mysql复制数据库</h1>
     
      
-           <p itemprop="description" >创建文件夹mkdir mysqlDump创建脚本文件vim mysqlDump.shtoday_date=`date +%Y%m%d`today_time=`date +%T`find /root/mysqlDump/ -mtime +10 -name &quot;*.gz&quot; -exec </p>
+           <p itemprop="description" >复制一个数据库说明: mysqldump 老数据库 -u root -p数据库密码 |mysql 新数据库 -u root -p数据库密码[root@localhost mysql]# mysqldump su -u root -p123456 |mysql su_new -u </p>
         
     
     <time datetime="2016-06-13T09:12:30.000Z" itemprop="datePublished">2016-06-13</time>
@@ -104,12 +104,12 @@
 
   <section class="post" itemscope itemprop="blogPost">
   
-    <a href="/2016/06/13/mysql复制数据库/" title="mysql复制数据库" itemprop="url">
+    <a href="/2016/06/13/mysql脚本定时备份数据库/" title="mysql脚本定时备份数据库" itemprop="url">
   
-    <h1 itemprop="name">mysql复制数据库</h1>
+    <h1 itemprop="name">mysql脚本定时备份数据库</h1>
     
      
-           <p itemprop="description" >复制一个数据库说明: mysqldump 老数据库 -u root -p数据库密码 |mysql 新数据库 -u root -p数据库密码[root@localhost mysql]# mysqldump su -u root -p123456 |mysql su_new -u </p>
+           <p itemprop="description" >创建文件夹mkdir mysqlDump创建脚本文件vim mysqlDump.shtoday_date=`date +%Y%m%d`today_time=`date +%T`find /root/mysqlDump/ -mtime +10 -name &quot;*.gz&quot; -exec </p>
         
     
     <time datetime="2016-06-13T09:12:30.000Z" itemprop="datePublished">2016-06-13</time>
@@ -192,12 +192,12 @@ sudo add-apt-re</p>
 
   <section class="post" itemscope itemprop="blogPost">
   
-    <a href="/2016/05/23/win_svn/" title="WIN SVN配置" itemprop="url">
+    <a href="/2016/05/23/redis配置/" title="redis配置" itemprop="url">
   
-    <h1 itemprop="name">WIN SVN配置</h1>
+    <h1 itemprop="name">redis配置</h1>
     
      
-           <p itemprop="description" >1，新建一个目录用于存储SVN所有文件mkdir D:/svn2，新建一个版本仓库svnadmin create D:/svn/repository3.打开 svnserve.conf[general]anon-access = noneauth-access = writepa</p>
+           <p itemprop="description" >redis.confdaemonize no 改为 daemonize yes 后台运行,,保证退出命令行不停止appendonly no 改为 appendonly yes #数据持久化dir ./ 改为 dir /usr/loca/redis/database #数据保存目录</p>
         
     
     <time datetime="2016-05-23T02:20:13.000Z" itemprop="datePublished">2016-05-23</time>
