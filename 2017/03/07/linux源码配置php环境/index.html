@@ -36,7 +36,7 @@
 				<h1 class="site-name"><a href="/" title="PHP">PHP</a></h1>
 				<h2 class="blog-motto"></h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -49,7 +49,7 @@
 					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
 						<input type="hidden" name="q" value="site:www.sujianxun.com">
 					</form>
 					
@@ -73,7 +73,7 @@
     </p>
   <p class="article-time">
     <time datetime="2017-03-07T02:20:13.000Z" itemprop="datePublished">2017-03-07</time>
-    更新日期:<time datetime="2019-03-07T10:15:18.385Z" itemprop="dateModified">2019-03-07</time>
+    Updated:<time datetime="2019-04-13T14:04:16.383Z" itemprop="dateModified">2019-04-13</time>
     
   </p>
 </header>
@@ -81,7 +81,7 @@
 		
 		
 		<div id="toc" class="toc-article">
-			<strong class="toc-title">文章目录</strong>
+			<strong class="toc-title">Contents</strong>
 		
 		</div>
 		
@@ -99,7 +99,8 @@
 <li>解压<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">tar -zxvf php-5.3.16.tar.gz</div><div class="line"><span class="built_in">cd</span> /php-5.3.16</div><div class="line">./configure --prefix=/usr/<span class="built_in">local</span>/php \</div><div class="line">--with-apxs2=/usr/<span class="built_in">local</span>/apache2/bin/apxs \</div><div class="line">--with-mysqli=/usr/<span class="built_in">local</span>/mysql/bin/mysql_config \</div><div class="line">--with-pdo-mysql=/usr/<span class="built_in">local</span>/mysql/ \</div><div class="line">--with-mysql \</div><div class="line"> --<span class="built_in">enable</span>-fpm \</div><div class="line">--with-php-config=/usr/<span class="built_in">local</span>/php/bin/php-config  注意mysql_config 的路径</div><div class="line"></div><div class="line"><span class="comment">#下面是nginx的</span></div><div class="line">./configure --prefix=/usr/<span class="built_in">local</span>/php7.2.0 \</div><div class="line">--with-mysqli=/usr/<span class="built_in">local</span>/mysql/bin/mysql_config \</div><div class="line">--with-pdo-mysql=/usr/<span class="built_in">local</span>/mysql/ \</div><div class="line">--with-mysql=/usr/<span class="built_in">local</span>/mysql \</div><div class="line">--<span class="built_in">enable</span>-fpm \</div><div class="line">--with-gd \</div><div class="line">--with-jpeg-dir=/usr/<span class="built_in">local</span>/jpeg \</div><div class="line">--with-png-dir=/usr/<span class="built_in">local</span>/libpng \</div><div class="line">--with-freetype-dir=/usr/<span class="built_in">local</span>/freetype/ \</div><div class="line">--with-mbstring \</div><div class="line">--with-curl \</div><div class="line">--with-bcmath \</div><div class="line">--with-openssl \</div><div class="line">--with-redis \</div><div class="line">--with-swoole \</div><div class="line">--with-pcntl \</div><div class="line">--with-mbstring \</div><div class="line">--with-php-config=/usr/<span class="built_in">local</span>/php7.2.0/bin/php-config</div><div class="line">~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</div><div class="line">./configure --prefix=/usr/<span class="built_in">local</span>/php5.6.32 \</div><div class="line">--with-mysqli \</div><div class="line">--with-pdo \</div><div class="line">--with-pdo-mysql \</div><div class="line">--with-mysql \</div><div class="line">--<span class="built_in">enable</span>-fpm \</div><div class="line">--with-vpx-dir \</div><div class="line">--with-gd \</div><div class="line">--with-jpeg-dir \</div><div class="line">--with-freetype-dir=/usr/include/freetype2/freetype/ \</div><div class="line">--with-php-config=/usr/<span class="built_in">local</span>/php/bin/php-config \</div><div class="line">--<span class="built_in">disable</span>-fileinfo</div><div class="line">~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</div><div class="line">./configure --prefix=/usr/<span class="built_in">local</span>/php5.3.27 \</div><div class="line">--with-mysqli=/usr/<span class="built_in">local</span>/mysql5.6/bin/mysql_config \</div><div class="line">--with-pdo-mysql=/usr/<span class="built_in">local</span>/mysql5.6/ \</div><div class="line">--with-mysql=/usr/<span class="built_in">local</span>/mysql5.6 \</div><div class="line">--<span class="built_in">enable</span>-fpm \</div><div class="line">--with-gd \</div><div class="line">--with-jpeg-dir=/usr/<span class="built_in">local</span>/jpeg \</div><div class="line">--with-png-dir=/usr/<span class="built_in">local</span>/libpng \</div><div class="line">--with-freetype-dir=/usr/<span class="built_in">local</span>/freetype/ \</div><div class="line">--with-mbstring \</div><div class="line">--with-config-file-path=/usr/<span class="built_in">local</span>/php5.3.27/lib/ \</div><div class="line">--with-curl \</div><div class="line">--with-php-config=/usr/<span class="built_in">local</span>/php5.3.27/bin/php-config</div></pre></td></tr></table></figure>
 </li>
 </ol>
-<p>注意这里有一个-with-apxs2=/usr/local/apache/bin/apxs选项，<br>其中apxs是在安装Apache时产生的，apxs是一个为Apache HTTP服务器编译和安装扩展模块的工具，<br>使之可以用由mod_so提供的LoadModule指令在运行时加载到Apache服务器中。<br>我的理解是通过这个工具把PHP模块动态加载到Apache中<br>出现错误:configure: error: xml2-config not found. Please check your libxml2 installation.<br>运行yum install libxml2，然后再运行yum install libxml2-devel安装完毕后，重新运行上面的./configure命令。</p>
+<p>注意这里有一个-with-apxs2=/usr/local/apache/bin/apxs选项，<br>其中apxs是在安装Apache时产生的，apxs是一个为Apache HTTP服务器编译和安装扩展模块的工具，<br>使之可以用由mod_so提供的LoadModule指令在运行时加载到Apache服务器中。<br>我的理解是通过这个工具把PHP模块动态加载到Apache中<br>出现错误:configure: error: xml2-config not found. Please check your libxml2 installation.<br>运行yum install libxml2，然后再运行yum install libxml2-devel安装完毕后，重新运行上面的./configure命令。<br>php5.3 错误:<br>configure: error: Please reinstall the libcurl distribution -<br>    easy.h should be in <curl-dir>/include/curl/</curl-dir></p>
+<p>apt-get install curl<br>apt-get install libcurl4-gnutls-dev<br>sudo ln -s /usr/include/x86_64-linux-gnu/curl /usr/include/</p>
 <ol>
 <li>编译<br>make   </li>
 <li>测试编译<br>make test   </li>
@@ -155,20 +156,20 @@
 
 	
 </div>  
-      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
 
   <div id="toc" class="toc-aside">
-  <strong class="toc-title">文章目录</strong>
+  <strong class="toc-title">Contents</strong>
   
   </div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
 <aside class="clearfix">
 
   
 <div class="categorieslist">
-	<p class="asidetitle">分类</p>
+	<p class="asidetitle">Categories</p>
 		<ul>
 		
 			<li><a href="/categories/designPattern/" title="designPattern">designPattern<sup>2</sup></a></li>
