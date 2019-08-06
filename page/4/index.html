@@ -62,37 +62,6 @@
 
   <section class="post" itemscope itemprop="blogPost">
   
-    <a href="/2016/05/23/linux_svn/" title="SVN配置" itemprop="url">
-  
-    <h1 itemprop="name">SVN配置</h1>
-    
-     
-           <p itemprop="description" >1，新建一个目录用于存储SVN所有文件mkdir /var/svn2，新建一个版本仓库svnadmin create /var/svn/sucd /var/svn/su/conf3.vim svnserve.conf[general]anon-access = noneauth-</p>
-        
-    
-    <time datetime="2016-05-23T02:20:13.000Z" itemprop="datePublished">2016-05-23</time>
-  </a>
-</section>
-
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/2016/05/23/linux代理服务器(虚拟机)/" title="linux代理服务器(虚拟机)" itemprop="url">
-  
-    <h1 itemprop="name">linux代理服务器(虚拟机)</h1>
-    
-     
-           <p itemprop="description" >三台机器分别为主机,squid-server,web-server
-一. 普通代理服务器设置
-
-主机VMnet1和squid-server eth0 同一网段, squid-server eth1 和 web-server同一网段主机 ip: 192.168.10.2squid-</p>
-        
-    
-    <time datetime="2016-05-23T02:20:13.000Z" itemprop="datePublished">2016-05-23</time>
-  </a>
-</section>
-
-  <section class="post" itemscope itemprop="blogPost">
-  
     <a href="/2016/05/23/win杂项/" title="WIN杂项" itemprop="url">
   
     <h1 itemprop="name">WIN杂项</h1>
@@ -121,12 +90,12 @@
 
   <section class="post" itemscope itemprop="blogPost">
   
-    <a href="/2016/05/23/git-webHook/" title="GIT-webHook配置" itemprop="url">
+    <a href="/2016/05/23/win_svn/" title="WIN SVN配置" itemprop="url">
   
-    <h1 itemprop="name">GIT-webHook配置</h1>
+    <h1 itemprop="name">WIN SVN配置</h1>
     
      
-           <p itemprop="description" >根文件夹新建webHook.php&amp;lt;?php  $pwd = getcwd();  $command = &#39;cd &#39; . $pwd . &#39; &amp;amp;&amp;amp; git pull&#39;;  $output = shell_exec($command);  print $outp</p>
+           <p itemprop="description" >1，新建一个目录用于存储SVN所有文件mkdir D:/svn2，新建一个版本仓库svnadmin create D:/svn/repository3.打开 svnserve.conf[general]anon-access = noneauth-access = writepa</p>
         
     
     <time datetime="2016-05-23T02:20:13.000Z" itemprop="datePublished">2016-05-23</time>
@@ -149,12 +118,57 @@
 
   <section class="post" itemscope itemprop="blogPost">
   
-    <a href="/2016/05/23/win_svn/" title="WIN SVN配置" itemprop="url">
+    <a href="/2016/05/23/redis配置/" title="redis配置" itemprop="url">
   
-    <h1 itemprop="name">WIN SVN配置</h1>
+    <h1 itemprop="name">redis配置</h1>
     
      
-           <p itemprop="description" >1，新建一个目录用于存储SVN所有文件mkdir D:/svn2，新建一个版本仓库svnadmin create D:/svn/repository3.打开 svnserve.conf[general]anon-access = noneauth-access = writepa</p>
+           <p itemprop="description" >redis.confdaemonize no 改为 daemonize yes 后台运行,,保证退出命令行不停止appendonly no 改为 appendonly yes #数据持久化dir ./ 改为 dir /usr/loca/redis/database #数据保存目录</p>
+        
+    
+    <time datetime="2016-05-23T02:20:13.000Z" itemprop="datePublished">2016-05-23</time>
+  </a>
+</section>
+
+  <section class="post" itemscope itemprop="blogPost">
+  
+    <a href="/2016/05/23/linux代理服务器(虚拟机)/" title="linux代理服务器(虚拟机)" itemprop="url">
+  
+    <h1 itemprop="name">linux代理服务器(虚拟机)</h1>
+    
+     
+           <p itemprop="description" >三台机器分别为主机,squid-server,web-server
+一. 普通代理服务器设置
+
+主机VMnet1和squid-server eth0 同一网段, squid-server eth1 和 web-server同一网段主机 ip: 192.168.10.2squid-</p>
+        
+    
+    <time datetime="2016-05-23T02:20:13.000Z" itemprop="datePublished">2016-05-23</time>
+  </a>
+</section>
+
+  <section class="post" itemscope itemprop="blogPost">
+  
+    <a href="/2016/05/23/linux_svn/" title="SVN配置" itemprop="url">
+  
+    <h1 itemprop="name">SVN配置</h1>
+    
+     
+           <p itemprop="description" >1，新建一个目录用于存储SVN所有文件mkdir /var/svn2，新建一个版本仓库svnadmin create /var/svn/sucd /var/svn/su/conf3.vim svnserve.conf[general]anon-access = noneauth-</p>
+        
+    
+    <time datetime="2016-05-23T02:20:13.000Z" itemprop="datePublished">2016-05-23</time>
+  </a>
+</section>
+
+  <section class="post" itemscope itemprop="blogPost">
+  
+    <a href="/2016/05/23/git-webHook/" title="GIT-webHook配置" itemprop="url">
+  
+    <h1 itemprop="name">GIT-webHook配置</h1>
+    
+     
+           <p itemprop="description" >根文件夹新建webHook.php&amp;lt;?php  $pwd = getcwd();  $command = &#39;cd &#39; . $pwd . &#39; &amp;amp;&amp;amp; git pull&#39;;  $output = shell_exec($command);  print $outp</p>
         
     
     <time datetime="2016-05-23T02:20:13.000Z" itemprop="datePublished">2016-05-23</time>
@@ -169,20 +183,6 @@
     
      
            <p itemprop="description" >1 安装composerphp -r &quot;copy(&#39;https://install.phpcomposer.com/installer&#39;, &#39;composer-setup.php&#39;);&quot;php composer-setup.phpphp -r &quot;unlink(&#39;composer-</p>
-        
-    
-    <time datetime="2016-05-23T02:20:13.000Z" itemprop="datePublished">2016-05-23</time>
-  </a>
-</section>
-
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/2016/05/23/redis配置/" title="redis配置" itemprop="url">
-  
-    <h1 itemprop="name">redis配置</h1>
-    
-     
-           <p itemprop="description" >redis.confdaemonize no 改为 daemonize yes 后台运行,,保证退出命令行不停止appendonly no 改为 appendonly yes #数据持久化dir ./ 改为 dir /usr/loca/redis/database #数据保存目录</p>
         
     
     <time datetime="2016-05-23T02:20:13.000Z" itemprop="datePublished">2016-05-23</time>
