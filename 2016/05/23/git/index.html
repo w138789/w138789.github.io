@@ -73,7 +73,7 @@
     </p>
   <p class="article-time">
     <time datetime="2016-05-23T02:20:13.000Z" itemprop="datePublished">2016-05-23</time>
-    更新日期:<time datetime="2018-06-09T14:42:30.749Z" itemprop="dateModified">2018-06-09</time>
+    更新日期:<time datetime="2019-09-03T03:55:21.123Z" itemprop="dateModified">2019-09-03</time>
     
   </p>
 </header>
@@ -92,6 +92,19 @@
 <p>2.添加到过程库<br>$ git remote add origin git@github.com:w138789/learngit.git</p>
 <p>下一步，就可以把本地库的所有内容推送到远程库上：<br>$ git push -u origin master<br>此后，每次本地提交后，只要有必要，就可以使用命令git push origin master推送最新修改；</p>
 <p>//强制覆盖本地文件<br>git fetch –all<br>git reset –hard origin/master<br>git pull</p>
+<p>Git 配置代理， 加速 git clone</p>
+<ol>
+<li>首先，本地挂好代理工具，不多说。默认情况下端口是 1080。</li>
+<li><p>在 Git 命令行输入以下配置全局代理：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">//127.0.0.1指的是本地，1080指的是代理工具设置的端口</div><div class="line">git config --global http.proxy socks5://127.0.0.1:1080</div></pre></td></tr></table></figure>
+</li>
+<li><p>使用以下命令查看是否配置好</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">git config --global -e</div><div class="line">查看到有即成功</div><div class="line">[http]</div><div class="line">        proxy = socks5://127.0.0.1:1080</div></pre></td></tr></table></figure>
+</li>
+<li><p>取消代理使用命令：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">git config --global --<span class="built_in">unset</span> http.proxy</div></pre></td></tr></table></figure>
+</li>
+</ol>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -116,10 +129,10 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2016/05/23/linux代理服务器(虚拟机)/" title="linux代理服务器(虚拟机)">
+ <a href="/2016/05/23/linux_svn/" title="SVN配置">
   <strong>PREVIOUS:</strong><br/>
   <span>
-  linux代理服务器(虚拟机)</span>
+  SVN配置</span>
 </a>
 </div>
 
