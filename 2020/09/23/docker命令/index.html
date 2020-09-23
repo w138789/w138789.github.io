@@ -4,12 +4,15 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>mysql脚本定时备份数据库 | PHP</title>
+    <title>docker命令 | PHP</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="Su">
     
-    <meta name="description" content="创建文件夹mkdir mysqlDump创建脚本文件vim mysqlDump.shtoday_date=`date +%Y%m%d`today_time=`date +%T`find /root/mysqlDump/ -mtime +10 -name &quot;*.gz&quot; -exec rm -rf &amp;#1">
+    <meta name="description" content="mysql服务远程连接
+#运行容器docker run -itd –name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 mysql
+#进入容器docker exec -it mysql bash
+#登录mysqlmysql -u root -p">
     
     
     
@@ -65,15 +68,15 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/06/13/mysql脚本定时备份数据库/" title="mysql脚本定时备份数据库" itemprop="url">mysql脚本定时备份数据库</a>
+      <a href="/2020/09/23/docker命令/" title="docker命令" itemprop="url">docker命令</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://www.sujianxun.com" title="Su">Su</a>
     </p>
   <p class="article-time">
-    <time datetime="2016-06-13T09:12:30.000Z" itemprop="datePublished">2016-06-13</time>
-    Updated:<time datetime="2018-06-09T14:42:30.767Z" itemprop="dateModified">2018-06-09</time>
+    <time datetime="2020-09-23T02:20:13.000Z" itemprop="datePublished">2020-09-23</time>
+    Updated:<time datetime="2020-09-23T04:41:40.328Z" itemprop="dateModified">2020-09-23</time>
     
   </p>
 </header>
@@ -85,21 +88,27 @@
 		
 		</div>
 		
-		<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">创建文件夹</div><div class="line">mkdir mysqlDump</div><div class="line">创建脚本文件</div><div class="line">vim mysqlDump.sh</div><div class="line">today_date=`date +%Y%m%d`</div><div class="line">today_time=`date +%T`</div><div class="line"></div><div class="line"></div><div class="line">find /root/mysqlDump/ -mtime +10 -name <span class="string">"*.gz"</span> -<span class="built_in">exec</span> rm -rf &#123;&#125; \;</div><div class="line"></div><div class="line"></div><div class="line">/usr/bin/mysqldump -u root -proot -A | gzip &gt; /root/mysqlDump/db_<span class="variable">$&#123;today_date&#125;</span>_<span class="variable">$&#123;today_time&#125;</span>.sql.gz</div><div class="line"></div><div class="line">:wq</div><div class="line"></div><div class="line"><span class="comment">#创建定时任务,,,12小时备份一次</span></div><div class="line"></div><div class="line">crontab -e</div><div class="line"></div><div class="line">0 */12 * * * /root/mysqlDump.sh</div><div class="line"></div><div class="line">:wq</div></pre></td></tr></table></figure>  
+		<p>mysql服务远程连接</p>
+<p>#运行容器<br>docker run -itd –name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 mysql</p>
+<p>#进入容器<br>docker exec -it mysql bash</p>
+<p>#登录mysql<br>mysql -u root -p<br>ALTER USER ‘root’@’localhost’ IDENTIFIED BY ‘123456’;</p>
+<p>#直接设置root用户为远程登录用户<br>ALTER USER ‘root’@’%’ IDENTIFIED WITH mysql_native_password BY ‘123456’;</p>
+<p>#添加远程登录用户<br>CREATE USER ‘sujia’@’%’ IDENTIFIED WITH mysql_native_password BY ‘123456’;<br>GRANT ALL PRIVILEGES ON <em>.</em> TO ‘sujia’@’%’;<br>FLUSH PRIVILEGES;</p>
+  
 	</div>
 		<footer class="article-footer clearfix">
 
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/mysql/">mysql</a>
+  <a class="article-category-link" href="/categories/docker/">docker</a>
 </div>
 
 
 
 <div class="article-share" id="share">
 
-  <div data-url="http://www.sujianxun.com/2016/06/13/mysql脚本定时备份数据库/" data-title="mysql脚本定时备份数据库 | PHP" data-tsina="null" class="share clearfix">
+  <div data-url="http://www.sujianxun.com/2020/09/23/docker命令/" data-title="docker命令 | PHP" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -108,19 +117,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2016/06/17/linux命令/" title="linux命令">
-  <strong>PREVIOUS:</strong><br/>
-  <span>
-  linux命令</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2016/06/13/mysql复制数据库/"  title="mysql复制数据库">
+<a href="/2020/01/10/rsa2048公私钥生成/"  title="rsa2048公私钥生成">
  <strong>NEXT:</strong><br/> 
- <span>mysql复制数据库
+ <span>rsa2048公私钥生成
 </span>
 </a>
 </div>

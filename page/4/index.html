@@ -76,26 +76,27 @@
 
   <section class="post" itemscope itemprop="blogPost">
   
-    <a href="/2016/05/23/composer+phinx/" title="composer+phinx" itemprop="url">
+    <a href="/2016/05/27/php设置虚拟域名/" title="php设置虚拟域名" itemprop="url">
   
-    <h1 itemprop="name">composer+phinx</h1>
+    <h1 itemprop="name">php设置虚拟域名</h1>
     
      
-           <p itemprop="description" >1 安装composerphp -r &quot;copy(&#39;https://install.phpcomposer.com/installer&#39;, &#39;composer-setup.php&#39;);&quot;php composer-setup.phpphp -r &quot;unlink(&#39;composer-</p>
+           <p itemprop="description" >Apache配置1.C:\phpStudy\Apache\conf\httpd.conf//开启模块LoadModule rewrite_module modules/mod_rewrite.soInclude conf/extra/httpd-vhosts.conf
+2.打开另</p>
         
     
-    <time datetime="2016-05-23T02:20:13.000Z" itemprop="datePublished">2016-05-23</time>
+    <time datetime="2016-05-27T03:20:14.000Z" itemprop="datePublished">2016-05-27</time>
   </a>
 </section>
 
   <section class="post" itemscope itemprop="blogPost">
   
-    <a href="/2016/05/23/帝国/" title="帝国表清除" itemprop="url">
+    <a href="/2016/05/23/win_svn/" title="WIN SVN配置" itemprop="url">
   
-    <h1 itemprop="name">帝国表清除</h1>
+    <h1 itemprop="name">WIN SVN配置</h1>
     
      
-           <p itemprop="description" >truncate table gz_ad_content;truncate table gz_ad_position;truncate table gz_article;truncate table gz_article_cate;truncate table gz_attrib</p>
+           <p itemprop="description" >1，新建一个目录用于存储SVN所有文件mkdir D:/svn2，新建一个版本仓库svnadmin create D:/svn/repository3.打开 svnserve.conf[general]anon-access = noneauth-access = writepa</p>
         
     
     <time datetime="2016-05-23T02:20:13.000Z" itemprop="datePublished">2016-05-23</time>
@@ -118,40 +119,12 @@
 
   <section class="post" itemscope itemprop="blogPost">
   
-    <a href="/2016/05/23/win_svn/" title="WIN SVN配置" itemprop="url">
-  
-    <h1 itemprop="name">WIN SVN配置</h1>
-    
-     
-           <p itemprop="description" >1，新建一个目录用于存储SVN所有文件mkdir D:/svn2，新建一个版本仓库svnadmin create D:/svn/repository3.打开 svnserve.conf[general]anon-access = noneauth-access = writepa</p>
-        
-    
-    <time datetime="2016-05-23T02:20:13.000Z" itemprop="datePublished">2016-05-23</time>
-  </a>
-</section>
-
-  <section class="post" itemscope itemprop="blogPost">
-  
     <a href="/2016/05/23/linux_svn/" title="SVN配置" itemprop="url">
   
     <h1 itemprop="name">SVN配置</h1>
     
      
            <p itemprop="description" >1，新建一个目录用于存储SVN所有文件mkdir /var/svn2，新建一个版本仓库svnadmin create /var/svn/sucd /var/svn/su/conf3.vim svnserve.conf[general]anon-access = noneauth-</p>
-        
-    
-    <time datetime="2016-05-23T02:20:13.000Z" itemprop="datePublished">2016-05-23</time>
-  </a>
-</section>
-
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/2016/05/23/git/" title="GIT配置" itemprop="url">
-  
-    <h1 itemprop="name">GIT配置</h1>
-    
-     
-           <p itemprop="description" >1.安装完成后，还需要最后一步设置，在命令行输入：//输入账号和邮箱$ git config –global user.name “Your Name”$ git config –global user.email “email@example.com”2.创建版本库$ mkdi</p>
         
     
     <time datetime="2016-05-23T02:20:13.000Z" itemprop="datePublished">2016-05-23</time>
@@ -177,6 +150,20 @@
 
   <section class="post" itemscope itemprop="blogPost">
   
+    <a href="/2016/05/23/redis配置/" title="redis配置" itemprop="url">
+  
+    <h1 itemprop="name">redis配置</h1>
+    
+     
+           <p itemprop="description" >redis.confdaemonize no 改为 daemonize yes 后台运行,,保证退出命令行不停止appendonly no 改为 appendonly yes #数据持久化dir ./ 改为 dir /usr/loca/redis/database #数据保存目录</p>
+        
+    
+    <time datetime="2016-05-23T02:20:13.000Z" itemprop="datePublished">2016-05-23</time>
+  </a>
+</section>
+
+  <section class="post" itemscope itemprop="blogPost">
+  
     <a href="/2016/05/23/git-webHook/" title="GIT-webHook配置" itemprop="url">
   
     <h1 itemprop="name">GIT-webHook配置</h1>
@@ -191,12 +178,26 @@
 
   <section class="post" itemscope itemprop="blogPost">
   
-    <a href="/2016/05/23/redis配置/" title="redis配置" itemprop="url">
+    <a href="/2016/05/23/git/" title="GIT配置" itemprop="url">
   
-    <h1 itemprop="name">redis配置</h1>
+    <h1 itemprop="name">GIT配置</h1>
     
      
-           <p itemprop="description" >redis.confdaemonize no 改为 daemonize yes 后台运行,,保证退出命令行不停止appendonly no 改为 appendonly yes #数据持久化dir ./ 改为 dir /usr/loca/redis/database #数据保存目录</p>
+           <p itemprop="description" >1.安装完成后，还需要最后一步设置，在命令行输入：//输入账号和邮箱$ git config –global user.name “Your Name”$ git config –global user.email “email@example.com”2.创建版本库$ mkdi</p>
+        
+    
+    <time datetime="2016-05-23T02:20:13.000Z" itemprop="datePublished">2016-05-23</time>
+  </a>
+</section>
+
+  <section class="post" itemscope itemprop="blogPost">
+  
+    <a href="/2016/05/23/composer+phinx/" title="composer+phinx" itemprop="url">
+  
+    <h1 itemprop="name">composer+phinx</h1>
+    
+     
+           <p itemprop="description" >1 安装composerphp -r &quot;copy(&#39;https://install.phpcomposer.com/installer&#39;, &#39;composer-setup.php&#39;);&quot;php composer-setup.phpphp -r &quot;unlink(&#39;composer-</p>
         
     
     <time datetime="2016-05-23T02:20:13.000Z" itemprop="datePublished">2016-05-23</time>
@@ -205,7 +206,7 @@
 
 
   <nav id="page-nav" class="clearfix">
-    <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+    <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
   </nav>
 
 </div>
@@ -221,6 +222,8 @@
 		<ul>
 		
 			<li><a href="/categories/designPattern/" title="designPattern">designPattern<sup>2</sup></a></li>
+		
+			<li><a href="/categories/docker/" title="docker">docker<sup>1</sup></a></li>
 		
 			<li><a href="/categories/git/" title="git">git<sup>4</sup></a></li>
 		
