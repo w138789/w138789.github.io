@@ -10,9 +10,7 @@
     <meta name="author" content="Su">
     
     <meta name="description" content="mysql服务远程连接
-#运行容器docker run -itd –name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 mysql
-#进入容器docker exec -it mysql bash
-#登录mysqlmysql -u root -p">
+#运行容器docker run -itd --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 mysql#进入容器docker exec -it mysql bash#登录mysqlmysql -u root -pA">
     
     
     
@@ -76,7 +74,7 @@
     </p>
   <p class="article-time">
     <time datetime="2020-09-23T02:20:13.000Z" itemprop="datePublished">2020-09-23</time>
-    Updated:<time datetime="2020-09-23T04:41:40.328Z" itemprop="dateModified">2020-09-23</time>
+    Updated:<time datetime="2020-09-23T04:52:58.845Z" itemprop="dateModified">2020-09-23</time>
     
   </p>
 </header>
@@ -89,11 +87,7 @@
 		</div>
 		
 		<p>mysql服务远程连接</p>
-<p>#运行容器<br>docker run -itd –name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 mysql</p>
-<p>#进入容器<br>docker exec -it mysql bash</p>
-<p>#登录mysql<br>mysql -u root -p<br>ALTER USER ‘root’@’localhost’ IDENTIFIED BY ‘123456’;</p>
-<p>#直接设置root用户为远程登录用户<br>ALTER USER ‘root’@’%’ IDENTIFIED WITH mysql_native_password BY ‘123456’;</p>
-<p>#添加远程登录用户<br>CREATE USER ‘sujia’@’%’ IDENTIFIED WITH mysql_native_password BY ‘123456’;<br>GRANT ALL PRIVILEGES ON <em>.</em> TO ‘sujia’@’%’;<br>FLUSH PRIVILEGES;</p>
+<p>#运行容器<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">docker run -itd --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 mysql</div><div class="line"><span class="comment">#进入容器</span></div><div class="line">docker <span class="built_in">exec</span> -it mysql bash</div><div class="line"><span class="comment">#登录mysql</span></div><div class="line">mysql -u root -p</div><div class="line">ALTER USER <span class="string">'root'</span>@<span class="string">'localhost'</span> IDENTIFIED BY <span class="string">'123456'</span>;</div><div class="line"><span class="comment">#直接设置root用户为远程登录用户</span></div><div class="line">ALTER USER <span class="string">'root'</span>@<span class="string">'%'</span> IDENTIFIED WITH mysql_native_password BY <span class="string">'123456'</span>;</div><div class="line"><span class="comment">#添加远程登录用户</span></div><div class="line">CREATE USER <span class="string">'sujia'</span>@<span class="string">'%'</span> IDENTIFIED WITH mysql_native_password BY <span class="string">'123456'</span>;</div><div class="line">GRANT ALL PRIVILEGES ON *.* TO <span class="string">'sujia'</span>@<span class="string">'%'</span>;</div><div class="line">FLUSH PRIVILEGES;</div></pre></td></tr></table></figure></p>
   
 	</div>
 		<footer class="article-footer clearfix">
