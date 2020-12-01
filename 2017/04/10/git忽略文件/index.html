@@ -36,7 +36,7 @@
 				<h1 class="site-name"><a href="/" title="PHP">PHP</a></h1>
 				<h2 class="blog-motto"></h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -49,7 +49,7 @@
 					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
 						<input type="hidden" name="q" value="site:www.sujianxun.com">
 					</form>
 					
@@ -73,7 +73,7 @@
     </p>
   <p class="article-time">
     <time datetime="2017-04-10T02:20:13.000Z" itemprop="datePublished">2017-04-10</time>
-    更新日期:<time datetime="2018-06-09T14:42:30.752Z" itemprop="dateModified">2018-06-09</time>
+    Updated:<time datetime="2020-12-01T01:08:39.674Z" itemprop="dateModified">2020-12-01</time>
     
   </p>
 </header>
@@ -81,11 +81,11 @@
 		
 		
 		<div id="toc" class="toc-article">
-			<strong class="toc-title">文章目录</strong>
+			<strong class="toc-title">Contents</strong>
 		
 		</div>
 		
-		<p>开发过程中由开发工具生成的文件一般不需要提交，但每次开发工具会自动去修改这些文件，<br>每次都要去提交这些东西，不提交会有一系列问题，很烦人。<br>可以通过配置.gitignore文件让Git不在跟踪记录这些文件。<br>心血来潮去配置的时候，发现配置过的文件并没有生效，伤感万分，别担心有解决方案。<br>先找原因，因为.gitignore只能忽略那些原来没有被track的文件，<br>如果某些文件已经纳入版本管理中，则修改.gitignore不会生效。<br>解决办法就是先把本地缓存删除（改成未track状态），然后再提交”：<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">git rm -r --cached .</div><div class="line">git add .</div><div class="line">git commit -m <span class="string">"update .gitignore"</span></div></pre></td></tr></table></figure></p>
+		<p>开发过程中由开发工具生成的文件一般不需要提交，但每次开发工具会自动去修改这些文件，<br>每次都要去提交这些东西，不提交会有一系列问题，很烦人。<br>可以通过配置.gitignore文件让Git不在跟踪记录这些文件。<br>心血来潮去配置的时候，发现配置过的文件并没有生效，伤感万分，别担心有解决方案。<br>先找原因，因为.gitignore只能忽略那些原来没有被track的文件，<br>如果某些文件已经纳入版本管理中，则修改.gitignore不会生效。<br>解决办法就是先把本地缓存删除（改成未track状态），然后再提交”：<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">git rm -r --cached .</div><div class="line">git add .</div><div class="line">git commit -m <span class="string">"update .gitignore"</span></div><div class="line"></div><div class="line">对于已入库文件, 命令：</div><div class="line">git update-index --assume-unchanged FILENAME       路径+文件名</div><div class="line">若以后不想忽略该文件的修改，则输入命令：</div><div class="line">git update-index --no-assume-unchanged FILENAME </div><div class="line">查看全部已忽略的文件：</div><div class="line">git ls-files -v | grep <span class="string">'^h\ '</span></div></pre></td></tr></table></figure></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -130,20 +130,20 @@
 
 	
 </div>  
-      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
 
   <div id="toc" class="toc-aside">
-  <strong class="toc-title">文章目录</strong>
+  <strong class="toc-title">Contents</strong>
   
   </div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
 <aside class="clearfix">
 
   
 <div class="categorieslist">
-	<p class="asidetitle">分类</p>
+	<p class="asidetitle">Categories</p>
 		<ul>
 		
 			<li><a href="/categories/designPattern/" title="designPattern">designPattern<sup>2</sup></a></li>
