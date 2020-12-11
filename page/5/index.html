@@ -62,12 +62,12 @@
 
   <section class="post" itemscope itemprop="blogPost">
   
-    <a href="/2016/05/23/win_svn/" title="WIN SVN配置" itemprop="url">
+    <a href="/2016/05/23/redis配置/" title="redis配置" itemprop="url">
   
-    <h1 itemprop="name">WIN SVN配置</h1>
+    <h1 itemprop="name">redis配置</h1>
     
      
-           <p itemprop="description" >1，新建一个目录用于存储SVN所有文件mkdir D:/svn2，新建一个版本仓库svnadmin create D:/svn/repository3.打开 svnserve.conf[general]anon-access = noneauth-access = writepa</p>
+           <p itemprop="description" >redis.confdaemonize no 改为 daemonize yes 后台运行,,保证退出命令行不停止appendonly no 改为 appendonly yes #数据持久化dir ./ 改为 dir /usr/loca/redis/database #数据保存目录</p>
         
     
     <time datetime="2016-05-23T02:20:13.000Z" itemprop="datePublished">2016-05-23</time>
