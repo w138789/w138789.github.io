@@ -62,15 +62,18 @@
 
   <section class="post" itemscope itemprop="blogPost">
   
-    <a href="/2016/05/27/设置linuxroot用户/" title="设置linuxroot用户" itemprop="url">
+    <a href="/2016/05/30/linux系统下升级php/" title="linux系统下升级php" itemprop="url">
   
-    <h1 itemprop="name">设置linuxroot用户</h1>
+    <h1 itemprop="name">linux系统下升级php</h1>
     
      
-           <p itemprop="description" >Ubuntu 12.04默认是不允许root登录的，在登录窗口只能看到普通用户和访客登录。以普通身份登陆Ubuntu后我们需要做一些修改,普通用户登录后，修改系统配置文件需要切换到超级用户模式,在终端窗口里面输入: sudo  -s.然后输入普通用户登陆的密码，回车即可进入 ro</p>
+           <p itemprop="description" >首先安装一下python-software-properties
+sudo apt-get update &amp;amp;&amp;amp; sudo apt-get install python-software-properties
+添加php5.5的ppa
+sudo add-apt-re</p>
         
     
-    <time datetime="2016-05-27T03:20:14.000Z" itemprop="datePublished">2016-05-27</time>
+    <time datetime="2016-05-30T09:50:42.000Z" itemprop="datePublished">2016-05-30</time>
   </a>
 </section>
 
@@ -86,6 +89,48 @@
         
     
     <time datetime="2016-05-27T03:20:14.000Z" itemprop="datePublished">2016-05-27</time>
+  </a>
+</section>
+
+  <section class="post" itemscope itemprop="blogPost">
+  
+    <a href="/2016/05/27/设置linuxroot用户/" title="设置linuxroot用户" itemprop="url">
+  
+    <h1 itemprop="name">设置linuxroot用户</h1>
+    
+     
+           <p itemprop="description" >Ubuntu 12.04默认是不允许root登录的，在登录窗口只能看到普通用户和访客登录。以普通身份登陆Ubuntu后我们需要做一些修改,普通用户登录后，修改系统配置文件需要切换到超级用户模式,在终端窗口里面输入: sudo  -s.然后输入普通用户登陆的密码，回车即可进入 ro</p>
+        
+    
+    <time datetime="2016-05-27T03:20:14.000Z" itemprop="datePublished">2016-05-27</time>
+  </a>
+</section>
+
+  <section class="post" itemscope itemprop="blogPost">
+  
+    <a href="/2016/05/23/win_svn/" title="WIN SVN配置" itemprop="url">
+  
+    <h1 itemprop="name">WIN SVN配置</h1>
+    
+     
+           <p itemprop="description" >1，新建一个目录用于存储SVN所有文件mkdir D:/svn2，新建一个版本仓库svnadmin create D:/svn/repository3.打开 svnserve.conf[general]anon-access = noneauth-access = writepa</p>
+        
+    
+    <time datetime="2016-05-23T02:20:13.000Z" itemprop="datePublished">2016-05-23</time>
+  </a>
+</section>
+
+  <section class="post" itemscope itemprop="blogPost">
+  
+    <a href="/2016/05/23/win杂项/" title="WIN杂项" itemprop="url">
+  
+    <h1 itemprop="name">WIN杂项</h1>
+    
+     
+           <p itemprop="description" >修改win10开机引导项下载diskgenius, 设置 硬盘-&amp;gt;重建主引导记录(MBR)下载easybcd,编辑疏导菜单</p>
+        
+    
+    <time datetime="2016-05-23T02:20:13.000Z" itemprop="datePublished">2016-05-23</time>
   </a>
 </section>
 
@@ -122,26 +167,12 @@
 
   <section class="post" itemscope itemprop="blogPost">
   
-    <a href="/2016/05/23/linux_svn/" title="SVN配置" itemprop="url">
+    <a href="/2016/05/23/redis配置/" title="redis配置" itemprop="url">
   
-    <h1 itemprop="name">SVN配置</h1>
+    <h1 itemprop="name">redis配置</h1>
     
      
-           <p itemprop="description" >1，新建一个目录用于存储SVN所有文件mkdir /var/svn2，新建一个版本仓库svnadmin create /var/svn/sucd /var/svn/su/conf3.vim svnserve.conf[general]anon-access = noneauth-</p>
-        
-    
-    <time datetime="2016-05-23T02:20:13.000Z" itemprop="datePublished">2016-05-23</time>
-  </a>
-</section>
-
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/2016/05/23/composer+phinx/" title="composer+phinx" itemprop="url">
-  
-    <h1 itemprop="name">composer+phinx</h1>
-    
-     
-           <p itemprop="description" >1 安装composerphp -r &quot;copy(&#39;https://install.phpcomposer.com/installer&#39;, &#39;composer-setup.php&#39;);&quot;php composer-setup.phpphp -r &quot;unlink(&#39;composer-</p>
+           <p itemprop="description" >redis.confdaemonize no 改为 daemonize yes 后台运行,,保证退出命令行不停止appendonly no 改为 appendonly yes #数据持久化dir ./ 改为 dir /usr/loca/redis/database #数据保存目录</p>
         
     
     <time datetime="2016-05-23T02:20:13.000Z" itemprop="datePublished">2016-05-23</time>
@@ -164,40 +195,12 @@
 
   <section class="post" itemscope itemprop="blogPost">
   
-    <a href="/2016/05/23/redis配置/" title="redis配置" itemprop="url">
+    <a href="/2016/05/23/linux_svn/" title="SVN配置" itemprop="url">
   
-    <h1 itemprop="name">redis配置</h1>
+    <h1 itemprop="name">SVN配置</h1>
     
      
-           <p itemprop="description" >redis.confdaemonize no 改为 daemonize yes 后台运行,,保证退出命令行不停止appendonly no 改为 appendonly yes #数据持久化dir ./ 改为 dir /usr/loca/redis/database #数据保存目录</p>
-        
-    
-    <time datetime="2016-05-23T02:20:13.000Z" itemprop="datePublished">2016-05-23</time>
-  </a>
-</section>
-
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/2016/05/23/win_svn/" title="WIN SVN配置" itemprop="url">
-  
-    <h1 itemprop="name">WIN SVN配置</h1>
-    
-     
-           <p itemprop="description" >1，新建一个目录用于存储SVN所有文件mkdir D:/svn2，新建一个版本仓库svnadmin create D:/svn/repository3.打开 svnserve.conf[general]anon-access = noneauth-access = writepa</p>
-        
-    
-    <time datetime="2016-05-23T02:20:13.000Z" itemprop="datePublished">2016-05-23</time>
-  </a>
-</section>
-
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/2016/05/23/git-webHook/" title="GIT-webHook配置" itemprop="url">
-  
-    <h1 itemprop="name">GIT-webHook配置</h1>
-    
-     
-           <p itemprop="description" >根文件夹新建webHook.php&amp;lt;?php  $pwd = getcwd();  $command = &#39;cd &#39; . $pwd . &#39; &amp;amp;&amp;amp; git pull&#39;;  $output = shell_exec($command);  print $outp</p>
+           <p itemprop="description" >1，新建一个目录用于存储SVN所有文件mkdir /var/svn2，新建一个版本仓库svnadmin create /var/svn/sucd /var/svn/su/conf3.vim svnserve.conf[general]anon-access = noneauth-</p>
         
     
     <time datetime="2016-05-23T02:20:13.000Z" itemprop="datePublished">2016-05-23</time>
@@ -234,6 +237,8 @@
 			<li><a href="/categories/others/" title="others">others<sup>6</sup></a></li>
 		
 			<li><a href="/categories/php/" title="php">php<sup>2</sup></a></li>
+		
+			<li><a href="/categories/thinkphp/" title="thinkphp">thinkphp<sup>1</sup></a></li>
 		
 			<li><a href="/categories/win/" title="win">win<sup>1</sup></a></li>
 		

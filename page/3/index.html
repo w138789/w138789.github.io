@@ -62,6 +62,22 @@
 
   <section class="post" itemscope itemprop="blogPost">
   
+    <a href="/2017/03/01/数据库主从复制和读写分离/" title="mysql数据库主从复制和读写分离" itemprop="url">
+  
+    <h1 itemprop="name">mysql数据库主从复制和读写分离</h1>
+    
+     
+           <p itemprop="description" >一.主从复制1、主从服务器分别作以下操作：  1.1、版本一致  1.2、初始化表，并在后台启动mysql  1.3、修改root的密码
+2、修改主服务器master:
+   #vi /etc/my.cnf       [mysqld]       log-bin=mysql-b</p>
+        
+    
+    <time datetime="2017-03-01T02:52:20.000Z" itemprop="datePublished">2017-03-01</time>
+  </a>
+</section>
+
+  <section class="post" itemscope itemprop="blogPost">
+  
     <a href="/2016/06/30/站点配置流程/" title="站点配置流程" itemprop="url">
   
     <h1 itemprop="name">站点配置流程</h1>
@@ -135,12 +151,12 @@
 
   <section class="post" itemscope itemprop="blogPost">
   
-    <a href="/2016/06/13/mysql脚本定时备份数据库/" title="mysql脚本定时备份数据库" itemprop="url">
+    <a href="/2016/06/13/mysql复制数据库/" title="mysql复制数据库" itemprop="url">
   
-    <h1 itemprop="name">mysql脚本定时备份数据库</h1>
+    <h1 itemprop="name">mysql复制数据库</h1>
     
      
-           <p itemprop="description" >创建文件夹mkdir mysqlDump创建脚本文件vim mysqlDump.shtoday_date=`date +%Y%m%d`today_time=`date +%T`find /root/mysqlDump/ -mtime +10 -name &quot;*.gz&quot; -exec </p>
+           <p itemprop="description" >复制一个数据库说明: mysqldump 老数据库 -u root -p数据库密码 |mysql 新数据库 -u root -p数据库密码[root@localhost mysql]# mysqldump su -u root -p123456 |mysql su_new -u </p>
         
     
     <time datetime="2016-06-13T09:12:30.000Z" itemprop="datePublished">2016-06-13</time>
@@ -149,12 +165,12 @@
 
   <section class="post" itemscope itemprop="blogPost">
   
-    <a href="/2016/06/13/mysql复制数据库/" title="mysql复制数据库" itemprop="url">
+    <a href="/2016/06/13/mysql脚本定时备份数据库/" title="mysql脚本定时备份数据库" itemprop="url">
   
-    <h1 itemprop="name">mysql复制数据库</h1>
+    <h1 itemprop="name">mysql脚本定时备份数据库</h1>
     
      
-           <p itemprop="description" >复制一个数据库说明: mysqldump 老数据库 -u root -p数据库密码 |mysql 新数据库 -u root -p数据库密码[root@localhost mysql]# mysqldump su -u root -p123456 |mysql su_new -u </p>
+           <p itemprop="description" >创建文件夹mkdir mysqlDump创建脚本文件vim mysqlDump.shtoday_date=`date +%Y%m%d`today_time=`date +%T`find /root/mysqlDump/ -mtime +10 -name &quot;*.gz&quot; -exec </p>
         
     
     <time datetime="2016-06-13T09:12:30.000Z" itemprop="datePublished">2016-06-13</time>
@@ -189,23 +205,6 @@
   </a>
 </section>
 
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/2016/05/30/linux系统下升级php/" title="linux系统下升级php" itemprop="url">
-  
-    <h1 itemprop="name">linux系统下升级php</h1>
-    
-     
-           <p itemprop="description" >首先安装一下python-software-properties
-sudo apt-get update &amp;amp;&amp;amp; sudo apt-get install python-software-properties
-添加php5.5的ppa
-sudo add-apt-re</p>
-        
-    
-    <time datetime="2016-05-30T09:50:42.000Z" itemprop="datePublished">2016-05-30</time>
-  </a>
-</section>
-
 
   <nav id="page-nav" class="clearfix">
     <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
@@ -236,6 +235,8 @@ sudo add-apt-re</p>
 			<li><a href="/categories/others/" title="others">others<sup>6</sup></a></li>
 		
 			<li><a href="/categories/php/" title="php">php<sup>2</sup></a></li>
+		
+			<li><a href="/categories/thinkphp/" title="thinkphp">thinkphp<sup>1</sup></a></li>
 		
 			<li><a href="/categories/win/" title="win">win<sup>1</sup></a></li>
 		

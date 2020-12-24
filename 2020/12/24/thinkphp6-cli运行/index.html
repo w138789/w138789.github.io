@@ -4,13 +4,12 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>设计模式--策略模式 | PHP</title>
+    <title>thinkphp6-cli运行 | PHP</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="Su">
     
-    <meta name="description" content="策略模式：策略模式设计帮助构建的对象不必自身包含逻辑，而是能够根据需要利用其他对象中的算法。
-使用场景：例如有一个CD类，我们类存储了CD的信息。原先的时候，我们在CD类中直接调用getCD方法给出XML的结果随着业务扩展，需求方提出需要JSON数据格式输出这个时候我们引进了策略模式，可以让使用方根">
+    <meta name="description" content="thinkphp6默认不支持命令行CLI模式访问控制器打开 /vendor/topthink/framework/src/think/Request.php文件搜索pathinfo函数 (601行)找到 &amp;#125; elseif (false !== strpos(PHP_SAPI, &#39;cli&#39;)">
     
     
     
@@ -66,15 +65,15 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/05/02/设计模式--策略模式/" title="设计模式--策略模式" itemprop="url">设计模式--策略模式</a>
+      <a href="/2020/12/24/thinkphp6-cli运行/" title="thinkphp6-cli运行" itemprop="url">thinkphp6-cli运行</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://www.sujianxun.com" title="Su">Su</a>
     </p>
   <p class="article-time">
-    <time datetime="2017-05-02T03:20:14.000Z" itemprop="datePublished">2017-05-02</time>
-    更新日期:<time datetime="2020-12-11T08:56:31.138Z" itemprop="dateModified">2020-12-11</time>
+    <time datetime="2020-12-24T02:12:30.000Z" itemprop="datePublished">2020-12-24</time>
+    更新日期:<time datetime="2020-12-24T02:02:03.527Z" itemprop="dateModified">2020-12-24</time>
     
   </p>
 </header>
@@ -86,9 +85,7 @@
 		
 		</div>
 		
-		<p>策略模式：<br>策略模式设计帮助构建的对象不必自身包含逻辑，而是能够根据需要利用其他对象中的算法。</p>
-<p>使用场景：<br>例如有一个CD类，我们类存储了CD的信息。<br>原先的时候，我们在CD类中直接调用getCD方法给出XML的结果<br>随着业务扩展，需求方提出需要JSON数据格式输出<br>这个时候我们引进了策略模式，可以让使用方根据需求自由选择是输出XML还是JSON</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">&lt;?php</div><div class="line"></div><div class="line">class <span class="built_in">cd</span></div><div class="line">&#123;</div><div class="line">    protected <span class="variable">$cdArr</span>;</div><div class="line"></div><div class="line">    public <span class="keyword">function</span> __construct(<span class="variable">$title</span>, <span class="variable">$info</span>)</div><div class="line">    &#123;</div><div class="line">        <span class="variable">$this</span>-&gt;cdArr[<span class="string">'title'</span>] = <span class="variable">$title</span>;</div><div class="line">        <span class="variable">$this</span>-&gt;cdArr[<span class="string">'info'</span>]  = <span class="variable">$info</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public <span class="keyword">function</span> getCd(<span class="variable">$typeObj</span>)</div><div class="line">    &#123;</div><div class="line">        <span class="built_in">return</span> <span class="variable">$typeObj</span>-&gt;get(<span class="variable">$this</span>-&gt;cdArr);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">class json</div><div class="line">&#123;</div><div class="line">    public <span class="keyword">function</span> get(<span class="variable">$return_data</span>)</div><div class="line">    &#123;</div><div class="line">        <span class="built_in">return</span> json_encode(<span class="variable">$return_data</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">class xml</div><div class="line">&#123;</div><div class="line">    public <span class="keyword">function</span> get(<span class="variable">$return_data</span>)</div><div class="line">    &#123;</div><div class="line">        <span class="variable">$xml</span> = <span class="string">'&lt;?xml version="1.0" encoding="utf-8"?&gt;'</span>;</div><div class="line">        <span class="variable">$xml</span> .= <span class="string">'&lt;return&gt;'</span>;</div><div class="line">        <span class="variable">$xml</span> .= <span class="string">'&lt;data&gt;'</span> . serialize(<span class="variable">$return_data</span>) . <span class="string">'&lt;/data&gt;'</span>;</div><div class="line">        <span class="variable">$xml</span> .= <span class="string">'&lt;/return&gt;'</span>;</div><div class="line">        <span class="built_in">return</span> <span class="variable">$xml</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="variable">$cd</span> = new <span class="built_in">cd</span>(<span class="string">'cd_1'</span>, <span class="string">'cd_2'</span>);</div><div class="line"><span class="built_in">echo</span> <span class="variable">$cd</span>-&gt;getCd(new json);</div><div class="line"><span class="built_in">echo</span> <span class="string">'&lt;br&gt;'</span>;</div><div class="line"><span class="built_in">echo</span> <span class="variable">$cd</span>-&gt;getCd(new xml);</div></pre></td></tr></table></figure>
+		<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">thinkphp6默认不支持命令行CLI模式访问控制器</div><div class="line">打开 /vendor/topthink/framework/src/think/Request.php文件</div><div class="line">搜索pathinfo函数 (601行)</div><div class="line">找到 &#125; elseif (<span class="literal">false</span> !== strpos(PHP_SAPI, <span class="string">'cli'</span>)) &#123; (611行)</div><div class="line">将下一行(612行的)</div><div class="line"><span class="variable">$pathinfo</span> = strpos(<span class="variable">$this</span>-&gt;server(<span class="string">'REQUEST_URI'</span>), <span class="string">'?'</span>) ? strstr(<span class="variable">$this</span>-&gt;server(<span class="string">'REQUEST_URI'</span>), <span class="string">'?'</span>, <span class="literal">true</span>) : <span class="variable">$this</span>-&gt;server(<span class="string">'REQUEST_URI'</span>);</div><div class="line">注释掉(保证核心文件完整性) 并在上一行加上</div><div class="line"><span class="variable">$pathinfo</span> = isset(<span class="variable">$_SERVER</span>[<span class="string">'argv'</span>][1]) ? <span class="variable">$_SERVER</span>[<span class="string">'argv'</span>][1] : <span class="string">''</span>;</div></pre></td></tr></table></figure>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -96,14 +93,14 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/designPattern/">designPattern</a>
+  <a class="article-category-link" href="/categories/thinkphp/">thinkphp</a>
 </div>
 
 
 
 <div class="article-share" id="share">
 
-  <div data-url="http://www.sujianxun.com/2017/05/02/设计模式--策略模式/" data-title="设计模式--策略模式 | PHP" data-tsina="null" class="share clearfix">
+  <div data-url="http://www.sujianxun.com/2020/12/24/thinkphp6-cli运行/" data-title="thinkphp6-cli运行 | PHP" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -112,19 +109,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2017/05/02/设计模式--单例模式/" title="设计模式--单例模式">
-  <strong>PREVIOUS:</strong><br/>
-  <span>
-  设计模式--单例模式</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2017/04/10/git忽略文件/"  title="GIT忽略文件">
+<a href="/2020/12/11/分区缩容及home独立分区/"  title="分区缩容及home独立分区">
  <strong>NEXT:</strong><br/> 
- <span>GIT忽略文件
+ <span>分区缩容及home独立分区
 </span>
 </a>
 </div>

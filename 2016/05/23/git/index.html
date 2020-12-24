@@ -73,7 +73,7 @@
     </p>
   <p class="article-time">
     <time datetime="2016-05-23T02:20:13.000Z" itemprop="datePublished">2016-05-23</time>
-    更新日期:<time datetime="2020-12-21T01:29:52.094Z" itemprop="dateModified">2020-12-21</time>
+    更新日期:<time datetime="2020-12-21T01:57:23.661Z" itemprop="dateModified">2020-12-21</time>
     
   </p>
 </header>
@@ -105,7 +105,7 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">git config --global --<span class="built_in">unset</span> http.proxy</div></pre></td></tr></table></figure>
 </li>
 </ol>
-<p>git ssh走代理<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">1. 增加配置文件</div><div class="line">vim ~/.bashrc</div><div class="line"><span class="comment">#git代理</span></div><div class="line"><span class="built_in">export</span> all_proxy=<span class="string">"socks5://127.0.0.1:1080"</span></div><div class="line">:wq</div><div class="line"></div><div class="line">vim ~/.ssh/config</div><div class="line"><span class="comment">#配置github走代理</span></div><div class="line">Host git@github.com</div><div class="line">Hostname git@github.com</div><div class="line">ProxyCommand nc 127.0.0.1 1080 %h %p</div><div class="line">:wq</div></pre></td></tr></table></figure></p>
+<p>git ssh走代理<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">1. 安装程序</div><div class="line">sudo apt install netcat-openbsd</div><div class="line">2. 增加配置文件</div><div class="line">vim ~/.bashrc</div><div class="line"><span class="comment">#git代理</span></div><div class="line"><span class="built_in">export</span> all_proxy=<span class="string">"socks5://127.0.0.1:1080"</span></div><div class="line">:wq</div><div class="line"></div><div class="line">vim ~/.ssh/config</div><div class="line"><span class="comment">#配置github走代理</span></div><div class="line">Host github.com</div><div class="line">User git</div><div class="line">Hostname github.com</div><div class="line">ProxyCommand nc -X 5 -x 127.0.0.1:1080 %h %p</div><div class="line">ServerAliveInterval 30</div><div class="line">:wq</div></pre></td></tr></table></figure></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -130,18 +130,18 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2016/05/23/composer+phinx/" title="composer+phinx">
+ <a href="/2016/05/23/redis配置/" title="redis配置">
   <strong>PREVIOUS:</strong><br/>
   <span>
-  composer+phinx</span>
+  redis配置</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2016/05/23/redis配置/"  title="redis配置">
+<a href="/2016/05/23/linux_svn/"  title="SVN配置">
  <strong>NEXT:</strong><br/> 
- <span>redis配置
+ <span>SVN配置
 </span>
 </a>
 </div>
@@ -179,6 +179,8 @@
 			<li><a href="/categories/others/" title="others">others<sup>6</sup></a></li>
 		
 			<li><a href="/categories/php/" title="php">php<sup>2</sup></a></li>
+		
+			<li><a href="/categories/thinkphp/" title="thinkphp">thinkphp<sup>1</sup></a></li>
 		
 			<li><a href="/categories/win/" title="win">win<sup>1</sup></a></li>
 		
