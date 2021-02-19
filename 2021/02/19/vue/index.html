@@ -4,12 +4,12 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>composer+phinx | PHP</title>
+    <title>vue | PHP</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="Su">
     
-    <meta name="description" content="1 安装composerphp -r &quot;copy(&#39;https://install.phpcomposer.com/installer&#39;, &#39;composer-setup.php&#39;);&quot;php composer-setup.phpphp -r &quot;unlink(&#39;composer-setup.php&#39;">
+    <meta name="description" content="Vue路由history模式踩坑记录：nginx配置解决请求404问题location / &amp;#123;　　root   D:\Test\exprice\dist;　　index  index.html index.htm;　　try_files $uri $uri/ /index.html; #增">
     
     
     
@@ -65,15 +65,15 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/05/23/composer+phinx/" title="composer+phinx" itemprop="url">composer+phinx</a>
+      <a href="/2021/02/19/vue/" title="vue" itemprop="url">vue</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://www.sujianxun.com" title="Su">Su</a>
     </p>
   <p class="article-time">
-    <time datetime="2016-05-23T02:20:13.000Z" itemprop="datePublished">2016-05-23</time>
-    Updated:<time datetime="2020-12-11T08:56:31.090Z" itemprop="dateModified">2020-12-11</time>
+    <time datetime="2021-02-19T02:20:13.000Z" itemprop="datePublished">2021-02-19</time>
+    Updated:<time datetime="2021-02-19T02:38:56.559Z" itemprop="dateModified">2021-02-19</time>
     
   </p>
 </header>
@@ -85,24 +85,21 @@
 		
 		</div>
 		
-		<p>1 安装composer<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">php -r <span class="string">"copy('https://install.phpcomposer.com/installer', 'composer-setup.php');"</span></div><div class="line">php composer-setup.php</div><div class="line">php -r <span class="string">"unlink('composer-setup.php');"</span></div><div class="line"><span class="comment">#全局安装</span></div><div class="line"><span class="comment">#linux</span></div><div class="line">sudo mv composer.phar /usr/<span class="built_in">local</span>/bin/composer</div><div class="line"><span class="comment">#win</span></div><div class="line"><span class="comment">#新建composer.bat</span></div><div class="line">@php <span class="string">"%~dp0composer.phar"</span> %*</div><div class="line"></div><div class="line"><span class="comment">#参考网站</span></div><div class="line">https://pkg.phpcomposer.com/<span class="comment">#how-to-install-composer</span></div><div class="line"></div><div class="line"><span class="comment">#全局安装</span></div><div class="line">cp composer.phar /usr/<span class="built_in">local</span>/sbin/composer</div><div class="line"></div><div class="line">2 下载phinx</div><div class="line">composer require robmorgan/phinx</div><div class="line"><span class="comment">#可能被墙</span></div><div class="line">composer config -g repo.packagist composer https://packagist.phpcomposer.com</div><div class="line">vendor/bin/phinx init</div><div class="line">mkdir db/migrations</div></pre></td></tr></table></figure></p>
-<p>3 phinx 中文文档<br><a href="https://tsy12321.gitbooks.io/phinx-doc/content/" target="_blank" rel="external">https://tsy12321.gitbooks.io/phinx-doc/content/</a><br>```</p>
-<p>安装错误:<br>1 PHP Warning:  copy(): Unable to find the wrapper “https” - did you forget to enable it when you configured PHP? in Command line code on line 1<br>安装openssl.so 扩展</p>
-  
+		<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">Vue路由<span class="built_in">history</span>模式踩坑记录：nginx配置解决请求404问题</div><div class="line">location / &#123;</div><div class="line">　　root   D:\Test\exprice\dist;</div><div class="line">　　index  index.html index.htm;</div><div class="line">　　try_files <span class="variable">$uri</span> <span class="variable">$uri</span>/ /index.html; <span class="comment">#增加这一行</span></div></pre></td></tr></table></figure>  
 	</div>
 		<footer class="article-footer clearfix">
 
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/php/">php</a>
+  <a class="article-category-link" href="/categories/vue/">vue</a>
 </div>
 
 
 
 <div class="article-share" id="share">
 
-  <div data-url="http://www.sujianxun.com/2016/05/23/composer+phinx/" data-title="composer+phinx | PHP" data-tsina="null" class="share clearfix">
+  <div data-url="http://www.sujianxun.com/2021/02/19/vue/" data-title="vue | PHP" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -111,19 +108,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2016/05/23/win_svn/" title="WIN SVN配置">
-  <strong>PREVIOUS:</strong><br/>
-  <span>
-  WIN SVN配置</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2016/05/23/linux代理服务器(虚拟机)/"  title="linux代理服务器(虚拟机)">
+<a href="/2020/12/24/thinkphp6-cli运行/"  title="thinkphp6-cli运行">
  <strong>NEXT:</strong><br/> 
- <span>linux代理服务器(虚拟机)
+ <span>thinkphp6-cli运行
 </span>
 </a>
 </div>
